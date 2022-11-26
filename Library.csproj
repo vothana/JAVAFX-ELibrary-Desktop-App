@@ -67,13 +67,23 @@
     <Compile Include="component\BookView\BookView.Designer.cs">
       <DependentUpon>BookView.cs</DependentUpon>
     </Compile>
-    <Compile Include="component\PicView\PicView.cs">
+    <Compile Include="component\PicView\FullScreenImageView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="component\PicView\PicView.Designer.cs">
-      <DependentUpon>PicView.cs</DependentUpon>
+    <Compile Include="component\PicView\FullScreenImageView.Designer.cs">
+      <DependentUpon>FullScreenImageView.cs</DependentUpon>
     </Compile>
+    <Compile Include="component\PicView\ImageViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="component\PicView\ImageViewer.Designer.cs">
+      <DependentUpon>ImageViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="component\Rounded.cs" />
     <Compile Include="component\RoundImageCorner.cs" />
+    <Compile Include="component\RoundPic.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="component\SplashScreen\SplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,11 +91,11 @@
       <DependentUpon>SplashScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="component\Theme\Theme.cs" />
-    <Compile Include="component\UploadImage\UploadImage.cs">
+    <Compile Include="component\UploadImage\UploadImgForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="component\UploadImage\UploadImage.Designer.cs">
-      <DependentUpon>UploadImage.cs</DependentUpon>
+    <Compile Include="component\UploadImage\UploadImgForm.Designer.cs">
+      <DependentUpon>UploadImgForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Database\Query.cs" />
     <Compile Include="Database\Server.cs" />
@@ -139,6 +149,15 @@
     <Compile Include="screen\Student\StudentManagement.Designer.cs">
       <DependentUpon>StudentManagement.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="component\PicView\FullScreenImageView.resx">
+      <DependentUpon>FullScreenImageView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="component\PicView\ImageViewer.resx">
+      <DependentUpon>ImageViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="component\UploadImage\UploadImgForm.resx">
+      <DependentUpon>UploadImgForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -231,6 +250,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-male-user-30 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\B %28126%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-pencil-52.jpg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FullView.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\full-screen-icon-3.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -7,14 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Library.component.PicView
+namespace Library.component.UploadImage
 {
-    public partial class PicView : Form
+    public partial class UploadImgForm : KryptonForm
     {
-        public PicView()
+        private string theID;
+        public string TheID { set => theID = value; }
+
+        public UploadImgForm()
         {
             InitializeComponent();
         }
+
+        
     }
 }
