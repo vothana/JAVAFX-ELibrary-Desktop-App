@@ -27,8 +27,9 @@ namespace Library
             txtUsername.Focus();
 
             //This code only for development mode
-            txtUsername.Text = "admin";
-            txtPassword.Text = "admin";
+            //txtUsername.Text = "admin";
+            txtUsername.Text = "student";
+            txtPassword.Text = "123";
         }
 
         private void btnShowPassword_Click(object sender, EventArgs e)

@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Library.component.UploadImage
+namespace Library.component.PicView
 {
-    public partial class UploadImage : Form
+    public partial class FullScreenImageView : Form
     {
-        public UploadImage()
+        public FullScreenImageView()
         {
             InitializeComponent();
         }

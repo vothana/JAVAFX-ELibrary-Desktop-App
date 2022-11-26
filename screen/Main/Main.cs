@@ -44,6 +44,16 @@ namespace Library.screen.Main
             }
             
         }
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(OpenLoginForm));
+            t.Start();
+            this.Close();
+        }
+        public static void OpenLoginForm()
+        {
+            Application.Run(new Login());
+        }
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
@@ -77,33 +87,8 @@ namespace Library.screen.Main
                 }
             }
         }
-
-        private void btnAbout_Click(object sender, EventArgs e)
+        private void isSidebarExpanded()
         {
-            AboutForm aboutForm = new AboutForm();
-            aboutForm.TopLevel = false;
-            MainPanel.Controls.Clear();
-            MainPanel.Controls.Add(aboutForm);
-            aboutForm.Show();
-            if (sidebarExpand)
-            {
-                timer.Start();
-                sideBar.Width -= 10;
-                if (sideBar.Width <= sideBar.MinimumSize.Width)
-                {
-                    sidebarExpand = false;
-                    timer.Stop();
-                }
-            }
-        }
-
-        private void btnHome_Click(object sender, EventArgs e)
-        {
-            HomeForm homeForm = new HomeForm();
-            homeForm.TopLevel = false;
-            MainPanel.Controls.Clear();
-            MainPanel.Controls.Add(homeForm);
-            homeForm.Show();
             if (sidebarExpand)
             {
                 timer.Start();
@@ -128,38 +113,27 @@ namespace Library.screen.Main
                 profileMenu.Visible = true;
                 isVisible = true;
             }
-            
+
         }
 
-        private void btnGoMyProfile_Click(object sender, EventArgs e)
+        private void btnAbout_Click(object sender, EventArgs e)
         {
-            ProfileForm profileForm = new ProfileForm();
-            profileForm.TopLevel = false;
+            AboutForm aboutForm = new AboutForm();
+            aboutForm.TopLevel = false;
             MainPanel.Controls.Clear();
-            MainPanel.Controls.Add(profileForm);
-            profileForm.Show();
-            profileMenu.Visible = false;
-            if (sidebarExpand)
-            {
-                timer.Start();
-                sideBar.Width -= 10;
-                if (sideBar.Width <= sideBar.MinimumSize.Width)
-                {
-                    sidebarExpand = false;
-                    timer.Stop();
-                }
-            }
+            MainPanel.Controls.Add(aboutForm);
+            aboutForm.Show();
+            isSidebarExpanded();
         }
 
-        private void btnLogOut_Click(object sender, EventArgs e)
+        private void btnHome_Click(object sender, EventArgs e)
         {
-            System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(OpenLoginForm));
-            t.Start();
-            this.Close();
-        }
-        public static void OpenLoginForm()
-        {
-            Application.Run(new Login());
+            HomeForm homeForm = new HomeForm();
+            homeForm.TopLevel = false;
+            MainPanel.Controls.Clear();
+            MainPanel.Controls.Add(homeForm);
+            homeForm.Show();
+            isSidebarExpanded();
         }
 
         private void btnMyBooks_Click(object sender, EventArgs e)
@@ -170,16 +144,32 @@ namespace Library.screen.Main
             MainPanel.Controls.Add(myBookForm);
             myBookForm.Show();
             profileMenu.Visible = false;
-            if (sidebarExpand)
-            {
-                timer.Start();
-                sideBar.Width -= 10;
-                if (sideBar.Width <= sideBar.MinimumSize.Width)
-                {
-                    sidebarExpand = false;
-                    timer.Stop();
-                }
-            }
+            isSidebarExpanded();
+        }
+
+        private void OpenProfileForm()
+        {
+            ProfileForm profileForm = new ProfileForm();
+            profileForm.TopLevel = false;
+            MainPanel.Controls.Clear();
+            MainPanel.Controls.Add(profileForm);
+            profileForm.Show();
+            profileMenu.Visible = false;
+            isSidebarExpanded();
+        }
+        private void btnMyProfile_Click(object sender, EventArgs e)
+        {
+            OpenProfileForm();
+        }
+
+        private void btnGoMyProfile_Click(object sender, EventArgs e)
+        {
+            OpenProfileForm();
+        }
+
+        private void txtProfileName_Click(object sender, EventArgs e)
+        {
+            OpenProfileForm();
         }
     }
 }
