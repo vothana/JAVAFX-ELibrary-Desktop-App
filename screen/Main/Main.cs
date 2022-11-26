@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using Library.screen.About;
 using Library.screen.Home;
+using Library.screen.MyBook;
 using Library.screen.Profile;
 
 namespace Library.screen.Main
@@ -159,6 +160,26 @@ namespace Library.screen.Main
         public static void OpenLoginForm()
         {
             Application.Run(new Login());
+        }
+
+        private void btnMyBooks_Click(object sender, EventArgs e)
+        {
+            MyBookForm myBookForm = new MyBookForm();
+            myBookForm.TopLevel = false;
+            MainPanel.Controls.Clear();
+            MainPanel.Controls.Add(myBookForm);
+            myBookForm.Show();
+            profileMenu.Visible = false;
+            if (sidebarExpand)
+            {
+                timer.Start();
+                sideBar.Width -= 10;
+                if (sideBar.Width <= sideBar.MinimumSize.Width)
+                {
+                    sidebarExpand = false;
+                    timer.Stop();
+                }
+            }
         }
     }
 }

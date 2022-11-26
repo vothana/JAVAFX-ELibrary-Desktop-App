@@ -121,11 +121,11 @@
     <Compile Include="screen\Main\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="screen\MyBook\MyBook.cs">
+    <Compile Include="screen\MyBook\MyBookForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="screen\MyBook\MyBook.Designer.cs">
-      <DependentUpon>MyBook.cs</DependentUpon>
+    <Compile Include="screen\MyBook\MyBookForm.Designer.cs">
+      <DependentUpon>MyBookForm.cs</DependentUpon>
     </Compile>
     <Compile Include="screen\Profile\ProfileForm.cs">
       <SubType>Form</SubType>
@@ -163,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="screen\Main\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="screen\MyBook\MyBookForm.resx">
+      <DependentUpon>MyBookForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="screen\Profile\ProfileForm.resx">
       <DependentUpon>ProfileForm.cs</DependentUpon>
