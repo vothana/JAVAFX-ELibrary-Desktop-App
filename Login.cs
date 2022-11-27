@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
+using Library.Entity.ENUM;
 using Library.screen.Main;
 
 namespace Library
@@ -25,6 +26,12 @@ namespace Library
         private void Login_Load(object sender, EventArgs e)
         {
             txtUsername.Focus();
+
+            String currectDir = this.GetType().Assembly.Location; //get working derectory excecute file
+            string[] currectDirSplit = currectDir.Split('\\');
+            string dir = string.Join("\\", currectDirSplit.Take(currectDirSplit.Length - 3)); //take out last file
+
+            CurrentPath.CurrentDir = dir; //Initailize current path
 
             //This code only for development mode
             //txtUsername.Text = "admin";

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using Library.Entity.ENUM;
+using PdfiumViewer;
 
 namespace Library.component.UploadImage
 {
@@ -20,6 +21,7 @@ namespace Library.component.UploadImage
         private string upload;
         private string sourcePath;
         private string targetPath;
+        private string filter;
         public string TheID { set => theID = value; }
         public string Upload { set => upload = value; }
 
@@ -32,7 +34,7 @@ namespace Library.component.UploadImage
         {
             OpenFileDialog open = new OpenFileDialog();
             // image filters  
-            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            open.Filter = filter;
             if (open.ShowDialog() == DialogResult.OK)
             {
                 if(open.FileName != null)
@@ -47,15 +49,30 @@ namespace Library.component.UploadImage
                 }
             }
         }
+/*        private void pdfViewer_DoubleClick(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.Filter = filter;
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                if (open.FileName != null)
+                {
+                    byte[] bytes = System.IO.File.ReadAllBytes(open.FileName);
+                    var stream = new System.IO.MemoryStream(bytes);
+                    PdfDocument pdfDocument = PdfDocument.Load(stream);
+                    pdfViewer.Document = pdfDocument;
+                    pdfViewer.SendToBack();
+                }
+                else
+                {
+                    pdfViewer.SendToBack();
+                }
+            }
+        }*/
 
         private void btnUpload_Click(object sender, EventArgs e)
         {
-            String currectDir = this.GetType().Assembly.Location; //get working derectory excecute file
-            string[] currectDirSplit = currectDir.Split('\\');
-            string dir = string.Join("\\", currectDirSplit.Take(currectDirSplit.Length - 1)); //take out last file
-
             targetPath = targetPath + theID;
-            MessageBox.Show(targetPath);
             if (Directory.Exists(targetPath))
             {
                 try { Directory.Delete(targetPath, true); }
@@ -68,13 +85,24 @@ namespace Library.component.UploadImage
 
             System.IO.Directory.CreateDirectory(targetPath);
 
-            if ( sourcePath != "")
+            if (sourcePath != "")
             {
                 string[] split1 = sourcePath.Split('\\');
                 string fileName = split1.Last(); // will put into database
 
                 string destFile = targetPath + "\\" + fileName;
                 System.IO.File.Copy(sourcePath, destFile, true);
+                if (File.Exists(destFile))
+                {
+                    MessageBox.Show("Image uploaded");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Image uploading fail");
+                    pictureBox.Image = null;
+                    pictureBox.SendToBack();
+                }
             }
             else
             {
@@ -84,13 +112,22 @@ namespace Library.component.UploadImage
 
         private void UploadImgForm_Load(object sender, EventArgs e)
         {
-            if(upload == EnumCode.UPLOAD.STUDENT.ToString())
+
+            if (upload == EnumCode.UPLOAD.STUDENT.ToString())
             {
-                targetPath = "\\Asset\\Students\\";
+                filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+                targetPath = CurrentPath.CurrentDir + "\\Assets\\Students\\";
             }
-            else
+            else if(upload == EnumCode.UPLOAD.BOOK.ToString())
             {
-                targetPath = "\\Asset\\Books\\";
+                filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+                targetPath = CurrentPath.CurrentDir + "\\Assets\\Books\\";
+            }else if(upload == EnumCode.UPLOAD.PDF.ToString())
+            {
+  /*              filter = "Image Files(*.pdf;)|*.pdf";
+                targetPath = CurrentPath.CurrentDir + "\\Assets\\PDF\\";
+                pdfViewer.Visible = true;
+                pictureBox.SendToBack();*/
             }
         }
 

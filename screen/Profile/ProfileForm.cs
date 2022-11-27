@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -31,9 +32,16 @@ namespace Library.screen.Profile
         {
             //Testing
             string imgPath = "D:\\1. OTH\\99. Designer\\Background\\687985.jpg";
-            profilePic.Image = new Bitmap(imgPath);
-            txtImagePath.Text = imgPath;
-            //roundedPic1.Image = Properties.Resources.B__126_;
+
+            if (File.Exists(imgPath)){
+                txtImagePath.Text = imgPath;
+                profilePic.Image = new Bitmap(imgPath);
+            }
+            else
+            {
+                profilePic.Image = Properties.Resources.B__126_;
+                /*MessageBox.Show(txtImagePath.Text);*/
+            }
         }
 
         private void btnUploadImage_Click(object sender, EventArgs e)

@@ -23,7 +23,8 @@ namespace Library.Entity.ENUM
         public enum UPLOAD
         {
             BOOK,
-            STUDENT
+            STUDENT,
+            PDF
         }
     }
 }
