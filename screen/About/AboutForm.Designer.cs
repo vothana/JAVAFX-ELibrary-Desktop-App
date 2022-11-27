@@ -34,7 +34,7 @@
             // txtProfileName
             // 
             this.txtProfileName.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtProfileName.Font = new System.Drawing.Font("Poppins", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
+            this.txtProfileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
             this.txtProfileName.Location = new System.Drawing.Point(365, 180);
             this.txtProfileName.Name = "txtProfileName";
             this.txtProfileName.Size = new System.Drawing.Size(401, 120);
