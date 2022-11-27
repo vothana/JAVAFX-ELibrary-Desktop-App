@@ -19,9 +19,10 @@ namespace Library.screen.Profile
 {
     public partial class ProfileForm : KryptonForm
     {
-        bool isEditing;
         Rounded rounded = new Rounded();
         RoundImageCorner round = new RoundImageCorner();
+        string dir = CurrentPath.CurrentDir + "\\Assets\\Students\\";
+        string fileName = "AAA.jpg";
         public ProfileForm()
         {
             InitializeComponent();
@@ -30,17 +31,21 @@ namespace Library.screen.Profile
 
         private void ProfileForm_Load(object sender, EventArgs e)
         {
-            //Testing
-            string imgPath = "D:\\1. OTH\\99. Designer\\Background\\687985.jpg";
+            setProfilePic();
+        }
 
-            if (File.Exists(imgPath)){
-                txtImagePath.Text = imgPath;
-                profilePic.Image = new Bitmap(imgPath);
+        private void setProfilePic()
+        {
+            string imagePath = dir + txtID.Text + "\\" + fileName;
+            if (File.Exists(imagePath))
+            {
+                Bitmap bmp = new Bitmap(imagePath);
+                profilePic.Image = bmp;
             }
             else
             {
-                profilePic.Image = Properties.Resources.B__126_;
-                /*MessageBox.Show(txtImagePath.Text);*/
+                profilePic.Image = null;
+                profilePic.BackColor = Color.Beige;
             }
         }
 
