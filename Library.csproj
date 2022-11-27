@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="packages\PdfiumViewer.Native.x86_64.no_v8-no_xfa.2018.4.8.256\build\PdfiumViewer.Native.x86_64.no_v8-no_xfa.props" Condition="Exists('packages\PdfiumViewer.Native.x86_64.no_v8-no_xfa.2018.4.8.256\build\PdfiumViewer.Native.x86_64.no_v8-no_xfa.props')" />
   <Import Project="packages\PdfiumViewer.Native.x86.no_v8-no_xfa.2018.4.8.256\build\PdfiumViewer.Native.x86.no_v8-no_xfa.props" Condition="Exists('packages\PdfiumViewer.Native.x86.no_v8-no_xfa.2018.4.8.256\build\PdfiumViewer.Native.x86.no_v8-no_xfa.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -38,19 +37,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ComponentFactory.Krypton.Docking">
-      <HintPath>C:\Users\NHEAN Sereyvoutey\OneDrive\Desktop\Krypton-master\Bin\ComponentFactory.Krypton.Docking.dll</HintPath>
+      <HintPath>..\Krypton-master\Bin\ComponentFactory.Krypton.Docking.dll</HintPath>
     </Reference>
     <Reference Include="ComponentFactory.Krypton.Navigator">
-      <HintPath>C:\Users\NHEAN Sereyvoutey\OneDrive\Desktop\Krypton-master\Bin\ComponentFactory.Krypton.Navigator.dll</HintPath>
+      <HintPath>..\Krypton-master\Bin\ComponentFactory.Krypton.Navigator.dll</HintPath>
     </Reference>
     <Reference Include="ComponentFactory.Krypton.Ribbon">
-      <HintPath>C:\Users\NHEAN Sereyvoutey\OneDrive\Desktop\Krypton-master\Bin\ComponentFactory.Krypton.Ribbon.dll</HintPath>
+      <HintPath>..\Krypton-master\Bin\ComponentFactory.Krypton.Ribbon.dll</HintPath>
     </Reference>
     <Reference Include="ComponentFactory.Krypton.Toolkit">
-      <HintPath>C:\Users\NHEAN Sereyvoutey\OneDrive\Desktop\Krypton-master\Bin\ComponentFactory.Krypton.Toolkit.dll</HintPath>
+      <HintPath>..\Krypton-master\Bin\ComponentFactory.Krypton.Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="ComponentFactory.Krypton.Workspace">
-      <HintPath>C:\Users\NHEAN Sereyvoutey\OneDrive\Desktop\Krypton-master\Bin\ComponentFactory.Krypton.Workspace.dll</HintPath>
+      <HintPath>..\Krypton-master\Bin\ComponentFactory.Krypton.Workspace.dll</HintPath>
     </Reference>
     <Reference Include="PdfiumViewer, Version=2.13.0.0, Culture=neutral, PublicKeyToken=91e4789cfb0609e0, processorArchitecture=MSIL">
       <HintPath>packages\PdfiumViewer.2.13.0.0\lib\net20\PdfiumViewer.dll</HintPath>
@@ -290,6 +289,5 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('packages\PdfiumViewer.Native.x86.no_v8-no_xfa.2018.4.8.256\build\PdfiumViewer.Native.x86.no_v8-no_xfa.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\PdfiumViewer.Native.x86.no_v8-no_xfa.2018.4.8.256\build\PdfiumViewer.Native.x86.no_v8-no_xfa.props'))" />
-    <Error Condition="!Exists('packages\PdfiumViewer.Native.x86_64.no_v8-no_xfa.2018.4.8.256\build\PdfiumViewer.Native.x86_64.no_v8-no_xfa.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\PdfiumViewer.Native.x86_64.no_v8-no_xfa.2018.4.8.256\build\PdfiumViewer.Native.x86_64.no_v8-no_xfa.props'))" />
   </Target>
 </Project>

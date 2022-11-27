@@ -49,26 +49,6 @@ namespace Library.component.UploadImage
                 }
             }
         }
-/*        private void pdfViewer_DoubleClick(object sender, EventArgs e)
-        {
-            OpenFileDialog open = new OpenFileDialog();
-            open.Filter = filter;
-            if (open.ShowDialog() == DialogResult.OK)
-            {
-                if (open.FileName != null)
-                {
-                    byte[] bytes = System.IO.File.ReadAllBytes(open.FileName);
-                    var stream = new System.IO.MemoryStream(bytes);
-                    PdfDocument pdfDocument = PdfDocument.Load(stream);
-                    pdfViewer.Document = pdfDocument;
-                    pdfViewer.SendToBack();
-                }
-                else
-                {
-                    pdfViewer.SendToBack();
-                }
-            }
-        }*/
 
         private void btnUpload_Click(object sender, EventArgs e)
         {
@@ -78,7 +58,7 @@ namespace Library.component.UploadImage
                 try { Directory.Delete(targetPath, true); }
                 catch (IOException ex)
                 {
-                    MessageBox.Show("Image already exist, or try another image.");
+                    MessageBox.Show("File already exist, or try another file.");
                 } //delete folder if exists
                 //avoid has alot of file in a directory
             }
@@ -94,12 +74,12 @@ namespace Library.component.UploadImage
                 System.IO.File.Copy(sourcePath, destFile, true);
                 if (File.Exists(destFile))
                 {
-                    MessageBox.Show("Image uploaded");
+                    MessageBox.Show("File uploaded");
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Image uploading fail");
+                    MessageBox.Show("File uploading fail");
                     pictureBox.Image = null;
                     pictureBox.SendToBack();
                 }
@@ -112,7 +92,6 @@ namespace Library.component.UploadImage
 
         private void UploadImgForm_Load(object sender, EventArgs e)
         {
-
             if (upload == EnumCode.UPLOAD.STUDENT.ToString())
             {
                 filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
@@ -124,16 +103,45 @@ namespace Library.component.UploadImage
                 targetPath = CurrentPath.CurrentDir + "\\Assets\\Books\\";
             }else if(upload == EnumCode.UPLOAD.PDF.ToString())
             {
-  /*              filter = "Image Files(*.pdf;)|*.pdf";
+                filter = "Pdf File(*.pdf;)|*.pdf";
                 targetPath = CurrentPath.CurrentDir + "\\Assets\\PDF\\";
                 pdfViewer.Visible = true;
-                pictureBox.SendToBack();*/
+                uploadPDF.Visible = true;
+                label.Visible = false;
+                pictureBox.Visible = false;
+                btnUpload.Visible = false;
             }
         }
 
         private void kryptonButton1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void uploadPDF_Click(object sender, EventArgs e)
+        {
+            if( uploadPDF.Text == "Choose PDF")
+            {
+                OpenFileDialog open = new OpenFileDialog();
+                open.Filter = filter;
+                if (open.ShowDialog() == DialogResult.OK)
+                {
+                    if (open.FileName != null)
+                    {
+                        byte[] bytes = System.IO.File.ReadAllBytes(open.FileName);
+                        sourcePath = open.FileName;
+                        var stream = new System.IO.MemoryStream(bytes);
+                        PdfDocument pdfDocument = PdfDocument.Load(stream);
+                        pdfViewer.Document = pdfDocument;
+                        uploadPDF.Text = "Upload";
+                    }
+                }
+            }
+            else
+            {
+                btnUpload_Click(sender, e);
+            }
+            
         }
     }
 }
