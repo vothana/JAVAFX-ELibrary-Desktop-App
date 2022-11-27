@@ -3,24 +3,100 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
+using Library.Entity.ENUM;
 
 namespace Library.component.UploadImage
 {
     public partial class UploadImgForm : KryptonForm
     {
+        EnumCode enums = new EnumCode();
         private string theID;
+        private string upload;
+        private string sourcePath;
+        private string targetPath;
         public string TheID { set => theID = value; }
+        public string Upload { set => upload = value; }
 
         public UploadImgForm()
         {
             InitializeComponent();
         }
 
-        
+        private void pictureBox_DoubleClick(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            // image filters  
+            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                if(open.FileName != null)
+                {
+                    pictureBox.Image = new Bitmap(open.FileName);
+                    sourcePath = open.FileName;
+                    pictureBox.BringToFront();
+                }
+                else
+                {
+                    pictureBox.SendToBack();
+                }
+            }
+        }
+
+        private void btnUpload_Click(object sender, EventArgs e)
+        {
+            String currectDir = this.GetType().Assembly.Location; //get working derectory excecute file
+            string[] currectDirSplit = currectDir.Split('\\');
+            string dir = string.Join("\\", currectDirSplit.Take(currectDirSplit.Length - 1)); //take out last file
+
+            targetPath = targetPath + theID;
+            MessageBox.Show(targetPath);
+            if (Directory.Exists(targetPath))
+            {
+                try { Directory.Delete(targetPath, true); }
+                catch (IOException ex)
+                {
+                    MessageBox.Show("Image already exist, or try another image.");
+                } //delete folder if exists
+                //avoid has alot of file in a directory
+            }
+
+            System.IO.Directory.CreateDirectory(targetPath);
+
+            if ( sourcePath != "")
+            {
+                string[] split1 = sourcePath.Split('\\');
+                string fileName = split1.Last(); // will put into database
+
+                string destFile = targetPath + "\\" + fileName;
+                System.IO.File.Copy(sourcePath, destFile, true);
+            }
+            else
+            {
+                MessageBox.Show("Cannot upload file ! Please choose different file");
+            }
+        }
+
+        private void UploadImgForm_Load(object sender, EventArgs e)
+        {
+            if(upload == EnumCode.UPLOAD.STUDENT.ToString())
+            {
+                targetPath = "\\Asset\\Students\\";
+            }
+            else
+            {
+                targetPath = "\\Asset\\Books\\";
+            }
+        }
+
+        private void kryptonButton1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

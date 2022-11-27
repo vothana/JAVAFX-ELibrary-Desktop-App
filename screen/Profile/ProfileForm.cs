@@ -12,6 +12,7 @@ using ComponentFactory.Krypton.Toolkit;
 using Library.component;
 using Library.component.PicView;
 using Library.component.UploadImage;
+using Library.Entity.ENUM;
 
 namespace Library.screen.Profile
 {
@@ -40,6 +41,7 @@ namespace Library.screen.Profile
             using (UploadImgForm uploadImgForm = new UploadImgForm())
             {
                 uploadImgForm.TheID = txtID.Text;
+                uploadImgForm.Upload = EnumCode.UPLOAD.STUDENT.ToString();
                 uploadImgForm.ShowDialog();
             }
         }
