@@ -67,6 +67,7 @@
     <Compile Include="component\BookView\BookView.Designer.cs">
       <DependentUpon>BookView.cs</DependentUpon>
     </Compile>
+    <Compile Include="component\GraphicEx.cs" />
     <Compile Include="component\PicView\FullScreenImageView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +79,9 @@
     </Compile>
     <Compile Include="component\PicView\ImageViewer.Designer.cs">
       <DependentUpon>ImageViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="component\RoundCornerPanel.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="component\Rounded.cs" />
     <Compile Include="component\RoundImageCorner.cs" />
@@ -99,6 +103,7 @@
     </Compile>
     <Compile Include="Database\Query.cs" />
     <Compile Include="Database\Server.cs" />
+    <Compile Include="Entity\ENUM\EnumCode.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
