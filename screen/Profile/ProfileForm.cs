@@ -54,7 +54,7 @@ namespace Library.screen.Profile
             using (UploadImgForm uploadImgForm = new UploadImgForm())
             {
                 uploadImgForm.TheID = txtID.Text;
-                uploadImgForm.Upload = EnumCode.UPLOAD.STUDENT.ToString();
+                uploadImgForm.Upload = EnumCode.UPLOAD.PDF.ToString();
                 uploadImgForm.ShowDialog();
             }
         }
