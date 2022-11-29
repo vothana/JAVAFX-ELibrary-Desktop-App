@@ -32,34 +32,35 @@
             this.MainPalette = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.sideBar = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnMenu = new System.Windows.Forms.PictureBox();
             this.panelHome = new System.Windows.Forms.Panel();
+            this.btnHome = new System.Windows.Forms.Button();
             this.panelMyProfile = new System.Windows.Forms.Panel();
+            this.btnMyProfile = new System.Windows.Forms.Button();
             this.panelMyBook = new System.Windows.Forms.Panel();
+            this.btnMyBooks = new System.Windows.Forms.Button();
             this.panelBookMG = new System.Windows.Forms.Panel();
+            this.btnBookMG = new System.Windows.Forms.Button();
             this.panelStudentsMG = new System.Windows.Forms.Panel();
+            this.btnStudentMG = new System.Windows.Forms.Button();
             this.panelAbout = new System.Windows.Forms.Panel();
+            this.btnAbout = new System.Windows.Forms.Button();
             this.panelSpace = new System.Windows.Forms.Panel();
             this.panelExit = new System.Windows.Forms.Panel();
+            this.btnExit = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtProfileName = new System.Windows.Forms.Label();
             this.btnProfilePic = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.MainPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnGoMyProfile = new System.Windows.Forms.Button();
             this.profileMenu = new System.Windows.Forms.FlowLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.btnGoMyProfile = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
-            this.btnMenu = new System.Windows.Forms.PictureBox();
-            this.btnHome = new System.Windows.Forms.Button();
-            this.btnMyProfile = new System.Windows.Forms.Button();
-            this.btnMyBooks = new System.Windows.Forms.Button();
-            this.btnBookMG = new System.Windows.Forms.Button();
-            this.btnStudentMG = new System.Windows.Forms.Button();
-            this.btnAbout = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.Button();
             this.sideBar.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
             this.panelHome.SuspendLayout();
             this.panelMyProfile.SuspendLayout();
             this.panelMyBook.SuspendLayout();
@@ -71,7 +72,6 @@
             this.panel3.SuspendLayout();
             this.profileMenu.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
             this.SuspendLayout();
             // 
             // MainPalette
@@ -114,6 +114,18 @@
             this.panel1.Size = new System.Drawing.Size(267, 50);
             this.panel1.TabIndex = 3;
             // 
+            // btnMenu
+            // 
+            this.btnMenu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenu.Image = global::Library.Properties.Resources.icons8_menu_48;
+            this.btnMenu.Location = new System.Drawing.Point(9, 5);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(38, 38);
+            this.btnMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnMenu.TabIndex = 2;
+            this.btnMenu.TabStop = false;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
+            // 
             // panelHome
             // 
             this.panelHome.Controls.Add(this.btnHome);
@@ -123,6 +135,25 @@
             this.panelHome.Padding = new System.Windows.Forms.Padding(5);
             this.panelHome.Size = new System.Drawing.Size(277, 50);
             this.panelHome.TabIndex = 3;
+            // 
+            // btnHome
+            // 
+            this.btnHome.BackColor = System.Drawing.Color.Transparent;
+            this.btnHome.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleTurquoise;
+            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
+            this.btnHome.ForeColor = System.Drawing.Color.Silver;
+            this.btnHome.Image = global::Library.Properties.Resources.icons8_home_page_30;
+            this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHome.Location = new System.Drawing.Point(-8, -6);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnHome.Size = new System.Drawing.Size(285, 63);
+            this.btnHome.TabIndex = 4;
+            this.btnHome.Text = "               Home";
+            this.btnHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHome.UseVisualStyleBackColor = false;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // panelMyProfile
             // 
@@ -134,6 +165,25 @@
             this.panelMyProfile.Size = new System.Drawing.Size(277, 50);
             this.panelMyProfile.TabIndex = 3;
             // 
+            // btnMyProfile
+            // 
+            this.btnMyProfile.BackColor = System.Drawing.Color.Transparent;
+            this.btnMyProfile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleTurquoise;
+            this.btnMyProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMyProfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
+            this.btnMyProfile.ForeColor = System.Drawing.Color.Silver;
+            this.btnMyProfile.Image = global::Library.Properties.Resources.icons8_male_user_30;
+            this.btnMyProfile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMyProfile.Location = new System.Drawing.Point(-8, -6);
+            this.btnMyProfile.Name = "btnMyProfile";
+            this.btnMyProfile.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnMyProfile.Size = new System.Drawing.Size(285, 63);
+            this.btnMyProfile.TabIndex = 4;
+            this.btnMyProfile.Text = "               My Profile";
+            this.btnMyProfile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMyProfile.UseVisualStyleBackColor = false;
+            this.btnMyProfile.Click += new System.EventHandler(this.btnMyProfile_Click);
+            // 
             // panelMyBook
             // 
             this.panelMyBook.Controls.Add(this.btnMyBooks);
@@ -143,6 +193,25 @@
             this.panelMyBook.Padding = new System.Windows.Forms.Padding(5);
             this.panelMyBook.Size = new System.Drawing.Size(277, 50);
             this.panelMyBook.TabIndex = 3;
+            // 
+            // btnMyBooks
+            // 
+            this.btnMyBooks.BackColor = System.Drawing.Color.Transparent;
+            this.btnMyBooks.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleTurquoise;
+            this.btnMyBooks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMyBooks.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
+            this.btnMyBooks.ForeColor = System.Drawing.Color.Silver;
+            this.btnMyBooks.Image = global::Library.Properties.Resources.icons8_books_30;
+            this.btnMyBooks.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMyBooks.Location = new System.Drawing.Point(-8, -6);
+            this.btnMyBooks.Name = "btnMyBooks";
+            this.btnMyBooks.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnMyBooks.Size = new System.Drawing.Size(285, 63);
+            this.btnMyBooks.TabIndex = 4;
+            this.btnMyBooks.Text = "               My Books";
+            this.btnMyBooks.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMyBooks.UseVisualStyleBackColor = false;
+            this.btnMyBooks.Click += new System.EventHandler(this.btnMyBooks_Click);
             // 
             // panelBookMG
             // 
@@ -155,6 +224,24 @@
             this.panelBookMG.TabIndex = 3;
             this.panelBookMG.Visible = false;
             // 
+            // btnBookMG
+            // 
+            this.btnBookMG.BackColor = System.Drawing.Color.Transparent;
+            this.btnBookMG.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleTurquoise;
+            this.btnBookMG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBookMG.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
+            this.btnBookMG.ForeColor = System.Drawing.Color.Silver;
+            this.btnBookMG.Image = global::Library.Properties.Resources.icons8_books_30;
+            this.btnBookMG.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBookMG.Location = new System.Drawing.Point(-8, -6);
+            this.btnBookMG.Name = "btnBookMG";
+            this.btnBookMG.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnBookMG.Size = new System.Drawing.Size(319, 63);
+            this.btnBookMG.TabIndex = 4;
+            this.btnBookMG.Text = "               Books Management";
+            this.btnBookMG.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBookMG.UseVisualStyleBackColor = false;
+            // 
             // panelStudentsMG
             // 
             this.panelStudentsMG.Controls.Add(this.btnStudentMG);
@@ -166,6 +253,25 @@
             this.panelStudentsMG.TabIndex = 3;
             this.panelStudentsMG.Visible = false;
             // 
+            // btnStudentMG
+            // 
+            this.btnStudentMG.BackColor = System.Drawing.Color.Transparent;
+            this.btnStudentMG.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleTurquoise;
+            this.btnStudentMG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStudentMG.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
+            this.btnStudentMG.ForeColor = System.Drawing.Color.Silver;
+            this.btnStudentMG.Image = global::Library.Properties.Resources.icons8_graduate_30;
+            this.btnStudentMG.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStudentMG.Location = new System.Drawing.Point(-8, -6);
+            this.btnStudentMG.Name = "btnStudentMG";
+            this.btnStudentMG.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnStudentMG.Size = new System.Drawing.Size(319, 63);
+            this.btnStudentMG.TabIndex = 4;
+            this.btnStudentMG.Text = "               Students Management";
+            this.btnStudentMG.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStudentMG.UseVisualStyleBackColor = false;
+            this.btnStudentMG.Click += new System.EventHandler(this.btnStudentMG_Click);
+            // 
             // panelAbout
             // 
             this.panelAbout.Controls.Add(this.btnAbout);
@@ -175,6 +281,25 @@
             this.panelAbout.Padding = new System.Windows.Forms.Padding(5);
             this.panelAbout.Size = new System.Drawing.Size(277, 50);
             this.panelAbout.TabIndex = 3;
+            // 
+            // btnAbout
+            // 
+            this.btnAbout.BackColor = System.Drawing.Color.Transparent;
+            this.btnAbout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleTurquoise;
+            this.btnAbout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAbout.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
+            this.btnAbout.ForeColor = System.Drawing.Color.Silver;
+            this.btnAbout.Image = global::Library.Properties.Resources.icons8_info_30;
+            this.btnAbout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAbout.Location = new System.Drawing.Point(-8, -6);
+            this.btnAbout.Name = "btnAbout";
+            this.btnAbout.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnAbout.Size = new System.Drawing.Size(285, 63);
+            this.btnAbout.TabIndex = 4;
+            this.btnAbout.Text = "               About";
+            this.btnAbout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAbout.UseVisualStyleBackColor = false;
+            this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
             // 
             // panelSpace
             // 
@@ -195,6 +320,25 @@
             this.panelExit.Size = new System.Drawing.Size(277, 50);
             this.panelExit.TabIndex = 3;
             // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.Transparent;
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
+            this.btnExit.ForeColor = System.Drawing.Color.Silver;
+            this.btnExit.Image = global::Library.Properties.Resources.icons8_power_off_button_30;
+            this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExit.Location = new System.Drawing.Point(-8, -6);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnExit.Size = new System.Drawing.Size(285, 63);
+            this.btnExit.TabIndex = 4;
+            this.btnExit.Text = "               Exit";
+            this.btnExit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.txtProfileName);
@@ -207,7 +351,7 @@
             // txtProfileName
             // 
             this.txtProfileName.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtProfileName.Font = new System.Drawing.Font("Poppins", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
+            this.txtProfileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
             this.txtProfileName.Location = new System.Drawing.Point(907, 17);
             this.txtProfileName.Name = "txtProfileName";
             this.txtProfileName.Size = new System.Drawing.Size(172, 25);
@@ -263,6 +407,25 @@
             this.panel3.Size = new System.Drawing.Size(277, 50);
             this.panel3.TabIndex = 3;
             // 
+            // btnGoMyProfile
+            // 
+            this.btnGoMyProfile.BackColor = System.Drawing.Color.Transparent;
+            this.btnGoMyProfile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleTurquoise;
+            this.btnGoMyProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGoMyProfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
+            this.btnGoMyProfile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnGoMyProfile.Image = global::Library.Properties.Resources.icons8_male_user_30__1_;
+            this.btnGoMyProfile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGoMyProfile.Location = new System.Drawing.Point(-8, -6);
+            this.btnGoMyProfile.Name = "btnGoMyProfile";
+            this.btnGoMyProfile.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnGoMyProfile.Size = new System.Drawing.Size(285, 63);
+            this.btnGoMyProfile.TabIndex = 4;
+            this.btnGoMyProfile.Text = "               My Profile";
+            this.btnGoMyProfile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGoMyProfile.UseVisualStyleBackColor = false;
+            this.btnGoMyProfile.Click += new System.EventHandler(this.btnGoMyProfile_Click);
+            // 
             // profileMenu
             // 
             this.profileMenu.Controls.Add(this.panel3);
@@ -283,31 +446,12 @@
             this.panel4.Size = new System.Drawing.Size(277, 50);
             this.panel4.TabIndex = 3;
             // 
-            // btnGoMyProfile
-            // 
-            this.btnGoMyProfile.BackColor = System.Drawing.Color.Transparent;
-            this.btnGoMyProfile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleTurquoise;
-            this.btnGoMyProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGoMyProfile.Font = new System.Drawing.Font("Poppins", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
-            this.btnGoMyProfile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnGoMyProfile.Image = global::Library.Properties.Resources.icons8_male_user_30__1_;
-            this.btnGoMyProfile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGoMyProfile.Location = new System.Drawing.Point(-8, -6);
-            this.btnGoMyProfile.Name = "btnGoMyProfile";
-            this.btnGoMyProfile.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnGoMyProfile.Size = new System.Drawing.Size(285, 63);
-            this.btnGoMyProfile.TabIndex = 4;
-            this.btnGoMyProfile.Text = "               My Profile";
-            this.btnGoMyProfile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGoMyProfile.UseVisualStyleBackColor = false;
-            this.btnGoMyProfile.Click += new System.EventHandler(this.btnGoMyProfile_Click);
-            // 
             // btnLogOut
             // 
             this.btnLogOut.BackColor = System.Drawing.Color.Transparent;
             this.btnLogOut.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogOut.Font = new System.Drawing.Font("Poppins", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
+            this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
             this.btnLogOut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnLogOut.Image = global::Library.Properties.Resources.icons8_logout_rounded_left_30;
             this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -320,149 +464,6 @@
             this.btnLogOut.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogOut.UseVisualStyleBackColor = false;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
-            // 
-            // btnMenu
-            // 
-            this.btnMenu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMenu.Image = global::Library.Properties.Resources.icons8_menu_48;
-            this.btnMenu.Location = new System.Drawing.Point(9, 5);
-            this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(38, 38);
-            this.btnMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnMenu.TabIndex = 2;
-            this.btnMenu.TabStop = false;
-            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
-            // 
-            // btnHome
-            // 
-            this.btnHome.BackColor = System.Drawing.Color.Transparent;
-            this.btnHome.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleTurquoise;
-            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHome.Font = new System.Drawing.Font("Poppins", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
-            this.btnHome.ForeColor = System.Drawing.Color.Silver;
-            this.btnHome.Image = global::Library.Properties.Resources.icons8_home_page_30;
-            this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHome.Location = new System.Drawing.Point(-8, -6);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnHome.Size = new System.Drawing.Size(285, 63);
-            this.btnHome.TabIndex = 4;
-            this.btnHome.Text = "               Home";
-            this.btnHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHome.UseVisualStyleBackColor = false;
-            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
-            // 
-            // btnMyProfile
-            // 
-            this.btnMyProfile.BackColor = System.Drawing.Color.Transparent;
-            this.btnMyProfile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleTurquoise;
-            this.btnMyProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMyProfile.Font = new System.Drawing.Font("Poppins", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
-            this.btnMyProfile.ForeColor = System.Drawing.Color.Silver;
-            this.btnMyProfile.Image = global::Library.Properties.Resources.icons8_male_user_30;
-            this.btnMyProfile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMyProfile.Location = new System.Drawing.Point(-8, -6);
-            this.btnMyProfile.Name = "btnMyProfile";
-            this.btnMyProfile.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnMyProfile.Size = new System.Drawing.Size(285, 63);
-            this.btnMyProfile.TabIndex = 4;
-            this.btnMyProfile.Text = "               My Profile";
-            this.btnMyProfile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMyProfile.UseVisualStyleBackColor = false;
-            this.btnMyProfile.Click += new System.EventHandler(this.btnMyProfile_Click);
-            // 
-            // btnMyBooks
-            // 
-            this.btnMyBooks.BackColor = System.Drawing.Color.Transparent;
-            this.btnMyBooks.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleTurquoise;
-            this.btnMyBooks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMyBooks.Font = new System.Drawing.Font("Poppins", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
-            this.btnMyBooks.ForeColor = System.Drawing.Color.Silver;
-            this.btnMyBooks.Image = global::Library.Properties.Resources.icons8_books_30;
-            this.btnMyBooks.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMyBooks.Location = new System.Drawing.Point(-8, -6);
-            this.btnMyBooks.Name = "btnMyBooks";
-            this.btnMyBooks.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnMyBooks.Size = new System.Drawing.Size(285, 63);
-            this.btnMyBooks.TabIndex = 4;
-            this.btnMyBooks.Text = "               My Books";
-            this.btnMyBooks.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMyBooks.UseVisualStyleBackColor = false;
-            this.btnMyBooks.Click += new System.EventHandler(this.btnMyBooks_Click);
-            // 
-            // btnBookMG
-            // 
-            this.btnBookMG.BackColor = System.Drawing.Color.Transparent;
-            this.btnBookMG.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleTurquoise;
-            this.btnBookMG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBookMG.Font = new System.Drawing.Font("Poppins", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
-            this.btnBookMG.ForeColor = System.Drawing.Color.Silver;
-            this.btnBookMG.Image = global::Library.Properties.Resources.icons8_books_30;
-            this.btnBookMG.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBookMG.Location = new System.Drawing.Point(-8, -6);
-            this.btnBookMG.Name = "btnBookMG";
-            this.btnBookMG.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnBookMG.Size = new System.Drawing.Size(319, 63);
-            this.btnBookMG.TabIndex = 4;
-            this.btnBookMG.Text = "               Books Management";
-            this.btnBookMG.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBookMG.UseVisualStyleBackColor = false;
-            // 
-            // btnStudentMG
-            // 
-            this.btnStudentMG.BackColor = System.Drawing.Color.Transparent;
-            this.btnStudentMG.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleTurquoise;
-            this.btnStudentMG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStudentMG.Font = new System.Drawing.Font("Poppins", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
-            this.btnStudentMG.ForeColor = System.Drawing.Color.Silver;
-            this.btnStudentMG.Image = global::Library.Properties.Resources.icons8_graduate_30;
-            this.btnStudentMG.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStudentMG.Location = new System.Drawing.Point(-8, -6);
-            this.btnStudentMG.Name = "btnStudentMG";
-            this.btnStudentMG.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnStudentMG.Size = new System.Drawing.Size(319, 63);
-            this.btnStudentMG.TabIndex = 4;
-            this.btnStudentMG.Text = "               Students Management";
-            this.btnStudentMG.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStudentMG.UseVisualStyleBackColor = false;
-            // 
-            // btnAbout
-            // 
-            this.btnAbout.BackColor = System.Drawing.Color.Transparent;
-            this.btnAbout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleTurquoise;
-            this.btnAbout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAbout.Font = new System.Drawing.Font("Poppins", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
-            this.btnAbout.ForeColor = System.Drawing.Color.Silver;
-            this.btnAbout.Image = global::Library.Properties.Resources.icons8_info_30;
-            this.btnAbout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAbout.Location = new System.Drawing.Point(-8, -6);
-            this.btnAbout.Name = "btnAbout";
-            this.btnAbout.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnAbout.Size = new System.Drawing.Size(285, 63);
-            this.btnAbout.TabIndex = 4;
-            this.btnAbout.Text = "               About";
-            this.btnAbout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAbout.UseVisualStyleBackColor = false;
-            this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
-            // 
-            // btnExit
-            // 
-            this.btnExit.BackColor = System.Drawing.Color.Transparent;
-            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.Font = new System.Drawing.Font("Poppins", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
-            this.btnExit.ForeColor = System.Drawing.Color.Silver;
-            this.btnExit.Image = global::Library.Properties.Resources.icons8_power_off_button_30;
-            this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExit.Location = new System.Drawing.Point(-8, -6);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnExit.Size = new System.Drawing.Size(285, 63);
-            this.btnExit.TabIndex = 4;
-            this.btnExit.Text = "               Exit";
-            this.btnExit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExit.UseVisualStyleBackColor = false;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // Main
             // 
@@ -485,6 +486,7 @@
             this.Load += new System.EventHandler(this.Main_Load);
             this.sideBar.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).EndInit();
             this.panelHome.ResumeLayout(false);
             this.panelMyProfile.ResumeLayout(false);
             this.panelMyBook.ResumeLayout(false);
@@ -496,7 +498,6 @@
             this.panel3.ResumeLayout(false);
             this.profileMenu.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).EndInit();
             this.ResumeLayout(false);
 
         }
