@@ -35,12 +35,17 @@ namespace Library.screen.Book
             bookList.Show();
 
             DataSql dataSql = new DataSql();
-            SingleBookMGForm frm = new SingleBookMGForm();
-            frm.BookID = dataSql.GetMinID(Server.TABLE.BOOK.ToString());
-            frm.TopLevel = false;
+            loadShow(dataSql.GetMinID(Server.TABLE.BOOK.ToString()));
+        }
+
+        public void loadShow(int bookID)
+        {
+            BookShow bookShow = new BookShow();
+            bookShow.BookID = bookID;
+            bookShow.TopLevel = false;
             panelBookShow.Controls.Clear();
-            panelBookShow.Controls.Add(frm);
-            frm.Show();
+            panelBookShow.Controls.Add(bookShow);
+            bookShow.Show();
         }
 
         private void btnCreateNew_Click(object sender, EventArgs e)
@@ -53,5 +58,20 @@ namespace Library.screen.Book
             }
         }
 
+        private void txtSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                BookList bookList = new BookList();
+                bookList.TopLevel = false;
+                bookList.SearchText = txtSearch.Text;
+                txtSearch.SelectAll();
+                txtSearch.Focus();
+                BookListPanel.Controls.Clear();
+                BookListPanel.Controls.Add(bookList);
+                bookList.Show();
+            }
+        }
     }
 }

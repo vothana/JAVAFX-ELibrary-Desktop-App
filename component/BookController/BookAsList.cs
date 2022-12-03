@@ -30,7 +30,10 @@ namespace Library.component.BookController
 
         private void BookAsList_Click(object sender, EventArgs e)
         {
-            
+            using(BookManagement bg = new BookManagement())
+            {
+                bg.loadShow(BookID);
+            }
         }
     }
 }

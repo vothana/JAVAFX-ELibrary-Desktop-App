@@ -34,7 +34,7 @@ namespace Library.screen.Book
             this.panelBookShow = new System.Windows.Forms.Panel();
             this.btnCreateNew = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.BookListPanel = new System.Windows.Forms.Panel();
-            this.kryptonTextBox1 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.txtSearch = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.PanelMainBook.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,13 +43,12 @@ namespace Library.screen.Book
             this.PanelMainBook.Controls.Add(this.panelBookShow);
             this.PanelMainBook.Controls.Add(this.btnCreateNew);
             this.PanelMainBook.Controls.Add(this.BookListPanel);
-            this.PanelMainBook.Controls.Add(this.kryptonTextBox1);
+            this.PanelMainBook.Controls.Add(this.txtSearch);
             this.PanelMainBook.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelMainBook.Location = new System.Drawing.Point(0, 0);
             this.PanelMainBook.Name = "PanelMainBook";
             this.PanelMainBook.Size = new System.Drawing.Size(1120, 720);
             this.PanelMainBook.TabIndex = 0;
-   
             // 
             // panelBookShow
             // 
@@ -60,15 +59,19 @@ namespace Library.screen.Book
             // 
             // btnCreateNew
             // 
-            this.btnCreateNew.Location = new System.Drawing.Point(25, 12);
+            this.btnCreateNew.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCreateNew.Location = new System.Drawing.Point(24, 12);
             this.btnCreateNew.Name = "btnCreateNew";
-            this.btnCreateNew.Size = new System.Drawing.Size(148, 32);
+            this.btnCreateNew.Size = new System.Drawing.Size(112, 33);
             this.btnCreateNew.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.btnCreateNew.StateCommon.Border.Rounding = 5;
             this.btnCreateNew.StateCommon.Content.DrawFocus = ComponentFactory.Krypton.Toolkit.InheritBool.False;
-            this.btnCreateNew.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Poppins", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateNew.StateCommon.Content.ShortText.ColorAlign = ComponentFactory.Krypton.Toolkit.PaletteRectangleAlign.Control;
+            this.btnCreateNew.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World, ((byte)(0)));
+            this.btnCreateNew.StateCommon.Content.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.btnCreateNew.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.btnCreateNew.TabIndex = 7;
             this.btnCreateNew.Values.Text = "Create New";
             this.btnCreateNew.Click += new System.EventHandler(this.btnCreateNew_Click);
@@ -80,18 +83,19 @@ namespace Library.screen.Book
             this.BookListPanel.Size = new System.Drawing.Size(705, 643);
             this.BookListPanel.TabIndex = 6;
             // 
-            // kryptonTextBox1
+            // txtSearch
             // 
-            this.kryptonTextBox1.Location = new System.Drawing.Point(404, 12);
-            this.kryptonTextBox1.Name = "kryptonTextBox1";
-            this.kryptonTextBox1.Size = new System.Drawing.Size(703, 33);
-            this.kryptonTextBox1.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.txtSearch.Location = new System.Drawing.Point(404, 12);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(703, 33);
+            this.txtSearch.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kryptonTextBox1.StateCommon.Border.Rounding = 5;
-            this.kryptonTextBox1.StateCommon.Content.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonTextBox1.TabIndex = 4;
-            this.kryptonTextBox1.Text = "Search...";
+            this.txtSearch.StateCommon.Border.Rounding = 5;
+            this.txtSearch.StateCommon.Content.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.TabIndex = 4;
+            this.txtSearch.Text = "Search...";
+            this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
             // 
             // BookManagement
             // 
@@ -116,7 +120,7 @@ namespace Library.screen.Book
         private System.Windows.Forms.Panel PanelMainBook;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnCreateNew;
         private System.Windows.Forms.Panel BookListPanel;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox kryptonTextBox1;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtSearch;
         private System.Windows.Forms.Panel panelBookShow;
 
         public Panel ShowBook

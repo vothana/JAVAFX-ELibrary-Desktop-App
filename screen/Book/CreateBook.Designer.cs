@@ -199,6 +199,7 @@
             // 
             // btnUploadPDF
             // 
+            this.btnUploadPDF.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUploadPDF.Location = new System.Drawing.Point(92, 4);
             this.btnUploadPDF.Name = "btnUploadPDF";
             this.btnUploadPDF.Size = new System.Drawing.Size(79, 35);
@@ -209,9 +210,11 @@
             this.btnUploadPDF.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World);
             this.btnUploadPDF.TabIndex = 4;
             this.btnUploadPDF.Values.Text = "PDF";
+            this.btnUploadPDF.Click += new System.EventHandler(this.btnUploadPDF_Click);
             // 
             // btnUploadImage
             // 
+            this.btnUploadImage.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUploadImage.Location = new System.Drawing.Point(3, 3);
             this.btnUploadImage.Name = "btnUploadImage";
             this.btnUploadImage.Size = new System.Drawing.Size(79, 35);
@@ -222,6 +225,7 @@
             this.btnUploadImage.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World);
             this.btnUploadImage.TabIndex = 4;
             this.btnUploadImage.Values.Text = "Image";
+            this.btnUploadImage.Click += new System.EventHandler(this.btnUploadImage_Click);
             // 
             // label6
             // 

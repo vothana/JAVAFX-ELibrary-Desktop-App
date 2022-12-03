@@ -19,6 +19,7 @@ namespace Library.component.BookController
     {
         private SqlConnection conn = Server.Connection();
         private DataSql dataSql = new DataSql();
+        public string SearchText;
         public BookList()
         {
             InitializeComponent();
@@ -26,8 +27,17 @@ namespace Library.component.BookController
 
         private void BookList_Load(object sender, EventArgs e)
         {
-            
-            SqlDataReader data = dataSql.QueryAll(Server.TABLE.BOOK.ToString());
+
+            SqlDataReader data;
+
+            if(SearchText == null)
+            {
+                data = dataSql.QueryAll(Server.TABLE.BOOK.ToString());
+            }
+            else
+            {
+                data = dataSql.Search(Server.TABLE.BOOK.ToString(), "TITLE", SearchText);
+            }
 
             int colunm = 1, row = 0;
             while (data.Read())
