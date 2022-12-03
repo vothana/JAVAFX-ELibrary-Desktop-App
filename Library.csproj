@@ -96,6 +96,12 @@
     <Compile Include="component\BookController\SingleBookMG.Designer.cs">
       <DependentUpon>SingleBookMG.cs</DependentUpon>
     </Compile>
+    <Compile Include="component\BookController\SingleBookMGForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="component\BookController\SingleBookMGForm.Designer.cs">
+      <DependentUpon>SingleBookMGForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="component\GraphicExtension.cs" />
     <Compile Include="component\PicView\FullScreenImageView.cs">
       <SubType>Form</SubType>
@@ -129,7 +135,7 @@
     <Compile Include="component\UploadImage\UploadImgForm.Designer.cs">
       <DependentUpon>UploadImgForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Database\Query.cs" />
+    <Compile Include="Database\DataSql.cs" />
     <Compile Include="Database\Server.cs" />
     <Compile Include="Entity\ENUM\CurrentPath.cs" />
     <Compile Include="Entity\ENUM\EnumCode.cs" />
@@ -212,6 +218,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="component\BookController\SingleBookMG.resx">
       <DependentUpon>SingleBookMG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="component\BookController\SingleBookMGForm.resx">
+      <DependentUpon>SingleBookMGForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="component\PicView\FullScreenImageView.resx">
       <DependentUpon>FullScreenImageView.cs</DependentUpon>

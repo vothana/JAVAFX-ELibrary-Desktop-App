@@ -25,15 +25,12 @@ namespace Library.component.BookController
 
         private void Box_MouseLeave(object sender, EventArgs e)
         {
-            Box.BackColor = Color.LightCyan;
+            Box.BackColor = Color.LightBlue;
         }
 
-        private void Box_Paint(object sender, PaintEventArgs e)
+        private void BookAsList_Click(object sender, EventArgs e)
         {
-            using (SingleBookMG book = new SingleBookMG())
-            {
-                book.Show();
-            }
+            
         }
     }
 }
