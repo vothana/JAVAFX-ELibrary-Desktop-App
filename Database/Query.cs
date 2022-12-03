@@ -5,26 +5,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Server;
 
 namespace Library.Database
 {
     internal class Query
     {
-        private SqlConnection conn = null;
-        private string ServerName = "VOTHANA-CHY\\SQLEXPRESS";
-        private string DatabaseName = "MidtermDB";
-        private string Table = "Product_Tbl";
+        private SqlConnection conn = Server.Connection();
 
-        public void openConnection()
+        public SqlDataReader QueryAll(string table)
         {
-            try
-            {
-                string connString = " Data Source = " + ServerName + "; Initial Catalog = " + DatabaseName + " ; Integrated Security = true";
-                conn = new SqlConnection(connString);
-                conn.Open();
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message, "Connection Error"); }
+            SqlCommand cmd = new SqlCommand("SELECT * FROM " + table, conn);
+            SqlDataReader data = cmd.ExecuteReader();
+            return data;
+        }
+        public SqlDataReader QueryBy(string table, string by,  string code)
+        {
+            SqlCommand cmd = new SqlCommand("SELECT * FROM " + table + " WHERE " + by + " = " + code , conn);
+            SqlDataReader data = cmd.ExecuteReader();
+            return data;
         }
 
+        public SqlDataReader QueryString(string query)
+        {
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataReader data = cmd.ExecuteReader();
+            return data;
+        }
     }
 }

@@ -34,8 +34,8 @@ namespace Library
             CurrentPath.CurrentDir = dir; //Initailize current path
 
             //This code only for development mode
-            //txtUsername.Text = "admin";
-            txtUsername.Text = "student";
+            txtUsername.Text = "admin";
+           // txtUsername.Text = "student";
             txtPassword.Text = "123";
         }
 

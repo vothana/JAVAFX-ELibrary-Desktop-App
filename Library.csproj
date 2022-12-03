@@ -72,13 +72,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="component\BookView\BookView.cs">
+    <Compile Include="component\BookController\BookAsList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="component\BookController\BookAsList.Designer.cs">
+      <DependentUpon>BookAsList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="component\BookController\BookList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="component\BookView\BookView.Designer.cs">
-      <DependentUpon>BookView.cs</DependentUpon>
+    <Compile Include="component\BookController\BookList.Designer.cs">
+      <DependentUpon>BookList.cs</DependentUpon>
     </Compile>
-    <Compile Include="component\GraphicEx.cs" />
+    <Compile Include="component\BookController\SingleBook.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="component\BookController\SingleBook.Designer.cs">
+      <DependentUpon>SingleBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="component\BookController\SingleBookMG.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="component\BookController\SingleBookMG.Designer.cs">
+      <DependentUpon>SingleBookMG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="component\GraphicExtension.cs" />
     <Compile Include="component\PicView\FullScreenImageView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,11 +109,10 @@
     <Compile Include="component\PicView\ImageViewer.Designer.cs">
       <DependentUpon>ImageViewer.cs</DependentUpon>
     </Compile>
+    <Compile Include="component\RoundCorner.cs" />
     <Compile Include="component\RoundCornerPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="component\Rounded.cs" />
-    <Compile Include="component\RoundImageCorner.cs" />
     <Compile Include="component\RoundPic.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -130,17 +147,35 @@
     <Compile Include="screen\About\AboutForm.Designer.cs">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="screen\Book\BookDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="screen\Book\BookDetail.Designer.cs">
+      <DependentUpon>BookDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="screen\Book\BookManagement.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="screen\Book\BookManagement.Designer.cs">
       <DependentUpon>BookManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="screen\Book\CreateBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="screen\Book\CreateBook.Designer.cs">
+      <DependentUpon>CreateBook.cs</DependentUpon>
+    </Compile>
     <Compile Include="screen\Home\HomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="screen\Home\HomeForm.Designer.cs">
       <DependentUpon>HomeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="screen\Loan\LoanForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="screen\Loan\LoanForm.Designer.cs">
+      <DependentUpon>LoanForm.cs</DependentUpon>
     </Compile>
     <Compile Include="screen\Main\Main.cs">
       <SubType>Form</SubType>
@@ -166,6 +201,18 @@
     <Compile Include="screen\Student\StudentManagement.Designer.cs">
       <DependentUpon>StudentManagement.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="component\BookController\BookAsList.resx">
+      <DependentUpon>BookAsList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="component\BookController\BookList.resx">
+      <DependentUpon>BookList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="component\BookController\SingleBook.resx">
+      <DependentUpon>SingleBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="component\BookController\SingleBookMG.resx">
+      <DependentUpon>SingleBookMG.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="component\PicView\FullScreenImageView.resx">
       <DependentUpon>FullScreenImageView.cs</DependentUpon>
     </EmbeddedResource>
@@ -193,6 +240,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="screen\Book\BookManagement.resx">
       <DependentUpon>BookManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="screen\Book\CreateBook.resx">
+      <DependentUpon>CreateBook.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="screen\Home\HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
@@ -290,6 +340,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\full-screen-icon-3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SampleBook.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

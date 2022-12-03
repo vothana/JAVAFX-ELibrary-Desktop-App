@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Library.component
 {
-    internal class RoundImageCorner
+    internal class RoundCorner
     {
-        public Image RoundCorners(Image StartImage, int CornerRadius, Color BackgroundColor)
+        public Image RoundEdge(Image StartImage, int CornerRadius, Color BackgroundColor)
         {
             CornerRadius *= 2;
             Bitmap RoundedImage = new Bitmap(StartImage.Width, StartImage.Height);

@@ -1,6 +1,6 @@
-﻿namespace Library.component.BookView
+﻿namespace Library.screen.Loan
 {
-    partial class BookView
+    partial class LoanForm
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "BookView";
+            this.Text = "LoanForm";
         }
 
         #endregion

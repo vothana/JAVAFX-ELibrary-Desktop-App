@@ -141,7 +141,7 @@
             this.btnHome.BackColor = System.Drawing.Color.Transparent;
             this.btnHome.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleTurquoise;
             this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
+            this.btnHome.Font = new System.Drawing.Font("Poppins", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
             this.btnHome.ForeColor = System.Drawing.Color.Silver;
             this.btnHome.Image = global::Library.Properties.Resources.icons8_home_page_30;
             this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -170,7 +170,7 @@
             this.btnMyProfile.BackColor = System.Drawing.Color.Transparent;
             this.btnMyProfile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleTurquoise;
             this.btnMyProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMyProfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
+            this.btnMyProfile.Font = new System.Drawing.Font("Poppins", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
             this.btnMyProfile.ForeColor = System.Drawing.Color.Silver;
             this.btnMyProfile.Image = global::Library.Properties.Resources.icons8_male_user_30;
             this.btnMyProfile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -199,7 +199,7 @@
             this.btnMyBooks.BackColor = System.Drawing.Color.Transparent;
             this.btnMyBooks.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleTurquoise;
             this.btnMyBooks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMyBooks.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
+            this.btnMyBooks.Font = new System.Drawing.Font("Poppins", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
             this.btnMyBooks.ForeColor = System.Drawing.Color.Silver;
             this.btnMyBooks.Image = global::Library.Properties.Resources.icons8_books_30;
             this.btnMyBooks.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -229,7 +229,7 @@
             this.btnBookMG.BackColor = System.Drawing.Color.Transparent;
             this.btnBookMG.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleTurquoise;
             this.btnBookMG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBookMG.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
+            this.btnBookMG.Font = new System.Drawing.Font("Poppins", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
             this.btnBookMG.ForeColor = System.Drawing.Color.Silver;
             this.btnBookMG.Image = global::Library.Properties.Resources.icons8_books_30;
             this.btnBookMG.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -241,6 +241,7 @@
             this.btnBookMG.Text = "               Books Management";
             this.btnBookMG.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBookMG.UseVisualStyleBackColor = false;
+            this.btnBookMG.Click += new System.EventHandler(this.btnBookMG_Click);
             // 
             // panelStudentsMG
             // 
@@ -258,7 +259,7 @@
             this.btnStudentMG.BackColor = System.Drawing.Color.Transparent;
             this.btnStudentMG.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleTurquoise;
             this.btnStudentMG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStudentMG.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
+            this.btnStudentMG.Font = new System.Drawing.Font("Poppins", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
             this.btnStudentMG.ForeColor = System.Drawing.Color.Silver;
             this.btnStudentMG.Image = global::Library.Properties.Resources.icons8_graduate_30;
             this.btnStudentMG.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -287,7 +288,7 @@
             this.btnAbout.BackColor = System.Drawing.Color.Transparent;
             this.btnAbout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleTurquoise;
             this.btnAbout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAbout.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
+            this.btnAbout.Font = new System.Drawing.Font("Poppins", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
             this.btnAbout.ForeColor = System.Drawing.Color.Silver;
             this.btnAbout.Image = global::Library.Properties.Resources.icons8_info_30;
             this.btnAbout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -325,7 +326,7 @@
             this.btnExit.BackColor = System.Drawing.Color.Transparent;
             this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
+            this.btnExit.Font = new System.Drawing.Font("Poppins", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
             this.btnExit.ForeColor = System.Drawing.Color.Silver;
             this.btnExit.Image = global::Library.Properties.Resources.icons8_power_off_button_30;
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -412,7 +413,7 @@
             this.btnGoMyProfile.BackColor = System.Drawing.Color.Transparent;
             this.btnGoMyProfile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleTurquoise;
             this.btnGoMyProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGoMyProfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
+            this.btnGoMyProfile.Font = new System.Drawing.Font("Poppins", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
             this.btnGoMyProfile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnGoMyProfile.Image = global::Library.Properties.Resources.icons8_male_user_30__1_;
             this.btnGoMyProfile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
