@@ -38,23 +38,23 @@
   <ItemGroup>
     <Reference Include="ComponentFactory.Krypton.Docking, Version=4.6.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\Krypton\ComponentFactory.Krypton.Docking.dll</HintPath>
+      <HintPath>Assets\Krypton\ComponentFactory.Krypton.Docking.dll</HintPath>
     </Reference>
     <Reference Include="ComponentFactory.Krypton.Navigator, Version=4.6.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\Krypton\ComponentFactory.Krypton.Navigator.dll</HintPath>
+      <HintPath>Assets\Krypton\ComponentFactory.Krypton.Navigator.dll</HintPath>
     </Reference>
     <Reference Include="ComponentFactory.Krypton.Ribbon, Version=4.6.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\Krypton\ComponentFactory.Krypton.Ribbon.dll</HintPath>
+      <HintPath>Assets\Krypton\ComponentFactory.Krypton.Ribbon.dll</HintPath>
     </Reference>
     <Reference Include="ComponentFactory.Krypton.Toolkit, Version=4.6.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\Krypton\ComponentFactory.Krypton.Toolkit.dll</HintPath>
+      <HintPath>Assets\Krypton\ComponentFactory.Krypton.Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="ComponentFactory.Krypton.Workspace, Version=4.6.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\Krypton\ComponentFactory.Krypton.Workspace.dll</HintPath>
+      <HintPath>Assets\Krypton\ComponentFactory.Krypton.Workspace.dll</HintPath>
     </Reference>
     <Reference Include="PdfiumViewer, Version=2.13.0.0, Culture=neutral, PublicKeyToken=91e4789cfb0609e0, processorArchitecture=MSIL">
       <HintPath>packages\PdfiumViewer.2.13.0.0\lib\net20\PdfiumViewer.dll</HintPath>
@@ -90,6 +90,12 @@
     </Compile>
     <Compile Include="component\PicView\ImageViewer.Designer.cs">
       <DependentUpon>ImageViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="component\Popup\ConfirmBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="component\Popup\ConfirmBox.Designer.cs">
+      <DependentUpon>ConfirmBox.cs</DependentUpon>
     </Compile>
     <Compile Include="component\RoundCornerPanel.cs">
       <SubType>Component</SubType>
@@ -171,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="component\PicView\ImageViewer.resx">
       <DependentUpon>ImageViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="component\Popup\ConfirmBox.resx">
+      <DependentUpon>ConfirmBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="component\UploadImage\UploadImgForm.resx">
       <DependentUpon>UploadImgForm.cs</DependentUpon>
@@ -290,6 +299,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\full-screen-icon-3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\library1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
