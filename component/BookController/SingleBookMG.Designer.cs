@@ -1,4 +1,6 @@
-﻿namespace Library.component.BookController
+﻿using System.Drawing;
+
+namespace Library.component.BookController
 {
     partial class SingleBookMG
     {
@@ -114,6 +116,7 @@
             this.Controls.Add(this.Picthure);
             this.Name = "SingleBookMG";
             this.Size = new System.Drawing.Size(350, 600);
+            this.Load += new System.EventHandler(this.SingleBookMG_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Picthure)).EndInit();
             this.ResumeLayout(false);
 
@@ -127,5 +130,16 @@
         private System.Windows.Forms.Label Tittle;
         private System.Windows.Forms.Label Year;
         private System.Windows.Forms.Button Button;
+
+        public Image pic
+        {
+            get => Picthure.Image;
+            set => Picthure.Image = value;
+        }
+        public string BookTittle
+        {
+            get => Tittle.Text;
+            set => Tittle.Text = value;
+        }
     }
 }

@@ -95,16 +95,16 @@ namespace Library.component.UploadImage
             if (upload == EnumCode.UPLOAD.STUDENT.ToString())
             {
                 filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
-                targetPath = CurrentPath.CurrentDir + "\\Assets\\Students\\";
+                targetPath = CurrentPath.CurrentDir + "Students\\";
             }
             else if(upload == EnumCode.UPLOAD.BOOK.ToString())
             {
                 filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
-                targetPath = CurrentPath.CurrentDir + "\\Assets\\Books\\";
+                targetPath = CurrentPath.CurrentDir + "Books\\";
             }else if(upload == EnumCode.UPLOAD.PDF.ToString())
             {
                 filter = "Pdf File(*.pdf;)|*.pdf";
-                targetPath = CurrentPath.CurrentDir + "\\Assets\\PDF\\";
+                targetPath = CurrentPath.CurrentDir + "PDF\\";
                 pdfViewer.Visible = true;
                 uploadPDF.Visible = true;
                 label.Visible = false;
