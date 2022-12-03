@@ -271,6 +271,7 @@
             this.btnStudentMG.Text = "               Students Management";
             this.btnStudentMG.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnStudentMG.UseVisualStyleBackColor = false;
+            this.btnStudentMG.Click += new System.EventHandler(this.btnStudentMG_Click);
             // 
             // panelAbout
             // 
@@ -351,7 +352,7 @@
             // txtProfileName
             // 
             this.txtProfileName.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtProfileName.Font = new System.Drawing.Font("Poppins", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
+            this.txtProfileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
             this.txtProfileName.Location = new System.Drawing.Point(907, 17);
             this.txtProfileName.Name = "txtProfileName";
             this.txtProfileName.Size = new System.Drawing.Size(172, 25);
@@ -451,7 +452,7 @@
             this.btnLogOut.BackColor = System.Drawing.Color.Transparent;
             this.btnLogOut.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogOut.Font = new System.Drawing.Font("Poppins", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
+            this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
             this.btnLogOut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnLogOut.Image = global::Library.Properties.Resources.icons8_logout_rounded_left_30;
             this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
