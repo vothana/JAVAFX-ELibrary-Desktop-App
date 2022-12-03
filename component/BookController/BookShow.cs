@@ -1,6 +1,4 @@
-﻿using Library.Database;
-using Library.Entity.ENUM;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,24 +6,32 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ComponentFactory.Krypton.Toolkit;
+using Library.Database;
+using Library.Entity.ENUM;
 
 namespace Library.component.BookController
 {
-    public partial class SingleBookMG : UserControl
+    public partial class BookShow : KryptonForm
     {
-        int BookID;
+        public int BookID;
         private SqlConnection conn = Server.Connection();
         private DataSql dataSql = new DataSql();
-        public SingleBookMG(int id)
+        public BookShow()
         {
             InitializeComponent();
-            BookID = id;
         }
 
-        private void SingleBookMG_Load(object sender, EventArgs e)
+        private void BookShow_Load(object sender, EventArgs e)
+        {
+            load();
+        }
+
+        private void load()
         {
             SqlDataReader data = dataSql.QueryBy(Server.TABLE.BOOK.ToString(), "ID", BookID.ToString());
 
@@ -39,12 +45,12 @@ namespace Library.component.BookController
                     Picthure.Image = new Bitmap(dir);
                 }
                 Tittle.Text = data["Title"].ToString();
-                MessageBox.Show(Tittle.Text);
                 Author.Text = data["Author"].ToString();
                 Year.Text = data["Year"].ToString();
             }
             data.Close();
             conn.Close();
         }
+
     }
 }
