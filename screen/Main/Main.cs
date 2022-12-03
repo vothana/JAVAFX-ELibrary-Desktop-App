@@ -13,6 +13,7 @@ using Library.screen.Book;
 using Library.screen.Home;
 using Library.screen.MyBook;
 using Library.screen.Profile;
+using Library.screen.Student;
 
 namespace Library.screen.Main
 {
@@ -181,6 +182,17 @@ namespace Library.screen.Main
         private void txtProfileName_Click(object sender, EventArgs e)
         {
             OpenProfileForm();
+        }
+
+        private void btnStudentMG_Click(object sender, EventArgs e)
+        {
+            studentmg stumg = new studentmg();
+            stumg.TopLevel = false;
+            MainPanel.Controls.Clear();
+            MainPanel.Controls.Add(stumg);
+            stumg.Show();
+            profileMenu.Visible = false;
+            isSidebarExpanded();
         }
     }
 }
