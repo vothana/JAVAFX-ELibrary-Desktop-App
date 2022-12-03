@@ -265,6 +265,9 @@
     <EmbeddedResource Include="screen\Home\HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="screen\Loan\LoanForm.resx">
+      <DependentUpon>LoanForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="screen\Main\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -362,6 +365,9 @@
   <ItemGroup>
     <None Include="Resources\library1.png" />
     <None Include="Resources\SampleBook.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\e2be87e4c22ef55488c4f81c0849d56e.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
