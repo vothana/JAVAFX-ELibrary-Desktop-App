@@ -19,8 +19,6 @@ namespace Library.screen.Profile
 {
     public partial class ProfileForm : KryptonForm
     {
-        Rounded rounded = new Rounded();
-        RoundImageCorner round = new RoundImageCorner();
         string dir = CurrentPath.CurrentDir + "\\Assets\\Students\\";
         string fileName = "AAA.jpg";
         public ProfileForm()
@@ -54,7 +52,7 @@ namespace Library.screen.Profile
             using (UploadImgForm uploadImgForm = new UploadImgForm())
             {
                 uploadImgForm.TheID = txtID.Text;
-                uploadImgForm.Upload = EnumCode.UPLOAD.PDF.ToString();
+                uploadImgForm.Upload = EnumCode.UPLOAD.STUDENT.ToString();
                 uploadImgForm.ShowDialog();
             }
         }

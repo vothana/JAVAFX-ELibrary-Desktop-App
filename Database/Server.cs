@@ -4,17 +4,37 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
- class Server
+ public static class Server
+ {
+    private static SqlConnection connection = null;
+    private static string SERVER = "VOTHANA-CHY\\SQLEXPRESS";
+    private static string DB = "MidtermDB";
+
+    
+    public enum TABLE
     {
-       private SqlConnection conn = null;
-       private string ServerName = "VOTHANA-CHY\\SQLEXPRESS";
-       private string DatabaseName = "MidtermDB";
-       private string Table = "Product_Tbl";
-
-        public SqlConnection Conn { get => conn;}
-        public string ServerName1 { get => ServerName;}
-        public string DatabaseName1 { get => DatabaseName;}
-        public string Table1 { get => Table;}
+        BOOK,
+        STUDENT,
+        LOANLIST
     }
+
+
+
+    public static SqlConnection Connection()
+    {
+        try
+        {
+            string connString = " Data Source = " + SERVER + "; Initial Catalog = " + DB + " ; Integrated Security = true";
+            connection = new SqlConnection(connString);
+            return connection;
+        }
+        catch (Exception ex)
+        { 
+            MessageBox.Show(ex.Message, "Connection Error");
+            return null; 
+        }
+    }
+}
 

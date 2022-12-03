@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using Library.screen.About;
+using Library.screen.Book;
 using Library.screen.Home;
 using Library.screen.MyBook;
 using Library.screen.Profile;
@@ -133,6 +134,16 @@ namespace Library.screen.Main
             MainPanel.Controls.Clear();
             MainPanel.Controls.Add(homeForm);
             homeForm.Show();
+            isSidebarExpanded();
+        }
+        private void btnBookMG_Click(object sender, EventArgs e)
+        {
+            BookManagement bookManagement = new BookManagement();
+            bookManagement.TopLevel = false;
+            MainPanel.Controls.Clear();
+            MainPanel.Controls.Add(bookManagement);
+            bookManagement.Show();
+            profileMenu.Visible = false;
             isSidebarExpanded();
         }
 

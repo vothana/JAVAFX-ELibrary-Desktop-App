@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Library.component.BookView
+namespace Library.screen.Loan
 {
-    public partial class BookView : Form
+    public partial class LoanForm : KryptonForm
     {
-        public BookView()
+        public LoanForm()
         {
             InitializeComponent();
         }
