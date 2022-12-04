@@ -48,7 +48,7 @@
             this.Button.Name = "Button";
             this.Button.Size = new System.Drawing.Size(351, 40);
             this.Button.TabIndex = 11;
-            this.Button.Text = "button1";
+            this.Button.Text = "READ";
             this.Button.UseVisualStyleBackColor = false;
             // 
             // Year
@@ -59,7 +59,7 @@
             this.Year.Name = "Year";
             this.Year.Size = new System.Drawing.Size(344, 23);
             this.Year.TabIndex = 8;
-            this.Year.Text = "2018";
+            this.Year.Text = "BookYear";
             // 
             // Author
             // 
@@ -69,7 +69,7 @@
             this.Author.Name = "Author";
             this.Author.Size = new System.Drawing.Size(344, 23);
             this.Author.TabIndex = 9;
-            this.Author.Text = "Nicholas S. William";
+            this.Author.Text = "BookAuthor";
             // 
             // Tittle
             // 
@@ -79,22 +79,20 @@
             this.Tittle.Name = "Tittle";
             this.Tittle.Size = new System.Drawing.Size(347, 23);
             this.Tittle.TabIndex = 10;
-            this.Tittle.Text = "Java For Web Application";
+            this.Tittle.Text = "BookTittle";
             // 
             // Description
             // 
             this.Description.Location = new System.Drawing.Point(0, 514);
             this.Description.Name = "Description";
-            this.Description.Size = new System.Drawing.Size(350, 43);
+            this.Description.Size = new System.Drawing.Size(350, 44);
             this.Description.TabIndex = 7;
-            this.Description.Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet diam " +
-    "ultricies eros condimentum maximus sed at purus. Donec posuere ex sit amet diam " +
-    "tempor feugiat.";
+            this.Description.Text = "BookDescription";
             // 
             // Picthure
             // 
             this.Picthure.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Picthure.Image = global::Library.Properties.Resources.SampleBook;
+            this.Picthure.Image = global::Library.Properties.Resources.NoBookImage;
             this.Picthure.Location = new System.Drawing.Point(0, 0);
             this.Picthure.Name = "Picthure";
             this.Picthure.Size = new System.Drawing.Size(351, 444);
@@ -106,6 +104,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightCyan;
             this.ClientSize = new System.Drawing.Size(351, 601);
             this.Controls.Add(this.Button);
             this.Controls.Add(this.Year);

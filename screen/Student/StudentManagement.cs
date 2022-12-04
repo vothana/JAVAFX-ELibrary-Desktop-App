@@ -8,10 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using ComponentFactory.Krypton.Toolkit;
 
 namespace Library.screen.Student
 {
-    public partial class studentmg : Form
+    public partial class studentmg : KryptonForm
     {
         public studentmg()
         {

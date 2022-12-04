@@ -263,9 +263,29 @@ namespace Library.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap NoBookImage {
+            get {
+                object obj = ResourceManager.GetObject("NoBookImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap NUM_Logo {
             get {
                 object obj = ResourceManager.GetObject("NUM_Logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap photo_2022_11_20_15_08_18 {
+            get {
+                object obj = ResourceManager.GetObject("photo_2022_11_20_15_08_18", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

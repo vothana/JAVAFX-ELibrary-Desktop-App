@@ -49,7 +49,6 @@
             this.ClientSize = new System.Drawing.Size(1120, 720);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Name = "MyBookForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MyBookForm";

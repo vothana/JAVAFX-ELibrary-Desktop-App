@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Library.component.BookController;
+using Library.screen.Book;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,15 @@ namespace Library.screen.Home
         public HomeForm()
         {
             InitializeComponent();
+        }
+
+        private void HomeForm_Load(object sender, EventArgs e)
+        {
+            SingleBookList singleBookList = new SingleBookList();
+            singleBookList.TopLevel = false;
+            PanelBook.Controls.Clear();
+            PanelBook.Controls.Add(singleBookList);
+            singleBookList.Show();
         }
     }
 }

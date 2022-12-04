@@ -78,7 +78,7 @@ namespace Library.component.BookController
             this.Year.Name = "Year";
             this.Year.Size = new System.Drawing.Size(262, 31);
             this.Year.TabIndex = 3;
-            this.Year.Text = "2018";
+            this.Year.Text = "BookYear";
             this.Year.Click += new System.EventHandler(this.BookAsList_Click);
             this.Year.MouseLeave += new System.EventHandler(this.Box_MouseLeave);
             this.Year.MouseHover += new System.EventHandler(this.Box_MouseHover);
@@ -91,7 +91,7 @@ namespace Library.component.BookController
             this.Author.Name = "Author";
             this.Author.Size = new System.Drawing.Size(262, 23);
             this.Author.TabIndex = 4;
-            this.Author.Text = "Nicholas S. William";
+            this.Author.Text = "BookAuthor";
             this.Author.Click += new System.EventHandler(this.BookAsList_Click);
             this.Author.MouseLeave += new System.EventHandler(this.Box_MouseLeave);
             this.Author.MouseHover += new System.EventHandler(this.Box_MouseHover);
@@ -104,7 +104,7 @@ namespace Library.component.BookController
             this.Tittle.Name = "Tittle";
             this.Tittle.Size = new System.Drawing.Size(262, 23);
             this.Tittle.TabIndex = 5;
-            this.Tittle.Text = "Java For Web Application";
+            this.Tittle.Text = "BookTittle";
             this.Tittle.Click += new System.EventHandler(this.BookAsList_Click);
             this.Tittle.MouseLeave += new System.EventHandler(this.Box_MouseLeave);
             this.Tittle.MouseHover += new System.EventHandler(this.Box_MouseHover);
@@ -112,7 +112,7 @@ namespace Library.component.BookController
             // Image
             // 
             this.Image.Dock = System.Windows.Forms.DockStyle.Left;
-            this.Image.Image = global::Library.Properties.Resources.SampleBook;
+            this.Image.Image = global::Library.Properties.Resources.NoBookImage;
             this.Image.Location = new System.Drawing.Point(0, 0);
             this.Image.Name = "Image";
             this.Image.Size = new System.Drawing.Size(77, 77);
