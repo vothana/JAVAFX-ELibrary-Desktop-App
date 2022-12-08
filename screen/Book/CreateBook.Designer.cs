@@ -52,6 +52,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnSubmit = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.txtID = new System.Windows.Forms.TextBox();
+            this.btnDelete = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -317,6 +318,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.btnDelete);
             this.panel3.Controls.Add(this.btnSubmit);
             this.panel3.Location = new System.Drawing.Point(3, 492);
             this.panel3.Name = "panel3";
@@ -336,6 +338,7 @@
             this.btnSubmit.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World);
             this.btnSubmit.TabIndex = 0;
             this.btnSubmit.Values.Text = "Create";
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // txtID
             // 
@@ -346,6 +349,23 @@
             this.txtID.Size = new System.Drawing.Size(458, 9);
             this.txtID.TabIndex = 13;
             this.txtID.Visible = false;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDelete.Location = new System.Drawing.Point(192, 3);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(130, 38);
+            this.btnDelete.StateCommon.Back.Color1 = System.Drawing.Color.Red;
+            this.btnDelete.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btnDelete.StateCommon.Border.Rounding = 5;
+            this.btnDelete.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World);
+            this.btnDelete.TabIndex = 0;
+            this.btnDelete.Values.Text = "Delete";
+            this.btnDelete.Visible = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // CreateBook
             // 
@@ -402,5 +422,6 @@
         private System.Windows.Forms.Panel panel3;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnSubmit;
         private System.Windows.Forms.TextBox txtID;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnDelete;
     }
 }

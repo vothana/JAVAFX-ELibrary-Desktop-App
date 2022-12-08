@@ -57,6 +57,16 @@ namespace Library
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+
+            if("ADMIN" == ROLE.ADMIN.ToString())
+            {
+                User.USERROLE = ROLE.ADMIN.ToString();
+            }
+            else
+            {
+                User.USERROLE = ROLE.STUDENT.ToString();
+            }
+
             if (
                 txtUsername.Text.Equals("admin", StringComparison.InvariantCultureIgnoreCase) || 
                 txtUsername.Text.Equals("student", StringComparison.InvariantCultureIgnoreCase)

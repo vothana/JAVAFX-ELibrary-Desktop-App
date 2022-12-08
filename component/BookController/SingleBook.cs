@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Library.screen.Book;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,5 +18,14 @@ namespace Library.component.BookController
             InitializeComponent();
         }
 
+        private void ButtonRead_Click(object sender, EventArgs e)
+        {
+            using(BookDetail bookDetail = new BookDetail())
+            {
+                bookDetail.TopLevel = true;
+                bookDetail.BookID = BookID;
+                bookDetail.ShowDialog();
+            }
+        }
     }
 }

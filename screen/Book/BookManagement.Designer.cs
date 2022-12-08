@@ -95,7 +95,11 @@ namespace Library.screen.Book
             this.txtSearch.StateCommon.Content.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearch.TabIndex = 4;
             this.txtSearch.Text = "Search...";
+            this.txtSearch.Click += new System.EventHandler(this.txtSearch_Click);
+            this.txtSearch.Enter += new System.EventHandler(this.txtSearch_Click);
             this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
+            this.txtSearch.MouseEnter += new System.EventHandler(this.txtSearch_Click);
+            this.txtSearch.MouseHover += new System.EventHandler(this.txtSearch_Click);
             // 
             // BookManagement
             // 

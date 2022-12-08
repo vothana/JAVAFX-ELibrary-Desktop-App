@@ -48,6 +48,7 @@ namespace Library.component.BookController
             this.ButtonRead.TabIndex = 1;
             this.ButtonRead.Text = "READ";
             this.ButtonRead.UseVisualStyleBackColor = false;
+            this.ButtonRead.Click += new System.EventHandler(this.ButtonRead_Click);
             // 
             // BookPic
             // 
