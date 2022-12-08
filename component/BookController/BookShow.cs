@@ -13,14 +13,13 @@ using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using Library.Database;
 using Library.Entity.ENUM;
+using Library.screen.Book;
 
 namespace Library.component.BookController
 {
     public partial class BookShow : KryptonForm
     {
         public int BookID;
-        private SqlConnection conn = Server.Connection();
-        private DataSql dataSql = new DataSql();
         public BookShow()
         {
             InitializeComponent();
@@ -28,29 +27,37 @@ namespace Library.component.BookController
 
         private void BookShow_Load(object sender, EventArgs e)
         {
-            load();
+
         }
 
-        private void load()
+        private void Button_Click(object sender, EventArgs e)
         {
-            SqlDataReader data = dataSql.QueryBy(Server.TABLE.BOOK.ToString(), "ID", BookID.ToString());
-
-            while (data.Read())
-            {
-                string image = data["Image"].ToString();
-                string dir = CurrentPath.CurrentDir + "Books\\" + BookID + "\\" + image;
-
-                if (File.Exists(dir))
-                {
-                    Picthure.Image = new Bitmap(dir);
-                }
-                Tittle.Text = data["Title"].ToString();
-                Author.Text = data["Author"].ToString();
-                Year.Text = data["Year"].ToString();
-            }
-            data.Close();
-            conn.Close();
+            onclicked();
         }
 
+        private void Picthure_Click(object sender, EventArgs e)
+        {
+            onclicked();
+        }
+
+        private void onclicked()
+        {
+            if (Button.Text == "EDIT")
+            {
+                using (CreateBook createBook = new CreateBook())
+                {
+                    createBook.TopLevel = true;
+                    createBook.BookID = BookID;
+                    createBook.ShowDialog();
+                }
+            }
+            else
+            {
+                BookDetail bookDetail = new BookDetail();
+                bookDetail.BookID = BookID;
+                bookDetail.TopLevel = true;
+                bookDetail.ShowDialog();
+            }
+        }
     }
 }

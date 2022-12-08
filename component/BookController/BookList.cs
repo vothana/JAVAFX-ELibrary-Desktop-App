@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -27,16 +28,17 @@ namespace Library.component.BookController
 
         private void BookList_Load(object sender, EventArgs e)
         {
-
             SqlDataReader data;
 
             if(SearchText == null)
             {
                 data = dataSql.QueryAll(Server.TABLE.BOOK.ToString());
+                hasData(data);
             }
             else
             {
                 data = dataSql.Search(Server.TABLE.BOOK.ToString(), "TITLE", SearchText);
+                hasData(data);
             }
 
             int colunm = 1, row = 0;
@@ -51,7 +53,7 @@ namespace Library.component.BookController
                 if (File.Exists(dir))
                 {
                     book.BookImage = new Bitmap(dir);
-                } 
+                }
                 book.BookTittle = data["Title"].ToString();
                 book.BookAuthor = data["Author"].ToString();
                 book.BookYear = data["Year"].ToString();
@@ -65,7 +67,22 @@ namespace Library.component.BookController
             }
 
             data.Close();
-            conn.Close(); 
+            conn.Close();
         }
+
+        private void hasData(SqlDataReader data)
+        {
+            if (!data.HasRows)
+            {
+                noData.Visible = true;
+            }
+            else
+            {
+                noData.Visible = false;
+            }
+        }
+
+
+
     }
 }

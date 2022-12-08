@@ -1,4 +1,6 @@
-﻿namespace Library.component.BookController
+﻿using System.Drawing;
+
+namespace Library.component.BookController
 {
     partial class BookShow
     {
@@ -40,6 +42,7 @@
             // Button
             // 
             this.Button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(24)))), ((int)(((byte)(69)))));
+            this.Button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Button.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Button.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -50,6 +53,7 @@
             this.Button.TabIndex = 11;
             this.Button.Text = "READ";
             this.Button.UseVisualStyleBackColor = false;
+            this.Button.Click += new System.EventHandler(this.Button_Click);
             // 
             // Year
             // 
@@ -91,6 +95,7 @@
             // 
             // Picthure
             // 
+            this.Picthure.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Picthure.Dock = System.Windows.Forms.DockStyle.Top;
             this.Picthure.Image = global::Library.Properties.Resources.NoBookImage;
             this.Picthure.Location = new System.Drawing.Point(0, 0);
@@ -99,6 +104,7 @@
             this.Picthure.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Picthure.TabIndex = 6;
             this.Picthure.TabStop = false;
+            this.Picthure.Click += new System.EventHandler(this.Picthure_Click);
             // 
             // BookShow
             // 
@@ -130,5 +136,43 @@
         private System.Windows.Forms.Label Tittle;
         private System.Windows.Forms.Label Description;
         private System.Windows.Forms.PictureBox Picthure;
+
+        public Image BookPic
+        {
+            get => Picthure.Image;
+            set => Picthure.Image = value;
+        }
+
+        public string BookTittle
+        {
+            get => Tittle.Text;
+            set => Tittle.Text = value;
+        }
+
+        public string BookAuthor
+        {
+            get => Author.Text;
+            set => Author.Text = value;
+        }
+
+        public string BookYear
+        {
+            get => Year.Text;
+            set => Year.Text = value;
+        }
+
+        public string BookDescription
+        {
+            get => Description.Text;
+            set => Description.Text = value;
+        }
+
+        public string BookButton
+        {
+            get => Button.Text;
+            set => Button.Text = value;
+        }
+
+
     }
 }

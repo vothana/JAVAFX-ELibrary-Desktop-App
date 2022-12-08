@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
+using Library.Entity.ENUM;
 using Library.screen.About;
 using Library.screen.Book;
 using Library.screen.Home;
@@ -21,17 +22,17 @@ namespace Library.screen.Main
     {
         bool sidebarExpand;
         bool isVisible;
-        String role = Login.username;
         public Main()
         {
             InitializeComponent();
         }
         private void Main_Load(object sender, EventArgs e)
         {
-            if(role != "")
+            Home();
+            if (ROLE.ADMIN.ToString() == "ADMIN")
             {
-                txtProfileName.Text = role;
-                if (role.Equals("admin", StringComparison.InvariantCultureIgnoreCase))
+                txtProfileName.Text = ROLE.ADMIN.ToString();
+                if (ROLE.ADMIN.ToString().Equals("admin", StringComparison.InvariantCultureIgnoreCase))
                 {
                     panelBookMG.Visible = true;
                     panelStudentsMG.Visible = true;
@@ -129,6 +130,10 @@ namespace Library.screen.Main
         }
 
         private void btnHome_Click(object sender, EventArgs e)
+        {
+            Home();
+        }
+        private void Home()
         {
             HomeForm homeForm = new HomeForm();
             homeForm.TopLevel = false;

@@ -1,33 +1,72 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
+using Library.component.BookController;
 using Library.component.UploadImage;
+using Library.Database;
 using Library.Entity.ENUM;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Library.screen.Book
 {
     public partial class CreateBook : KryptonForm
     {
-        public string BookID;
+        public int BookID;
+        private SqlConnection conn = Server.Connection();
+        private DataSql dataSql = new DataSql();
+        private SqlDataReader data;
+        int maxID;
         public CreateBook()
         {
             InitializeComponent();
+            comLangauge.Items.Add("Khmer");
+            comLangauge.Items.Add("English");
+            maxID = dataSql.GetMaxID(Server.TABLE.BOOK.ToString(), "ID");
         }
 
         private void CreateBook_Load(object sender, EventArgs e)
         {
-            if (BookID != null)
+
+            if (BookID != 0)
             {
-                txtID.Text = BookID;
+                txtID.Text = BookID.ToString();
                 btnSubmit.Text = "Update";
+                btnDelete.Visible = true;
+
+                data = dataSql.QueryBy(Server.TABLE.BOOK.ToString(), "ID", BookID.ToString());
+                if (data.Read())
+                {
+                    txtTitle.Text = data["Title"].ToString();
+                    txtAuthor.Text = data["Author"].ToString();
+                    txtYear.Text = data["Year"].ToString();
+                    txtDescription.Text = data["Desc"].ToString();
+                    comLangauge.Text = data["langauge"].ToString();
+                    if (data["Status"].ToString().Equals("True"))
+                    {
+                        btnFree.Checked = true;
+                    }
+                    else
+                    {
+                       btnNotFree.Checked = true;
+                    }
+                }
+                data.Close();
             }
+            else
+            {
+                txtID.Text = (maxID + 1).ToString();
+            }
+            conn.Close();
         }
 
         private void btnUploadImage_Click(object sender, EventArgs e)
@@ -52,9 +91,103 @@ namespace Library.screen.Book
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-          
+            if (btnSubmit.Text.Equals("Update"))
+            {
+                updateBook();
+            }
+            else
+            {
+                createBook();
+                BookManagement.BID.loader();
+            }
         }
 
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            bool result = dataSql.delete(Server.TABLE.BOOK.ToString(), "ID", BookID.ToString());
+            if (result)
+            {
+                MessageBox.Show("Success deleted");
+                BookManagement.BID.loader();
+                this.Close();
+            }
+            else
+                MessageBox.Show("Cannot delete");
+        }
+
+        private void updateBook()
+        {
+            IDictionary<string, object> data = formData(BookID);
+            bool result = dataSql.mutaion("PUT", Server.TABLE.BOOK.ToString(), data,  "ID", BookID.ToString());
+            if (result)
+            {
+                MessageBox.Show("Success update");
+                BookManagement.BID.loader();
+                this.Close();
+            }
+              else
+                MessageBox.Show("Cannot update");
+        }
+        private void createBook()
+        {
+            IDictionary<string, object> data = formData(maxID);
+            bool result = dataSql.mutaion("POST", Server.TABLE.BOOK.ToString(), data, "", "");
+            if (result)
+            {
+                MessageBox.Show("Success created");
+                BookManagement.BID.loader();
+                this.Close();
+            }
+            else
+                MessageBox.Show("Cannot create");
+        }
+
+        private IDictionary<string, object> formData(int ID)
+        {
+            string[] files;
+            string imgPath = CurrentPath.CurrentDir + "Books\\" + ID + "\\";
+            string pdfPath = CurrentPath.CurrentDir + "PDF\\" + ID + "\\";
+            string image = "", pdf = "";
+            if (!File.Exists(imgPath))
+            {
+                System.IO.Directory.CreateDirectory(imgPath);
+                System.IO.Directory.CreateDirectory(pdfPath);
+            }
+                
+
+            files = Directory.GetFiles(imgPath);
+            if(files.Length > 0)
+                image = Path.GetFileName(files[0]);
+
+
+            files = Directory.GetFiles(pdfPath);
+            if (files.Length > 0)
+                pdf = Path.GetFileName(files[0]);
+
+            IDictionary<string, object> data = new Dictionary<string, object>();
+            data["TITLE"] = txtTitle.Text;
+            data["DESC"] = txtDescription.Text;
+            data["AUTHOR"] = txtAuthor.Text;
+            data["YEAR"] = Int32.Parse(txtYear.Text);
+            data["LANGAUGE"] = comLangauge.Text;
+
+            if (image != null && image != "")
+                data["IMAGE"] = image;
+            else
+                data["IMAGE"] = "no image";
+
+            if (pdf != null && pdf != "")
+                data["PDF"] = txtTitle.Text;
+            else
+                data["PDF"] = "no pdf";
+
+            if (btnFree.Checked)
+                data["STATUS"] = true;
+            else
+                data["STATUS"] = false;
+
+            return data;
+        }
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();

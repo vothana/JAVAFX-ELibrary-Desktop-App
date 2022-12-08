@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using Library.Entity.ENUM;
+using Library.screen.Book;
 using PdfiumViewer;
 
 namespace Library.component.UploadImage
@@ -52,21 +53,22 @@ namespace Library.component.UploadImage
 
         private void btnUpload_Click(object sender, EventArgs e)
         {
-            targetPath = targetPath + theID;
-            if (Directory.Exists(targetPath))
+
+            if (sourcePath != "" && sourcePath != null)
             {
-                try { Directory.Delete(targetPath, true); }
-                catch (IOException ex)
+
+                targetPath = targetPath + theID;
+                if (Directory.Exists(targetPath))
                 {
-                    MessageBox.Show("File already exist, or try another file.");
-                } //delete folder if exists
-                //avoid has alot of file in a directory
-            }
+                    try { Directory.Delete(targetPath, true); }
+                    catch (IOException ex)
+                    {
+                        MessageBox.Show("File already exist, or try another file.");
+                    } //delete folder if exists
+                      //avoid has alot of file in a directory
+                }
 
-            System.IO.Directory.CreateDirectory(targetPath);
-
-            if (sourcePath != "")
-            {
+                System.IO.Directory.CreateDirectory(targetPath);
                 string[] split1 = sourcePath.Split('\\');
                 string fileName = split1.Last(); // will put into database
 
@@ -75,6 +77,7 @@ namespace Library.component.UploadImage
                 if (File.Exists(destFile))
                 {
                     MessageBox.Show("File uploaded");
+                    BookManagement.BID.loader();
                     this.Close();
                 }
                 else
@@ -94,12 +97,12 @@ namespace Library.component.UploadImage
         {
             if (upload == EnumCode.UPLOAD.STUDENT.ToString())
             {
-                filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+                filter = "Image Files(*.jpg; *.jpeg; *.png; *.gif; *.bmp)|*.jpg; *.jpeg; *.png; *.gif; *.bmp";
                 targetPath = CurrentPath.CurrentDir + "Students\\";
             }
             else if(upload == EnumCode.UPLOAD.BOOK.ToString())
             {
-                filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+                filter = "Image Files(*.jpg; *.jpeg; *.png; *.gif; *.bmp)|*.jpg; *.jpeg; *.png; *.gif; *.bmp";
                 targetPath = CurrentPath.CurrentDir + "Books\\";
             }else if(upload == EnumCode.UPLOAD.PDF.ToString())
             {

@@ -78,6 +78,12 @@
     <Compile Include="component\BookController\BookAsList.Designer.cs">
       <DependentUpon>BookAsList.cs</DependentUpon>
     </Compile>
+    <Compile Include="component\BookController\BookDetailShow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="component\BookController\BookDetailShow.Designer.cs">
+      <DependentUpon>BookDetailShow.cs</DependentUpon>
+    </Compile>
     <Compile Include="component\BookController\BookList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -217,6 +223,9 @@
     <EmbeddedResource Include="component\BookController\BookAsList.resx">
       <DependentUpon>BookAsList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="component\BookController\BookDetailShow.resx">
+      <DependentUpon>BookDetailShow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="component\BookController\BookList.resx">
       <DependentUpon>BookList.cs</DependentUpon>
     </EmbeddedResource>
@@ -256,6 +265,9 @@
     </Compile>
     <EmbeddedResource Include="screen\About\AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="screen\Book\BookDetail.resx">
+      <DependentUpon>BookDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="screen\Book\BookManagement.resx">
       <DependentUpon>BookManagement.cs</DependentUpon>
