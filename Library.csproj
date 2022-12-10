@@ -147,6 +147,7 @@
     <Compile Include="component\UploadImage\UploadImgForm.Designer.cs">
       <DependentUpon>UploadImgForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="component\WriteAppend.cs" />
     <Compile Include="Database\DataSql.cs" />
     <Compile Include="Database\Server.cs" />
     <Compile Include="Entity\ENUM\CurrentPath.cs" />

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Library.component;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
@@ -84,6 +85,8 @@ namespace Library.Database
 
         public bool mutaion(string method, string table, IDictionary<string, object> data, string by, string code )
         {
+            string insertStatement = "INSERT INTO [" + table + "] ( "; //Generate Insert statement
+
             handleConnStateOpen();
             SqlCommand cmd;
             string parameters = "";
@@ -94,9 +97,13 @@ namespace Library.Database
                 {
                     parameters += "[" + entry.Key + "]";
                     values += " @" + entry.Key;
+
+                    insertStatement += "[" + entry.Key + "]"; //Generate Insert statement
+
                     if (i < data.Count) { 
                         parameters += " , ";
                         values += " , ";
+                        insertStatement += " , "; //Generate Insert statement
                     }
                     i++;
                 }
@@ -104,25 +111,43 @@ namespace Library.Database
                 foreach (KeyValuePair<string, object> entry in data)
                 {
                     parameters += "[" + entry.Key + "]" + " = @" + entry.Key;
-                    if (i < data.Count) { parameters += " , "; }
+                    if (i < data.Count) { 
+                        parameters += " , ";
+                    }
                     i++;
                 }
+
+            insertStatement += " ) \nVALUES ( ";
 
             try
             {
                 if (method == "POST")
-                    cmd = new SqlCommand("INSERT INTO " + table + " ( " + parameters  + " ) VALUES ( " + values + " );", conn);
+                    cmd = new SqlCommand("INSERT INTO " + table + " ( " + parameters + " ) VALUES ( " + values + " );", conn);
                 else if (method == "PUT")
                     cmd = new SqlCommand("UPDATE " + table + " SET " + parameters + " WHERE " + by + " = " + code, conn);
                 else
                     cmd = null;
                 //MessageBox.Show("UPDATE " + table + " SET " + parameters + " WHERE " + by + " = " + code);
 
+                i = 1;
                 foreach (KeyValuePair<string, object> entry in data)
                 {
                     cmd.Parameters.AddWithValue(entry.Key, entry.Value);
+
+                    insertStatement += converter(entry.Value); //Generate Insert statement
+                    if (i < data.Count)
+                    {
+                        insertStatement += " , "; //Generate Insert statement
+                    }
+                    i++;
                     // MessageBox.Show("cmd.Parameters.AddWithValue(" + entry.Key + " , " + entry.Value + " )");
                 }
+
+                insertStatement += " );";
+                WriteToFile writeToFile = new WriteToFile();
+                writeToFile.Write(insertStatement);
+
+
                 cmd.ExecuteNonQuery();
 
                 return true;
@@ -149,6 +174,21 @@ namespace Library.Database
             else
             {
                 conn.Open();
+            }
+        }
+
+        private Object converter(Object item)
+        {   
+            if(item.GetType() == typeof(string))
+            {
+                return "'" + item.ToString() + "'";
+            } else if (item.GetType() == typeof(bool))
+            {
+                return Boolean.Parse(item.ToString()) ? 1 : 0;
+            }
+            else
+            {
+                return item;
             }
         }
     }

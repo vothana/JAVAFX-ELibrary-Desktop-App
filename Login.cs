@@ -36,8 +36,8 @@ namespace Library
             CurrentPath.CurrentDir = dir + "\\Assets\\"; //Initailize current path
 
             //This code only for development mode
-            txtUsername.Text = "admin";
-           // txtUsername.Text = "student";
+            //txtUsername.Text = "admin";
+            txtUsername.Text = "student";
             txtPassword.Text = "123";
         }
 
@@ -57,8 +57,7 @@ namespace Library
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-
-            if("ADMIN" == ROLE.ADMIN.ToString())
+            if (txtUsername.Text.Equals(ROLE.ADMIN.ToString(), StringComparison.InvariantCultureIgnoreCase))
             {
                 User.USERROLE = ROLE.ADMIN.ToString();
             }

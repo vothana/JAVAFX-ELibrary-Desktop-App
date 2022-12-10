@@ -32,6 +32,12 @@ namespace Library.screen.Book
             BID = this;
             int minID = dataSql.GetMinID(Server.TABLE.BOOK.ToString(), "ID");
             BookID = minID;
+
+            
+            if(User.USERROLE == ROLE.STUDENT.ToString())
+            {
+                btnCreateNew.Visible = false;
+            }
         }
 
         private void BookManagement_Load(object sender, EventArgs e)

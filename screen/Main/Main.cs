@@ -29,21 +29,19 @@ namespace Library.screen.Main
         private void Main_Load(object sender, EventArgs e)
         {
             Home();
-            if (ROLE.ADMIN.ToString() == "ADMIN")
+            if (User.USERROLE == ROLE.ADMIN.ToString())
             {
                 txtProfileName.Text = ROLE.ADMIN.ToString();
-                if (ROLE.ADMIN.ToString().Equals("admin", StringComparison.InvariantCultureIgnoreCase))
-                {
-                    panelBookMG.Visible = true;
-                    panelStudentsMG.Visible = true;
-                    panelMyBook.Visible = false;
-                    panelMyProfile.Visible = false;
-                    panelSpace.Height += 50 * 2 + 26 / 2;
-                }
-                else
-                {
-                    panelSpace.Height += 50 * 2 + 26 / 2;
-                }
+                panelBookMG.Visible = true;
+                panelStudentsMG.Visible = true;
+                panelMyBook.Visible = false;
+                panelMyProfile.Visible = false;
+                panelSpace.Height += 50 * 2 + 26 / 2;
+            }
+            else
+            {
+                txtProfileName.Text = ROLE.STUDENT.ToString();
+                panelSpace.Height += 50 * 2 + 26 / 2;
             }
             
         }
