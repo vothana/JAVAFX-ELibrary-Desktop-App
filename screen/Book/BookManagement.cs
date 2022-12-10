@@ -30,9 +30,6 @@ namespace Library.screen.Book
         {
             InitializeComponent();
             BID = this;
-            int minID = dataSql.GetMinID(Server.TABLE.BOOK.ToString(), "ID");
-            BookID = minID;
-
             
             if(User.USERROLE == ROLE.STUDENT.ToString())
             {
@@ -57,6 +54,12 @@ namespace Library.screen.Book
 
         public void showBook()
         {
+            if(BookID == 0)
+            {
+                int minID = dataSql.GetMinID(Server.TABLE.BOOK.ToString(), "ID");
+                BookID = minID;
+            }
+
             if(BookID > 0)
             {
                 BookShow bookShow = new BookShow();
