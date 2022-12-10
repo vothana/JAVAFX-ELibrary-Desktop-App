@@ -108,7 +108,13 @@ namespace Library.screen.Book
             if (result)
             {
                 MessageBox.Show("Success deleted");
+                BookManagement.BID.BookID = 0;
                 BookManagement.BID.loader();
+                try { Directory.Delete(CurrentPath.CurrentDir + "Books\\" + BookID , true); }
+                catch (IOException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
                 this.Close();
             }
             else
