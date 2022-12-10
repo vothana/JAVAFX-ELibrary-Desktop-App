@@ -21,7 +21,7 @@ CREATE TABLE [STUDENT](
 	[PHONE] [varchar](20) NOT NULL,
 	[ADDRESS] [nvarchar](200) NULL,
 	[DEPARTMENT] [nvarchar](100) NULL,
-	[SHCOOL] [nvarchar](150) NULL,
+	[SCHOOL] [nvarchar](150) NULL,
 	[IMAGE] [nvarchar](200) NULL
 );
 
@@ -34,6 +34,10 @@ CREATE TABLE [LOANLIST](
 	FOREIGN KEY(STUDENTID) REFERENCES [STUDENT](ID),
 );
 
---Modified by: VOTHANA-CHY Generated:12/10/2022 5:09:43 PM
-INSERT INTO [BOOK] (  ) 
-VALUES ( 'Java for Web Applications' , 'Java for Web Applications  by Williams 2014' , 'Williams' , 2014 , 'English' , 'photo_2022-12-04_21-27-53.jpg' , 'Java for Web Applications' , 1 );
+--Modified by: VOTHANA-CHY Generated:12/10/2022 9:02:44 PM
+INSERT INTO [BOOK] ( [TITLE] , [DESC] , [AUTHOR] , [YEAR] , [LANGAUGE] , [IMAGE] , [PDF] , [STATUS] ) 
+VALUES ( 'JAVA SE' , 'Java is the best langauge ever' , 'Pilot Nama' , 2018 , 'English' , 'photo_2022-12-04_21-27-53.jpg' , 'JAVA SE' , 1 );
+
+--Modified by: VOTHANA-CHY Generated:12/10/2022 9:09:30 PM
+INSERT INTO [BOOK] ( [TITLE] , [DESC] , [AUTHOR] , [YEAR] , [LANGAUGE] , [IMAGE] , [PDF] , [STATUS] ) 
+VALUES ( 'JAVA Servlets & JSP' , 'JAVA Servlets & JSP by Joel Murach 2012' , 'Joel Murach' , 2012 , 'English' , 'photo_2022-12-04_21-28-12.jpg' , 'JAVA Servlets & JSP' , 0 );
