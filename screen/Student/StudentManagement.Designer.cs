@@ -43,7 +43,6 @@
             this.txtdepartment = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.txtaddress = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.txtphonenumber = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.txtdob = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.txtgender = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.txtfullname = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.btnnew = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -51,53 +50,54 @@
             this.btnsave = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btndelete = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.txtselectimage = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.txtschool = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel9 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.roundedPic1 = new Library.component.RoundedPic();
+            this.txtdob = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.datagridstudent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roundedPic1)).BeginInit();
             this.SuspendLayout();
             // 
             // datagridstudent
             // 
+            this.datagridstudent.AllowUserToAddRows = false;
+            this.datagridstudent.AllowUserToDeleteRows = false;
+            this.datagridstudent.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.datagridstudent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datagridstudent.Location = new System.Drawing.Point(418, 74);
+            this.datagridstudent.Location = new System.Drawing.Point(380, 74);
             this.datagridstudent.Name = "datagridstudent";
-            this.datagridstudent.Size = new System.Drawing.Size(674, 525);
+            this.datagridstudent.ReadOnly = true;
+            this.datagridstudent.Size = new System.Drawing.Size(806, 525);
             this.datagridstudent.TabIndex = 2;
             this.datagridstudent.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridstudent_CellContentClick);
             // 
             // kryptonLabel1
             // 
             this.kryptonLabel1.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.kryptonLabel1.Location = new System.Drawing.Point(5, 210);
+            this.kryptonLabel1.Location = new System.Drawing.Point(35, 210);
             this.kryptonLabel1.Name = "kryptonLabel1";
             this.kryptonLabel1.Size = new System.Drawing.Size(94, 23);
             this.kryptonLabel1.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonLabel1.StateCommon.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.kryptonLabel1.StateCommon.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.kryptonLabel1.TabIndex = 3;
             this.kryptonLabel1.Values.Text = "StudentID :";
             // 
             // kryptonLabel2
             // 
             this.kryptonLabel2.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.kryptonLabel2.Location = new System.Drawing.Point(5, 524);
+            this.kryptonLabel2.Location = new System.Drawing.Point(22, 524);
             this.kryptonLabel2.Name = "kryptonLabel2";
             this.kryptonLabel2.Size = new System.Drawing.Size(107, 23);
             this.kryptonLabel2.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonLabel2.StateCommon.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.kryptonLabel2.StateCommon.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.kryptonLabel2.TabIndex = 4;
             this.kryptonLabel2.Values.Text = "Department :";
             // 
             // kryptonLabel3
             // 
             this.kryptonLabel3.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.kryptonLabel3.Location = new System.Drawing.Point(5, 469);
+            this.kryptonLabel3.Location = new System.Drawing.Point(48, 469);
             this.kryptonLabel3.Name = "kryptonLabel3";
             this.kryptonLabel3.Size = new System.Drawing.Size(81, 23);
             this.kryptonLabel3.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonLabel3.StateCommon.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.kryptonLabel3.StateCommon.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.kryptonLabel3.TabIndex = 5;
             this.kryptonLabel3.Values.Text = "Address :";
             // 
@@ -108,32 +108,26 @@
             this.kryptonLabel4.Name = "kryptonLabel4";
             this.kryptonLabel4.Size = new System.Drawing.Size(124, 23);
             this.kryptonLabel4.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonLabel4.StateCommon.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.kryptonLabel4.StateCommon.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.kryptonLabel4.TabIndex = 6;
             this.kryptonLabel4.Values.Text = "Phonenumber :";
             // 
             // kryptonLabel5
             // 
             this.kryptonLabel5.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.kryptonLabel5.Location = new System.Drawing.Point(5, 363);
+            this.kryptonLabel5.Location = new System.Drawing.Point(76, 363);
             this.kryptonLabel5.Name = "kryptonLabel5";
             this.kryptonLabel5.Size = new System.Drawing.Size(53, 23);
             this.kryptonLabel5.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonLabel5.StateCommon.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.kryptonLabel5.StateCommon.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.kryptonLabel5.TabIndex = 7;
             this.kryptonLabel5.Values.Text = "DoB :";
             // 
             // kryptonLabel6
             // 
             this.kryptonLabel6.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.kryptonLabel6.Location = new System.Drawing.Point(5, 312);
+            this.kryptonLabel6.Location = new System.Drawing.Point(53, 312);
             this.kryptonLabel6.Name = "kryptonLabel6";
             this.kryptonLabel6.Size = new System.Drawing.Size(76, 23);
             this.kryptonLabel6.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonLabel6.StateCommon.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.kryptonLabel6.StateCommon.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.kryptonLabel6.TabIndex = 8;
             this.kryptonLabel6.Values.Text = "Gender :";
             this.kryptonLabel6.Paint += new System.Windows.Forms.PaintEventHandler(this.kryptonLabel6_Paint);
@@ -141,24 +135,20 @@
             // kryptonLabel7
             // 
             this.kryptonLabel7.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.kryptonLabel7.Location = new System.Drawing.Point(5, 261);
+            this.kryptonLabel7.Location = new System.Drawing.Point(40, 261);
             this.kryptonLabel7.Name = "kryptonLabel7";
             this.kryptonLabel7.Size = new System.Drawing.Size(89, 23);
             this.kryptonLabel7.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonLabel7.StateCommon.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.kryptonLabel7.StateCommon.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.kryptonLabel7.TabIndex = 9;
             this.kryptonLabel7.Values.Text = "Fullname :";
             // 
             // kryptonLabel8
             // 
             this.kryptonLabel8.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.kryptonLabel8.Location = new System.Drawing.Point(5, 576);
+            this.kryptonLabel8.Location = new System.Drawing.Point(-6, 628);
             this.kryptonLabel8.Name = "kryptonLabel8";
             this.kryptonLabel8.Size = new System.Drawing.Size(135, 23);
             this.kryptonLabel8.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonLabel8.StateCommon.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.kryptonLabel8.StateCommon.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.kryptonLabel8.TabIndex = 10;
             this.kryptonLabel8.Values.Text = "ProfilePicName :";
             this.kryptonLabel8.Paint += new System.Windows.Forms.PaintEventHandler(this.kryptonLabel8_Paint);
@@ -171,20 +161,18 @@
             this.txtid.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtid.StateCommon.Border.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.txtid.StateCommon.Border.Rounding = 5;
             this.txtid.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtid.TabIndex = 11;
             // 
             // txtpfpicname
             // 
-            this.txtpfpicname.Location = new System.Drawing.Point(127, 564);
+            this.txtpfpicname.Location = new System.Drawing.Point(127, 616);
             this.txtpfpicname.Name = "txtpfpicname";
             this.txtpfpicname.Size = new System.Drawing.Size(247, 35);
             this.txtpfpicname.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtpfpicname.StateCommon.Border.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.txtpfpicname.StateCommon.Border.Rounding = 5;
             this.txtpfpicname.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtpfpicname.TabIndex = 13;
@@ -197,7 +185,6 @@
             this.txtdepartment.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtdepartment.StateCommon.Border.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.txtdepartment.StateCommon.Border.Rounding = 5;
             this.txtdepartment.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtdepartment.TabIndex = 14;
@@ -210,7 +197,6 @@
             this.txtaddress.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtaddress.StateCommon.Border.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.txtaddress.StateCommon.Border.Rounding = 5;
             this.txtaddress.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtaddress.TabIndex = 15;
@@ -223,23 +209,9 @@
             this.txtphonenumber.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtphonenumber.StateCommon.Border.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.txtphonenumber.StateCommon.Border.Rounding = 5;
             this.txtphonenumber.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtphonenumber.TabIndex = 16;
-            // 
-            // txtdob
-            // 
-            this.txtdob.Location = new System.Drawing.Point(127, 351);
-            this.txtdob.Name = "txtdob";
-            this.txtdob.Size = new System.Drawing.Size(247, 35);
-            this.txtdob.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtdob.StateCommon.Border.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.txtdob.StateCommon.Border.Rounding = 5;
-            this.txtdob.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtdob.TabIndex = 17;
             // 
             // txtgender
             // 
@@ -249,7 +221,6 @@
             this.txtgender.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtgender.StateCommon.Border.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.txtgender.StateCommon.Border.Rounding = 5;
             this.txtgender.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtgender.TabIndex = 18;
@@ -262,91 +233,77 @@
             this.txtfullname.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtfullname.StateCommon.Border.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.txtfullname.StateCommon.Border.Rounding = 5;
             this.txtfullname.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtfullname.TabIndex = 19;
             // 
             // btnnew
             // 
-            this.btnnew.Location = new System.Drawing.Point(12, 637);
+            this.btnnew.Location = new System.Drawing.Point(429, 628);
             this.btnnew.Name = "btnnew";
             this.btnnew.Size = new System.Drawing.Size(130, 37);
             this.btnnew.StateCommon.Back.Color1 = System.Drawing.Color.White;
             this.btnnew.StateCommon.Back.Color2 = System.Drawing.Color.White;
-            this.btnnew.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.btnnew.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btnnew.StateCommon.Border.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.btnnew.StateCommon.Border.Rounding = 10;
             this.btnnew.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Black;
             this.btnnew.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnnew.StateCommon.Content.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.btnnew.StateCommon.Content.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.btnnew.TabIndex = 20;
             this.btnnew.Values.Text = "New";
             this.btnnew.Click += new System.EventHandler(this.btnnew_Click);
             // 
             // btnupdate
             // 
-            this.btnupdate.Location = new System.Drawing.Point(366, 637);
+            this.btnupdate.Location = new System.Drawing.Point(783, 628);
             this.btnupdate.Name = "btnupdate";
             this.btnupdate.Size = new System.Drawing.Size(130, 37);
             this.btnupdate.StateCommon.Back.Color1 = System.Drawing.Color.White;
             this.btnupdate.StateCommon.Back.Color2 = System.Drawing.Color.White;
-            this.btnupdate.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.btnupdate.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btnupdate.StateCommon.Border.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.btnupdate.StateCommon.Border.Rounding = 10;
             this.btnupdate.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Black;
             this.btnupdate.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnupdate.StateCommon.Content.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.btnupdate.StateCommon.Content.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.btnupdate.TabIndex = 24;
             this.btnupdate.Values.Text = "Update";
+            this.btnupdate.Click += new System.EventHandler(this.btnupdate_Click);
             // 
             // btnsave
             // 
-            this.btnsave.Location = new System.Drawing.Point(182, 637);
+            this.btnsave.Location = new System.Drawing.Point(615, 628);
             this.btnsave.Name = "btnsave";
             this.btnsave.Size = new System.Drawing.Size(130, 37);
             this.btnsave.StateCommon.Back.Color1 = System.Drawing.Color.White;
             this.btnsave.StateCommon.Back.Color2 = System.Drawing.Color.White;
-            this.btnsave.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.btnsave.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btnsave.StateCommon.Border.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.btnsave.StateCommon.Border.Rounding = 10;
             this.btnsave.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Black;
             this.btnsave.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnsave.StateCommon.Content.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.btnsave.StateCommon.Content.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.btnsave.TabIndex = 25;
             this.btnsave.Values.Text = "Save";
+            this.btnsave.Click += new System.EventHandler(this.btnsave_Click);
             // 
             // btndelete
             // 
-            this.btndelete.Location = new System.Drawing.Point(545, 637);
+            this.btndelete.Location = new System.Drawing.Point(962, 628);
             this.btndelete.Name = "btndelete";
             this.btndelete.Size = new System.Drawing.Size(130, 37);
             this.btndelete.StateCommon.Back.Color1 = System.Drawing.Color.Red;
             this.btndelete.StateCommon.Back.Color2 = System.Drawing.Color.Red;
-            this.btndelete.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.btndelete.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btndelete.StateCommon.Border.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.btndelete.StateCommon.Border.Rounding = 10;
             this.btndelete.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
             this.btndelete.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btndelete.StateCommon.Content.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.btndelete.StateCommon.Content.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.btndelete.TabIndex = 26;
             this.btndelete.Values.Text = "Delete";
+            this.btndelete.Click += new System.EventHandler(this.btndelete_Click);
             // 
             // txtselectimage
             // 
@@ -356,6 +313,29 @@
             this.txtselectimage.TabIndex = 27;
             this.txtselectimage.Values.Text = "Select Image";
             this.txtselectimage.Click += new System.EventHandler(this.txtselectimage_Click);
+            // 
+            // txtschool
+            // 
+            this.txtschool.Location = new System.Drawing.Point(127, 564);
+            this.txtschool.Name = "txtschool";
+            this.txtschool.Size = new System.Drawing.Size(247, 35);
+            this.txtschool.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.txtschool.StateCommon.Border.Rounding = 5;
+            this.txtschool.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtschool.TabIndex = 29;
+            // 
+            // kryptonLabel9
+            // 
+            this.kryptonLabel9.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
+            this.kryptonLabel9.Location = new System.Drawing.Point(54, 576);
+            this.kryptonLabel9.Name = "kryptonLabel9";
+            this.kryptonLabel9.Size = new System.Drawing.Size(67, 23);
+            this.kryptonLabel9.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonLabel9.TabIndex = 28;
+            this.kryptonLabel9.Values.Text = "School:";
+            this.kryptonLabel9.Paint += new System.Windows.Forms.PaintEventHandler(this.kryptonLabel9_Paint);
             // 
             // roundedPic1
             // 
@@ -371,13 +351,29 @@
             this.roundedPic1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.roundedPic1.TabIndex = 1;
             this.roundedPic1.TabStop = false;
+            this.roundedPic1.Click += new System.EventHandler(this.roundedPic1_Click);
+            // 
+            // txtdob
+            // 
+            this.txtdob.Location = new System.Drawing.Point(127, 351);
+            this.txtdob.Name = "txtdob";
+            this.txtdob.Size = new System.Drawing.Size(247, 35);
+            this.txtdob.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.txtdob.StateCommon.Border.Rounding = 5;
+            this.txtdob.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtdob.TabIndex = 30;
             // 
             // studentmg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
-            this.ClientSize = new System.Drawing.Size(1120, 720);
+            this.ClientSize = new System.Drawing.Size(1198, 720);
+            this.Controls.Add(this.txtdob);
+            this.Controls.Add(this.txtschool);
+            this.Controls.Add(this.kryptonLabel9);
             this.Controls.Add(this.txtselectimage);
             this.Controls.Add(this.btndelete);
             this.Controls.Add(this.btnsave);
@@ -385,7 +381,6 @@
             this.Controls.Add(this.btnnew);
             this.Controls.Add(this.txtfullname);
             this.Controls.Add(this.txtgender);
-            this.Controls.Add(this.txtdob);
             this.Controls.Add(this.txtphonenumber);
             this.Controls.Add(this.txtaddress);
             this.Controls.Add(this.txtdepartment);
@@ -429,7 +424,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtdepartment;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtaddress;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtphonenumber;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtdob;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtgender;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtfullname;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnnew;
@@ -437,5 +431,8 @@
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnsave;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btndelete;
         private ComponentFactory.Krypton.Toolkit.KryptonButton txtselectimage;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtschool;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel9;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtdob;
     }
 }
