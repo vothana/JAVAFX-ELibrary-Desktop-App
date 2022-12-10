@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
+using Library.component.Popup;
 using Library.Entity.ENUM;
 using Library.screen.About;
 using Library.screen.Book;
@@ -42,8 +43,7 @@ namespace Library.screen.Main
             {
                 txtProfileName.Text = ROLE.STUDENT.ToString();
                 panelSpace.Height += 50 * 2 + 26 / 2;
-            }
-            
+            } 
         }
         private void btnLogOut_Click(object sender, EventArgs e)
         {
@@ -63,7 +63,17 @@ namespace Library.screen.Main
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            using(ConfirmBox confirmBox = new ConfirmBox())
+            {
+                confirmBox.Tittle = "Are you sure ?";
+                confirmBox.ButtonConfirm = "Exit";
+                confirmBox.ShowDialog();
+                if(confirmBox.DialogResult == DialogResult.Yes)
+                {
+                    Application.Exit();
+                }
+            }
+
         }
 
         private void timer_Tick(object sender, EventArgs e)
