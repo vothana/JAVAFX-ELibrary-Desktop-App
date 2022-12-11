@@ -4,25 +4,34 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using ComponentFactory.Krypton.Toolkit;
+using Library.Entity.ENUM;
 using static System.Net.Mime.MediaTypeNames;
 using static System.Runtime.CompilerServices.RuntimeHelpers;
+using static Library.Entity.ENUM.EnumCode;
 using Image = System.Drawing.Image;
 
 namespace Library.screen.Student
 {
+    
     public partial class studentmg : KryptonForm
     {
+        private string targetPath;
+       
         SqlConnection conn = new SqlConnection("Data Source=LAPTOP-2V73A0TT\\SQLEXPRESS;Initial Catalog=ELibrary;Integrated Security=True");
 
         public studentmg()
         {
             InitializeComponent();
+            targetPath = "C:\\Users\\Sarath\\source\\repos\\ELibrary\\Assets\\Students\\" + txtid.Text;
+
         }
 
         private void GetData()
@@ -80,8 +89,20 @@ namespace Library.screen.Student
             {
                 roundedPic1.Image = Image.FromFile(opf.FileName);
                 roundedPic1.SizeMode = PictureBoxSizeMode.StretchImage;
+                string[] split1 = opf.FileName.Split('\\');
+                string fileName = split1.Last(); // will put into database
+               
+                txtpfpicname.Text = fileName;
+                string msg = "";
+
+                foreach (string item in split1) 
+                {
+                    msg += item + " ";
+                }
+                MessageBox.Show(msg);
             }
            
+            
         }
 
         private void btnnew_Click(object sender, EventArgs e)
@@ -95,6 +116,7 @@ namespace Library.screen.Student
             txtpfpicname.Clear();
             txtphonenumber.Clear();
             txtschool.Clear();
+            roundedPic1.Image = null;
         }
 
         private void datagridstudent_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -114,7 +136,7 @@ namespace Library.screen.Student
                 txtdepartment.Text = SelectRow.Cells[6].Value.ToString();
                 txtschool.Text = SelectRow.Cells[7].Value.ToString();
                 txtpfpicname.Text = SelectRow.Cells[8].Value.ToString();
-
+             
 
             }
             catch (Exception ex)
@@ -149,10 +171,28 @@ namespace Library.screen.Student
         private void btnsave_Click(object sender, EventArgs e)
         {
             conn.Open();
+
+            targetPath = "C:\\Users\\Sarath\\source\\repos\\ELibrary\\Assets\\Students\\" + txtid.Text; // Your code goes here
+
+            if (Directory.Exists(targetPath))
+            {
+                try { Directory.Delete(targetPath, true); }
+                catch (IOException ex)
+                {
+                    MessageBox.Show("File already exist, or try another file.");
+                } //delete folder if exists
+                  //avoid has alot of file in a directory
+            } 
+
+            System.IO.Directory.CreateDirectory(targetPath);
+            targetPath += "\\"+txtpfpicname.Text;
+            File.Copy(a, targetPath, true);
+
+
             SqlCommand cmd = new SqlCommand("Insert Into STUDENT(  FULLNAME ,GENDER,DOB,PHONE,ADDRESS,DEPARTMENT,SHCOOL,IMAGE)" +
                                        " Values (  @FULLNAME ,@GENDER, @DOB ,@PHONE,@ADDRESS,@DEPARTMENT,@SCHOOL,@IMAGE )", conn);
 
-            
+
             cmd.Parameters.AddWithValue("@FULLNAME", txtfullname.Text);
             cmd.Parameters.AddWithValue("@GENDER", txtgender.Text);
             cmd.Parameters.AddWithValue("@DOB", txtdob.Text);
@@ -161,10 +201,15 @@ namespace Library.screen.Student
             cmd.Parameters.AddWithValue("@DEPARTMENT", txtdepartment.Text);
             cmd.Parameters.AddWithValue("@SCHOOL", txtschool.Text);
             cmd.Parameters.AddWithValue("@IMAGE", txtpfpicname.Text);
+
+
+
             cmd.ExecuteNonQuery();
             GetData();
             MessageBox.Show("Data Insert Successful ", " Student System ", MessageBoxButtons.OK, MessageBoxIcon.Information);
             conn.Close();
+
+            btnnew_Click(sender, e);
         }
 
         private void kryptonLabel9_Paint(object sender, PaintEventArgs e)
@@ -185,7 +230,18 @@ namespace Library.screen.Student
                 cmd.ExecuteNonQuery();
                 GetData();
                 MessageBox.Show("Delete Record Successful!");
+                if (Directory.Exists(targetPath))
+                {
+                    try { Directory.Delete(targetPath, true); }
+                    catch (IOException ex)
+                    {
+                        MessageBox.Show("File already exist, or try another file.");
+                    } //delete folder if exists
+                      //avoid has alot of file in a directory
+                }
             }
+
+            
             conn.Close();
         }
 
