@@ -1,4 +1,5 @@
 ﻿using Library.component;
+using Library.screen.Student;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -26,7 +27,7 @@ namespace Library.Database
         public SqlDataReader QueryBy(string table, string by, string code)
         {
             handleConnStateOpen();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM " + table + " WHERE " + by + " = " + code, conn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM " + table + " WHERE " + by + " = '" + code + "'", conn);
             SqlDataReader data = cmd.ExecuteReader();
             return data;
         }
@@ -37,6 +38,56 @@ namespace Library.Database
             SqlCommand cmd = new SqlCommand(query, conn);
             SqlDataReader data = cmd.ExecuteReader();
             return data;
+        }
+
+        public SqlDataReader QueryLoan(string field, string studentID) //static query
+        {
+            string query = "SELECT * FROM [LOANLIST] " +
+                "INNER JOIN [BOOK] ON [LOANLIST].[BOOKID] = [BOOK].[ID]" +
+                "WHERE [" + field + "] = " + studentID;
+
+            handleConnStateOpen();
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataReader data = cmd.ExecuteReader();
+            return data;
+        }
+
+        public SqlDataReader SearchLoan(string field, string searchText)
+        {
+            string query = "SELECT * FROM [LOANLIST] " +
+                "INNER JOIN [BOOK] ON [LOANLIST].[BOOKID] = [BOOK].[ID]" +
+                " WHERE " + field + " LIKE '%" + searchText + "%'";
+
+            handleConnStateOpen();
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataReader data = cmd.ExecuteReader();
+            return data;
+        }
+
+        public int GetFirstBookLoan(string studentID)
+        {
+            string query = "SELECT TOP 1 * FROM [LOANLIST] " +
+                "INNER JOIN [BOOK] ON [LOANLIST].[BOOKID] = [BOOK].[ID]" +
+                "WHERE [STUDENTID] = " + studentID;
+
+            handleConnStateOpen();
+            try
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataReader data = cmd.ExecuteReader();
+                if (data.HasRows)
+                {
+                    if (data.Read())
+                        return Convert.ToInt32(data["BOOKID"].ToString());
+                    else
+                        return 0;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message);  Console.WriteLine(ex.Message); return 0; };
         }
 
         public int GetMinID(string table, string id)

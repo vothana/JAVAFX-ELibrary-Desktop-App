@@ -35,7 +35,9 @@ namespace Library.component.BookController
             this.Author = new System.Windows.Forms.Label();
             this.Tittle = new System.Windows.Forms.Label();
             this.Description = new System.Windows.Forms.Label();
+            this.freee = new Library.component.RoundedPic();
             this.Picthure = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.freee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Picthure)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,7 +65,7 @@ namespace Library.component.BookController
             this.Year.Name = "Year";
             this.Year.Size = new System.Drawing.Size(344, 23);
             this.Year.TabIndex = 8;
-            this.Year.Text = "BookYear";
+            this.Year.Text = "Book\'s year";
             // 
             // Author
             // 
@@ -73,7 +75,7 @@ namespace Library.component.BookController
             this.Author.Name = "Author";
             this.Author.Size = new System.Drawing.Size(344, 23);
             this.Author.TabIndex = 9;
-            this.Author.Text = "BookAuthor";
+            this.Author.Text = "Book\'s author";
             // 
             // Tittle
             // 
@@ -83,7 +85,7 @@ namespace Library.component.BookController
             this.Tittle.Name = "Tittle";
             this.Tittle.Size = new System.Drawing.Size(347, 23);
             this.Tittle.TabIndex = 10;
-            this.Tittle.Text = "BookTittle";
+            this.Tittle.Text = "Book\'s tittle";
             // 
             // Description
             // 
@@ -91,7 +93,24 @@ namespace Library.component.BookController
             this.Description.Name = "Description";
             this.Description.Size = new System.Drawing.Size(350, 44);
             this.Description.TabIndex = 7;
-            this.Description.Text = "BookDescription";
+            this.Description.Text = "  Book\'s description";
+            // 
+            // freee
+            // 
+            this.freee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(24)))), ((int)(((byte)(69)))));
+            this.freee.BorderGradientBottom = System.Drawing.Color.DodgerBlue;
+            this.freee.BorderGradientTop = System.Drawing.Color.DodgerBlue;
+            this.freee.BorderRadius = 40;
+            this.freee.BorderSize = 0;
+            this.freee.GradientAngle = 90F;
+            this.freee.Image = global::Library.Properties.Resources.Frreee;
+            this.freee.Location = new System.Drawing.Point(0, 0);
+            this.freee.Name = "freee";
+            this.freee.Size = new System.Drawing.Size(39, 39);
+            this.freee.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.freee.TabIndex = 12;
+            this.freee.TabStop = false;
+            this.freee.Visible = false;
             // 
             // Picthure
             // 
@@ -112,6 +131,7 @@ namespace Library.component.BookController
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
             this.ClientSize = new System.Drawing.Size(351, 601);
+            this.Controls.Add(this.freee);
             this.Controls.Add(this.Button);
             this.Controls.Add(this.Year);
             this.Controls.Add(this.Author);
@@ -123,6 +143,7 @@ namespace Library.component.BookController
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BookShow";
             this.Load += new System.EventHandler(this.BookShow_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.freee)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Picthure)).EndInit();
             this.ResumeLayout(false);
 
@@ -136,6 +157,12 @@ namespace Library.component.BookController
         private System.Windows.Forms.Label Tittle;
         private System.Windows.Forms.Label Description;
         private System.Windows.Forms.PictureBox Picthure;
+        private RoundedPic freee;
+
+        public bool Freee
+        {
+            set => freee.Visible = value;
+        }
 
         public Image BookPic
         {

@@ -32,24 +32,48 @@ namespace Library.component.BookController
 
             if(SearchText == null)
             {
-                data = dataSql.QueryAll(Server.TABLE.BOOK.ToString());
-                hasData(data);
+                if (User.USERROLE == ROLE.STUDENT.ToString())
+                {
+                    data = dataSql.QueryLoan("STUDENTID", StudentInfo.ID.ToString());
+                    hasData(data);
+                }
+                else
+                {
+                    data = dataSql.QueryAll(Server.TABLE.BOOK.ToString());
+                    hasData(data);
+                }
             }
             else
             {
-                data = dataSql.Search(Server.TABLE.BOOK.ToString(), "TITLE", SearchText);
-                hasData(data);
+                if(User.USERROLE == ROLE.STUDENT.ToString())
+                {
+                    data = dataSql.SearchLoan("TITLE", SearchText);
+                    hasData(data);
+                }
+                else
+                {
+                    data = dataSql.Search(Server.TABLE.BOOK.ToString(), "TITLE", SearchText);
+                    hasData(data);
+                }
             }
 
             int colunm = 1, row = 0;
             while (data.Read())
             {
                 BookAsList book = new BookAsList();
-                int id = data.GetInt32(0);
+                int bookId;
+                if (User.USERROLE == ROLE.STUDENT.ToString())
+                {
+                    bookId = data.GetInt32(1); //BookID
+                }
+                else
+                {
+                    bookId = data.GetInt32(0);
+                }
 
-                book.BookID = id;
+                book.BookID = bookId;
                 string image = data["Image"].ToString();
-                string dir = CurrentPath.CurrentDir + "Books\\" + id + "\\" + image;
+                string dir = CurrentPath.CurrentDir + "Books\\" + bookId + "\\" + image;
                 if (File.Exists(dir))
                 {
                     book.BookImage = new Bitmap(dir);
