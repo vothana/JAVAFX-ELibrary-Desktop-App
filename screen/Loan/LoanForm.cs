@@ -31,10 +31,40 @@ namespace Library.screen.Loan
 
         private void LoanForm_Load(object sender, EventArgs e)
         {
+            showBook();
+            studentInfo();
+        }
+
+        private void studentInfo()
+        {
+            data = dataSql.QueryBy(Server.TABLE.STUDENT.ToString(), "ID", StudentInfo.ID.ToString());
+            if (data.HasRows)
+            {
+                if (data.Read())
+                {
+                    txtName.Text = data["FULLNAME"].ToString();
+                    txtPhoneNumber.Text = data["PHONE"].ToString();
+                    txtDepartMent.Text = data["DEPARTMENT"].ToString();
+                    txtSchool.Text = data["SCHOOL"].ToString();
+                    txtAddress.Text = data["ADDRESS"].ToString();
+
+                    string profilePic = CurrentPath.CurrentDir + "Students\\" + StudentInfo.ID + "\\" + StudentInfo.studentPic;
+                    if (File.Exists(profilePic))
+                    {
+                        profileImage.Image = new Bitmap(profilePic);
+                    }
+                }
+            }
+            data.Close();
+            conn.Close();
+        }
+
+        private void showBook()
+        {
             string Pic = CurrentPath.CurrentDir + "Students\\" + StudentInfo.ID + "\\" + StudentInfo.studentPic;
             if (File.Exists(Pic))
             {
-                profilePic.Image = new Bitmap(Pic);
+                profileImage.Image = new Bitmap(Pic);
             }
 
             if (BookID > 0)
@@ -45,18 +75,18 @@ namespace Library.screen.Loan
 
                 while (data.Read())
                 {
-                    string image = data["Image"].ToString();
+                    string image = data["IMAGE"].ToString();
                     string dir = CurrentPath.CurrentDir + "Books\\" + BookID + "\\" + image;
 
                     if (File.Exists(dir))
                     {
                         bookShow.BookPic = new Bitmap(dir);
                     }
-
-                    bookShow.BookTittle = data["Title"].ToString();
-                    bookShow.BookAuthor = data["Author"].ToString();
-                    bookShow.BookYear = data["Year"].ToString();
-                    bookShow.BookDescription = data["Desc"].ToString();
+                    bookShow.BookButtonVisible = false;
+                    bookShow.BookTittle = data["TITLE"].ToString();
+                    bookShow.BookAuthor = data["AUTHOR"].ToString();
+                    bookShow.BookYear = data["YEAR"].ToString();
+                    bookShow.BookDescription = data["DESC"].ToString();
 
                     if (Boolean.Parse(data["STATUS"].ToString()) == true)
                     {

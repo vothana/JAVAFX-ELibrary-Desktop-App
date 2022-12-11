@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -29,8 +30,8 @@ namespace Library
             InitializeComponent();
             txtUsername.Focus();
 
-/*            txtUsername.Text = "vothana";
-            txtPassword.Text = "123";*/
+            //txtUsername.Text = "vothana";
+            //txtPassword.Text = "123";
         }
 
         private void Login_Load(object sender, EventArgs e)
@@ -49,12 +50,12 @@ namespace Library
             if (show)
             {
                 txtPassword.PasswordChar = '\0';
-                show = true;
+                show = false;
             }
             else
             {
-                txtPassword.PasswordChar = '\0';
-                show = false;
+                txtPassword.PasswordChar = '*';
+                show = true;
             }
         }
 
@@ -77,6 +78,7 @@ namespace Library
                             StudentInfo.ID = data.GetInt32(0);
                             StudentInfo.studentName = data["FULLNAME"].ToString();
                             StudentInfo.studentPic = data["IMAGE"].ToString();
+                            clearDoubleImage();
                         }
 
                         this.Hide();
@@ -135,6 +137,25 @@ namespace Library
             else
             {
                 return false;
+            }
+        }
+
+        private void clearDoubleImage()
+        {
+            string profilePic = CurrentPath.CurrentDir + "Students\\" + StudentInfo.ID + "\\";
+            string[] filePaths = Directory.GetFiles(profilePic);
+            foreach(string filePath in filePaths)
+            {
+                if(filePath.Split('\\').Last() != StudentInfo.studentPic)
+                {
+                    try
+                    {
+                        File.Delete(filePath);
+                    }catch(Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
             }
         }
     }

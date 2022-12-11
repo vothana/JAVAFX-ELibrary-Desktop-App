@@ -37,7 +37,7 @@ namespace Library.component.BookController
             // 
             // ButtonRead
             // 
-            this.ButtonRead.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(24)))), ((int)(((byte)(69)))));
+            this.ButtonRead.BackColor = System.Drawing.Color.Green;
             this.ButtonRead.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonRead.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonRead.Font = new System.Drawing.Font("Poppins", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
@@ -69,6 +69,7 @@ namespace Library.component.BookController
             this.Controls.Add(this.BookPic);
             this.Name = "SingleBook";
             this.Size = new System.Drawing.Size(260, 370);
+            this.Load += new System.EventHandler(this.SingleBook_Load);
             ((System.ComponentModel.ISupportInitialize)(this.BookPic)).EndInit();
             this.ResumeLayout(false);
 
@@ -95,6 +96,11 @@ namespace Library.component.BookController
         {
             get => ButtonRead.Text;
             set => ButtonRead.Text = value;
+        }
+
+        public Color ButtonColor
+        {
+            set => ButtonRead.BackColor = value;
         }
     }
 }

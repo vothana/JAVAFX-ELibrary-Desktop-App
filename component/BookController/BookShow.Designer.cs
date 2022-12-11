@@ -200,6 +200,11 @@ namespace Library.component.BookController
             set => Button.Text = value;
         }
 
+        public bool BookButtonVisible
+        {
+            set => Button.Visible = value;
+        }
+
 
     }
 }
