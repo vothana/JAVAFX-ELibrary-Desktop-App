@@ -45,8 +45,8 @@
             this.labelWrong = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnProfilePic = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.roundedPic1 = new Library.component.RoundedPic();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
@@ -57,6 +57,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnShowPassword)).BeginInit();
             this.labelWrong.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.roundedPic1)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPalette1
@@ -233,27 +234,6 @@
             this.panel3.Size = new System.Drawing.Size(330, 71);
             this.panel3.TabIndex = 6;
             // 
-            // btnProfilePic
-            // 
-            this.btnProfilePic.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProfilePic.Enabled = false;
-            this.btnProfilePic.Location = new System.Drawing.Point(148, 36);
-            this.btnProfilePic.MaximumSize = new System.Drawing.Size(150, 150);
-            this.btnProfilePic.MinimumSize = new System.Drawing.Size(45, 45);
-            this.btnProfilePic.Name = "btnProfilePic";
-            this.btnProfilePic.Size = new System.Drawing.Size(150, 150);
-            this.btnProfilePic.StateCommon.Back.Image = global::Library.Properties.Resources.Girl__12_;
-            this.btnProfilePic.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
-            this.btnProfilePic.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btnProfilePic.StateCommon.Border.Rounding = 100;
-            this.btnProfilePic.StateCommon.Content.Image.Effect = ComponentFactory.Krypton.Toolkit.PaletteImageEffect.GrayScale;
-            this.btnProfilePic.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.btnProfilePic.StateCommon.Content.Image.ImageV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.btnProfilePic.TabIndex = 6;
-            this.btnProfilePic.Values.Text = "";
-            // 
             // kryptonButton1
             // 
             this.kryptonButton1.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -272,13 +252,28 @@
             this.kryptonButton1.TabIndex = 6;
             this.kryptonButton1.Values.Text = "";
             // 
+            // roundedPic1
+            // 
+            this.roundedPic1.BorderGradientBottom = System.Drawing.Color.DodgerBlue;
+            this.roundedPic1.BorderGradientTop = System.Drawing.Color.DodgerBlue;
+            this.roundedPic1.BorderRadius = 40;
+            this.roundedPic1.BorderSize = 0;
+            this.roundedPic1.GradientAngle = 90F;
+            this.roundedPic1.Image = global::Library.Properties.Resources.NUM_Logo;
+            this.roundedPic1.Location = new System.Drawing.Point(152, 45);
+            this.roundedPic1.Name = "roundedPic1";
+            this.roundedPic1.Size = new System.Drawing.Size(140, 140);
+            this.roundedPic1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.roundedPic1.TabIndex = 7;
+            this.roundedPic1.TabStop = false;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(24)))), ((int)(((byte)(69)))));
             this.ClientSize = new System.Drawing.Size(439, 570);
-            this.Controls.Add(this.btnProfilePic);
+            this.Controls.Add(this.roundedPic1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.kryptonButton1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -301,6 +296,7 @@
             this.labelWrong.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.roundedPic1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -323,7 +319,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel labelWrong;
         private System.Windows.Forms.Label label2;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnProfilePic;
         private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton1;
+        private component.RoundedPic roundedPic1;
     }
 }

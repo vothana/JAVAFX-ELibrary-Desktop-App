@@ -1,4 +1,5 @@
 ﻿using Library.screen.Book;
+using Library.screen.Loan;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,12 +21,25 @@ namespace Library.component.BookController
 
         private void ButtonRead_Click(object sender, EventArgs e)
         {
-            using(BookDetail bookDetail = new BookDetail())
+            if(ButtonRead.Text == "READ")
             {
-                bookDetail.TopLevel = true;
-                bookDetail.BookID = BookID;
-                bookDetail.ShowDialog();
+                using (BookDetail bookDetail = new BookDetail())
+                {
+                    bookDetail.TopLevel = true;
+                    bookDetail.BookID = BookID;
+                    bookDetail.ShowDialog();
+                }
             }
+            else
+            {
+                using (LoanForm loanForm = new LoanForm())
+                {
+                    loanForm.TopLevel = true;
+                    loanForm.BookID = BookID;
+                    loanForm.ShowDialog();
+                }
+            }
+            
         }
     }
 }

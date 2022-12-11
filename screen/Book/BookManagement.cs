@@ -56,8 +56,14 @@ namespace Library.screen.Book
         {
             if(BookID == 0)
             {
-                int minID = dataSql.GetMinID(Server.TABLE.BOOK.ToString(), "ID");
-                BookID = minID;
+                if (User.USERROLE == ROLE.STUDENT.ToString())
+                {
+                    BookID = dataSql.GetFirstBookLoan(StudentInfo.ID.ToString());
+                }
+                else
+                {
+                    BookID = dataSql.GetMinID(Server.TABLE.BOOK.ToString(), "ID");
+                }
             }
 
             if(BookID > 0)
@@ -65,6 +71,7 @@ namespace Library.screen.Book
                 BookShow bookShow = new BookShow();
                 panelBookShow.Controls.Clear();
                 data = dataSql.QueryBy(Server.TABLE.BOOK.ToString(), "ID", BookID.ToString());
+
                 while (data.Read())
                 {
                     string image = data["Image"].ToString();
@@ -82,6 +89,11 @@ namespace Library.screen.Book
                     bookShow.BookAuthor = data["Author"].ToString();
                     bookShow.BookYear   = data["Year"].ToString();
                     bookShow.BookDescription = data["Desc"].ToString();
+
+                    if(Boolean.Parse(data["STATUS"].ToString()) == true)
+                    {
+                        bookShow.Freee = true;
+                    }
 
                 }
                 bookShow.BookID = BookID;

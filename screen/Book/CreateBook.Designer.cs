@@ -38,7 +38,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtAuthor = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtYear = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnUploadPDF = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnUploadImage = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -50,9 +49,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtDescription = new ComponentFactory.Krypton.Toolkit.KryptonRichTextBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnDelete = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnSubmit = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.txtID = new System.Windows.Forms.TextBox();
-            this.btnDelete = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.txtYear = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -176,24 +176,11 @@
             this.label4.Text = "Book Year";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // txtYear
-            // 
-            this.txtYear.Location = new System.Drawing.Point(3, 163);
-            this.txtYear.Name = "txtYear";
-            this.txtYear.Size = new System.Drawing.Size(464, 35);
-            this.txtYear.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtYear.StateCommon.Border.Rounding = 5;
-            this.txtYear.StateCommon.Content.Color1 = System.Drawing.Color.Black;
-            this.txtYear.StateCommon.Content.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtYear.TabIndex = 3;
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.btnUploadPDF);
             this.panel2.Controls.Add(this.btnUploadImage);
-            this.panel2.Location = new System.Drawing.Point(3, 204);
+            this.panel2.Location = new System.Drawing.Point(3, 203);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(464, 42);
             this.panel2.TabIndex = 4;
@@ -232,7 +219,7 @@
             // 
             this.label6.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label6.Location = new System.Drawing.Point(3, 249);
+            this.label6.Location = new System.Drawing.Point(3, 248);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(464, 26);
             this.label6.TabIndex = 2;
@@ -242,7 +229,7 @@
             // comLangauge
             // 
             this.comLangauge.DropDownWidth = 457;
-            this.comLangauge.Location = new System.Drawing.Point(3, 278);
+            this.comLangauge.Location = new System.Drawing.Point(3, 277);
             this.comLangauge.Name = "comLangauge";
             this.comLangauge.Size = new System.Drawing.Size(461, 33);
             this.comLangauge.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
@@ -254,7 +241,7 @@
             // 
             // kryptonGroup1
             // 
-            this.kryptonGroup1.Location = new System.Drawing.Point(3, 317);
+            this.kryptonGroup1.Location = new System.Drawing.Point(3, 316);
             this.kryptonGroup1.Name = "kryptonGroup1";
             // 
             // kryptonGroup1.Panel
@@ -297,7 +284,7 @@
             // 
             this.label5.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label5.Location = new System.Drawing.Point(3, 357);
+            this.label5.Location = new System.Drawing.Point(3, 356);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(464, 26);
             this.label5.TabIndex = 10;
@@ -306,7 +293,7 @@
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(3, 386);
+            this.txtDescription.Location = new System.Drawing.Point(3, 385);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(461, 100);
             this.txtDescription.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
@@ -320,10 +307,27 @@
             // 
             this.panel3.Controls.Add(this.btnDelete);
             this.panel3.Controls.Add(this.btnSubmit);
-            this.panel3.Location = new System.Drawing.Point(3, 492);
+            this.panel3.Location = new System.Drawing.Point(3, 491);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(461, 45);
             this.panel3.TabIndex = 11;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDelete.Location = new System.Drawing.Point(192, 3);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(130, 38);
+            this.btnDelete.StateCommon.Back.Color1 = System.Drawing.Color.Red;
+            this.btnDelete.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btnDelete.StateCommon.Border.Rounding = 5;
+            this.btnDelete.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World);
+            this.btnDelete.TabIndex = 0;
+            this.btnDelete.Values.Text = "Delete";
+            this.btnDelete.Visible = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnSubmit
             // 
@@ -344,28 +348,41 @@
             // 
             this.txtID.Enabled = false;
             this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.txtID.Location = new System.Drawing.Point(3, 543);
+            this.txtID.Location = new System.Drawing.Point(3, 542);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(458, 9);
             this.txtID.TabIndex = 13;
             this.txtID.Visible = false;
             // 
-            // btnDelete
+            // txtYear
             // 
-            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDelete.Location = new System.Drawing.Point(192, 3);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(130, 38);
-            this.btnDelete.StateCommon.Back.Color1 = System.Drawing.Color.Red;
-            this.btnDelete.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.txtYear.InterceptArrowKeys = false;
+            this.txtYear.Location = new System.Drawing.Point(3, 163);
+            this.txtYear.Maximum = new decimal(new int[] {
+            2022,
+            0,
+            0,
+            0});
+            this.txtYear.Minimum = new decimal(new int[] {
+            1800,
+            0,
+            0,
+            0});
+            this.txtYear.Name = "txtYear";
+            this.txtYear.Size = new System.Drawing.Size(458, 34);
+            this.txtYear.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btnDelete.StateCommon.Border.Rounding = 5;
-            this.btnDelete.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World);
-            this.btnDelete.TabIndex = 0;
-            this.btnDelete.Values.Text = "Delete";
-            this.btnDelete.Visible = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.txtYear.StateCommon.Border.Rounding = 5;
+            this.txtYear.StateCommon.Content.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold);
+            this.txtYear.TabIndex = 14;
+            this.txtYear.UpDownButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.Standalone;
+            this.txtYear.UseMnemonic = false;
+            this.txtYear.Value = new decimal(new int[] {
+            1800,
+            0,
+            0,
+            0});
             // 
             // CreateBook
             // 
@@ -408,7 +425,6 @@
         private System.Windows.Forms.Label label3;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtAuthor;
         private System.Windows.Forms.Label label4;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtYear;
         private System.Windows.Forms.Panel panel2;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnUploadPDF;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnUploadImage;
@@ -423,5 +439,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnSubmit;
         private System.Windows.Forms.TextBox txtID;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnDelete;
+        private ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown txtYear;
     }
 }

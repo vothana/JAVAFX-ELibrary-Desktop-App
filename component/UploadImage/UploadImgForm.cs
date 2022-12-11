@@ -63,7 +63,7 @@ namespace Library.component.UploadImage
                     try { Directory.Delete(targetPath, true); }
                     catch (IOException ex)
                     {
-                        MessageBox.Show("File already exist, or try another file.");
+                        MessageBox.Show("File already exist, or try another file. \n" + ex.Message);
                     } //delete folder if exists
                       //avoid has alot of file in a directory
                 }

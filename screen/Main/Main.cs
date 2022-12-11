@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
+using Library.component.BookController;
 using Library.component.Popup;
 using Library.Entity.ENUM;
 using Library.screen.About;
@@ -41,9 +43,13 @@ namespace Library.screen.Main
             }
             else
             {
-                txtProfileName.Text = ROLE.STUDENT.ToString();
+                string profilePic = CurrentPath.CurrentDir + "Students\\" + StudentInfo.ID + "\\" + StudentInfo.studentPic;
+                if (File.Exists(profilePic)) {
+                    btnProfilePic.Image = new Bitmap(profilePic);
+                }
+                txtProfileName.Text = StudentInfo.studentName;
                 panelSpace.Height += 50 * 2 + 26 / 2;
-            } 
+            }
         }
         private void btnLogOut_Click(object sender, EventArgs e)
         {
