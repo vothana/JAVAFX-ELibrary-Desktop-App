@@ -41,5 +41,13 @@ namespace Library.component.BookController
             }
             
         }
+
+        private void SingleBook_Load(object sender, EventArgs e)
+        {
+            if (ButtonRead.Text != "READ")
+            {
+                ButtonRead.BackColor = Color.FromArgb(255, 0, 24, 69);
+            }
+        }
     }
 }

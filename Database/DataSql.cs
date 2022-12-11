@@ -185,25 +185,34 @@ namespace Library.Database
                 {
                     cmd.Parameters.AddWithValue(entry.Key, entry.Value);
 
-                    insertStatement += converter(entry.Value); //Generate Insert statement
-                    if (i < data.Count)
+                    if (method == "POST")
                     {
-                        insertStatement += " , "; //Generate Insert statement
+                        insertStatement += converter(entry.Value); //Generate Insert statement
+                        if (i < data.Count)
+                        {
+                            insertStatement += " , "; //Generate Insert statement
+                        }
+                        i++;
                     }
-                    i++;
                     // MessageBox.Show("cmd.Parameters.AddWithValue(" + entry.Key + " , " + entry.Value + " )");
                 }
 
-                insertStatement += " );";
-                WriteToFile writeToFile = new WriteToFile();
-                writeToFile.Write(insertStatement);
-
+                if(method == "POST")
+                {
+                    insertStatement += " );";
+                    WriteToFile writeToFile = new WriteToFile();
+                    writeToFile.Write(insertStatement);
+                }
 
                 cmd.ExecuteNonQuery();
 
                 return true;
             }
-            catch (Exception ex) {Console.WriteLine("Error" + ex.Message); return false; };
+            catch (Exception ex) { 
+                MessageBox.Show(ex.Message); 
+                Console.WriteLine("Error" + ex.Message); 
+                return false; 
+            }
         }
 
 

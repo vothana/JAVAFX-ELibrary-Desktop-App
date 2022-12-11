@@ -90,9 +90,5 @@ VALUES ( 'JAVA SE' , 'Java is the best langauge ever' , 'Pilot Nama' , 2018 , 'E
 
 --Modified by: VOTHANA-CHY Generated:12/10/2022 9:09:30 PM
 INSERT INTO [BOOK] ( [TITLE] , [DESC] , [AUTHOR] , [YEAR] , [LANGAUGE] , [IMAGE] , [PDF] , [STATUS] ) 
-VALUES ( 'JAVA Servlets & JSP' , 'JAVA Servlets & JSP by Joel Murach 2012' , 'Joel Murach' , 2012 , 'English' , 'photo_2022-12-04_21-28-12.jpg' , 'JAVA Servlets & JSP' , 1 );
-
---Modified by: VOTHANA-CHY Generated:12/10/2022 9:02:44 PM
-INSERT INTO [LOANLIST] ( [BOOKID] , [STUDENTID] , [DATE]  )
-VALUES ( 1,2,'2022-12-11' );
+VALUES ( 'JAVA Servlets & JSP' , 'JAVA Servlets & JSP by Joel Murach 2012' , 'Joel Murach' , 2012 , 'English' , 'photo_2022-12-04_21-28-12.jpg' , 'JAVA Servlets & JSP' , 0 );
 

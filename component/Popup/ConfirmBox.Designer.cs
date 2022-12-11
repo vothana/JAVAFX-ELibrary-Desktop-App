@@ -135,6 +135,10 @@ namespace Library.component.Popup
         {
             set => btnConfirm.Text = value;
         }
+        public bool ButtonCancelVisible
+        {
+            set => btnCancel.Visible = value;
+        }
 
         public Color Background
         {
