@@ -116,7 +116,10 @@ namespace Library.component.BookController
             // 
             this.Picthure.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Picthure.Dock = System.Windows.Forms.DockStyle.Top;
+<<<<<<< Updated upstream
             this.Picthure.Image = global::Library.Properties.Resources.NoBookImage;
+=======
+>>>>>>> Stashed changes
             this.Picthure.Location = new System.Drawing.Point(0, 0);
             this.Picthure.Name = "Picthure";
             this.Picthure.Size = new System.Drawing.Size(351, 444);
