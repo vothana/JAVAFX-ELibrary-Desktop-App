@@ -121,7 +121,6 @@ namespace Library.screen.Loan
             if (result)
             {
                 MessageBox.Show("Successfull you can read this book");
-                SingleBookList.LOAD.loadData();
                 this.Close();
             }
             else

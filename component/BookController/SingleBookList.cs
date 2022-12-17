@@ -21,11 +21,9 @@ namespace Library.component.BookController
         private SqlConnection conn = Server.Connection();
         private DataSql dataSql = new DataSql();
         public string SearchText;
-        public static SingleBookList LOAD;
         public SingleBookList()
         {
             InitializeComponent();
-            LOAD = this;
         }
 
         private void SingleBookList_Load(object sender, EventArgs e)
@@ -40,7 +38,6 @@ namespace Library.component.BookController
             SqlDataReader loanList;
 
             IDictionary<int, int> bookLoaned = new Dictionary<int, int>();
-
 
             if (User.USERROLE == ROLE.STUDENT.ToString())
             {
@@ -86,17 +83,24 @@ namespace Library.component.BookController
                 {
                     if (!Boolean.Parse(data["STATUS"].ToString()))
                     {
-                        foreach (KeyValuePair<int, int> item in bookLoaned)
+                        if(bookLoaned.Count > 0)
                         {
-                            if (item.Value == id)
+                            foreach (KeyValuePair<int, int> item in bookLoaned)
                             {
-                                singleBook.BookButton = "READ";
-                                break;
+                                if (item.Value == id)
+                                {
+                                    singleBook.BookButton = "READ";
+                                    break;
+                                }
+                                else
+                                {
+                                    singleBook.BookButton = "BORROW"; //this will loop [Bad Performance]
+                                }
                             }
-                            else
-                            {
-                                singleBook.BookButton = "BORROW"; //this will loop [Bad Performance]
-                            }
+                        }
+                        else
+                        {
+                            singleBook.BookButton = "BORROW";
                         }
                     }
                     else
