@@ -72,6 +72,8 @@ namespace Library.component.BookController
                 int id = data.GetInt32(0);
 
                 singleBook.BookID = id;
+                singleBook.BookPDF = data["PDF"].ToString();
+
                 string image = data["Image"].ToString();
                 string dir = CurrentPath.CurrentDir + "Books\\" + id + "\\" + image;
                 if (File.Exists(dir))

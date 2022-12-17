@@ -30,8 +30,9 @@ namespace Library
             InitializeComponent();
             txtUsername.Focus();
 
-            txtUsername.Text = "vothana";
-            txtPassword.Text = "123";
+            //Development MODE
+            //txtUsername.Text = "vothana";
+            //txtPassword.Text = "123";
         }
 
         private void Login_Load(object sender, EventArgs e)
