@@ -24,14 +24,12 @@ namespace Library.screen.Student
     public partial class studentmg : KryptonForm
     {
         private string targetPath;
-       
-        SqlConnection conn = new SqlConnection("Data Source=LAPTOP-2V73A0TT\\SQLEXPRESS;Initial Catalog=ELibrary;Integrated Security=True");
-
+        private string sourcePath;
+        SqlConnection conn = Server.Connection();
         public studentmg()
         {
             InitializeComponent();
-            targetPath = "C:\\Users\\Sarath\\source\\repos\\ELibrary\\Assets\\Students\\" + txtid.Text;
-
+            targetPath = CurrentPath.CurrentDir + "Students\\" + txtid.Text;
         }
 
         private void GetData()
@@ -48,32 +46,22 @@ namespace Library.screen.Student
             datagridstudent.Columns[4].HeaderText = "PHONE";
             datagridstudent.Columns[5].HeaderText = "ADDRESS";
             datagridstudent.Columns[6].HeaderText = "DEPARTMENT";
-            datagridstudent.Columns[7].HeaderText = "SHCOOL";
+            datagridstudent.Columns[7].HeaderText = "SCHOOL";
             datagridstudent.Columns[8].HeaderText = "PicName";
 
             datagridstudent.Columns["ID"].Width = 100;
             datagridstudent.Columns["FULLNAME"].Width = 100;
-            datagridstudent.Columns["GENDER"].Width = 50;
+            datagridstudent.Columns["GENDER"].Width = 100;
             datagridstudent.Columns["DOB"].Width = 100;
             datagridstudent.Columns["PHONE"].Width = 100;
             datagridstudent.Columns["ADDRESS"].Width = 100;
             datagridstudent.Columns["DEPARTMENT"].Width = 100;
-            datagridstudent.Columns["SHCOOL"].Width = 100;
+            datagridstudent.Columns["SCHOOL"].Width = 100;
             datagridstudent.Columns["IMAGE"].Width = 100;
 
             datagridstudent.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             datagridstudent.ColumnHeadersDefaultCellStyle.Font = new Font("Times New Romen", 7, FontStyle.Bold);
-        }
-
-        private void kryptonLabel6_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void kryptonLabel8_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void studentmg_Load(object sender, EventArgs e)
@@ -91,7 +79,8 @@ namespace Library.screen.Student
                 roundedPic1.SizeMode = PictureBoxSizeMode.StretchImage;
                 string[] split1 = opf.FileName.Split('\\');
                 string fileName = split1.Last(); // will put into database
-               
+
+                sourcePath = opf.FileName;
                 txtpfpicname.Text = fileName;
                 string msg = "";
 
@@ -101,8 +90,6 @@ namespace Library.screen.Student
                 }
                 MessageBox.Show(msg);
             }
-           
-            
         }
 
         private void btnnew_Click(object sender, EventArgs e)
@@ -155,66 +142,56 @@ namespace Library.screen.Student
                 {
                     this.Close();
                 }
-
-
             }
             catch (Exception ex)
-
             { MessageBox.Show(ex.Message, "Student System", MessageBoxButtons.OK, MessageBoxIcon.Information); }
-        }
-
-        private void roundedPic1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnsave_Click(object sender, EventArgs e)
         {
-            conn.Open();
-
-            targetPath = "C:\\Users\\Sarath\\source\\repos\\ELibrary\\Assets\\Students\\" + txtid.Text; // Your code goes here
-
+            
             if (Directory.Exists(targetPath))
             {
-                try { Directory.Delete(targetPath, true); }
+                try { 
+                    Directory.Delete(targetPath, true);
+                    System.IO.Directory.CreateDirectory(targetPath);
+                }
                 catch (IOException ex)
                 {
                     MessageBox.Show("File already exist, or try another file.");
-                } //delete folder if exists
-                  //avoid has alot of file in a directory
+                }
             } 
 
-            System.IO.Directory.CreateDirectory(targetPath);
-            targetPath += "\\"+txtpfpicname.Text;
-            File.Copy(a, targetPath, true);
+            
+            targetPath += "\\" + txtpfpicname.Text;
+            File.Copy(sourcePath, targetPath, true);
 
-
-            SqlCommand cmd = new SqlCommand("Insert Into STUDENT(  FULLNAME ,GENDER,DOB,PHONE,ADDRESS,DEPARTMENT,SHCOOL,IMAGE)" +
+            conn.Open();
+            try
+            {
+                SqlCommand cmd = new SqlCommand("Insert Into STUDENT(  FULLNAME ,GENDER,DOB,PHONE,ADDRESS,DEPARTMENT,SHCOOL,IMAGE)" +
                                        " Values (  @FULLNAME ,@GENDER, @DOB ,@PHONE,@ADDRESS,@DEPARTMENT,@SCHOOL,@IMAGE )", conn);
 
+                cmd.Parameters.AddWithValue("@FULLNAME", txtfullname.Text);
+                cmd.Parameters.AddWithValue("@GENDER", txtgender.Text);
+                cmd.Parameters.AddWithValue("@DOB", txtdob.Text);
+                cmd.Parameters.AddWithValue("@PHONE", txtphonenumber.Text);
+                cmd.Parameters.AddWithValue("@ADDRESS", txtaddress.Text);
+                cmd.Parameters.AddWithValue("@DEPARTMENT", txtdepartment.Text);
+                cmd.Parameters.AddWithValue("@SCHOOL", txtschool.Text);
+                cmd.Parameters.AddWithValue("@IMAGE", txtpfpicname.Text);
 
-            cmd.Parameters.AddWithValue("@FULLNAME", txtfullname.Text);
-            cmd.Parameters.AddWithValue("@GENDER", txtgender.Text);
-            cmd.Parameters.AddWithValue("@DOB", txtdob.Text);
-            cmd.Parameters.AddWithValue("@PHONE", txtphonenumber.Text);
-            cmd.Parameters.AddWithValue("@ADDRESS", txtaddress.Text);
-            cmd.Parameters.AddWithValue("@DEPARTMENT", txtdepartment.Text);
-            cmd.Parameters.AddWithValue("@SCHOOL", txtschool.Text);
-            cmd.Parameters.AddWithValue("@IMAGE", txtpfpicname.Text);
+                cmd.ExecuteNonQuery();
+                GetData();
+                MessageBox.Show("Data Insert Successful ", " Student System ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Data can't insert \n\n" + ex.Message);
+            }
 
-
-
-            cmd.ExecuteNonQuery();
-            GetData();
-            MessageBox.Show("Data Insert Successful ", " Student System ", MessageBoxButtons.OK, MessageBoxIcon.Information);
             conn.Close();
-
             btnnew_Click(sender, e);
-        }
-
-        private void kryptonLabel9_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void btndelete_Click(object sender, EventArgs e)
@@ -236,25 +213,22 @@ namespace Library.screen.Student
                     catch (IOException ex)
                     {
                         MessageBox.Show("File already exist, or try another file.");
-                    } //delete folder if exists
-                      //avoid has alot of file in a directory
+                    }
                 }
             }
-
-            
             conn.Close();
         }
 
         private void btnupdate_Click(object sender, EventArgs e)
         {
             conn.Open();
-            /*try
-            {*/
+            try
+            {
                 SqlCommand cmd = new SqlCommand("Update STUDENT Set FULLNAME=@FULLNAME, GENDER=@GENDER, DOB=@DOB, PHONE =@PHONE , ADDRESS=@ADDRESS, DEPARTMENT=@DEPARTMENT ,SHCOOL=@SCHOOL, " +
                             "[IMAGE]=@IMAGE Where ID=@ID", conn);
                 cmd.Parameters.AddWithValue("@ID", txtid.Text);
                 cmd.Parameters.AddWithValue("@FULLNAME", txtfullname.Text);
-                cmd.Parameters.AddWithValue("@GENDER", txtgender.Text);    
+                cmd.Parameters.AddWithValue("@GENDER", txtgender.Text);
                 cmd.Parameters.AddWithValue("@DOB", Convert.ToDateTime(txtdob.Text));
                 cmd.Parameters.AddWithValue("@PHONE", txtphonenumber.Text);
                 cmd.Parameters.AddWithValue("@ADDRESS", txtaddress.Text);
@@ -264,11 +238,20 @@ namespace Library.screen.Student
                 cmd.ExecuteNonQuery();
                 GetData();
                 MessageBox.Show("Update is successfull", "STUDENT System");
-            /*}
+                if (Directory.Exists(targetPath))
+                {
+                    try { Directory.Delete(targetPath, true); }
+                    catch (IOException ex)
+                    {
+                        MessageBox.Show("File already exist, or try another file.");
+                    }
+                }
+            }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-            }*/
+                MessageBox.Show("Update Fail \n\n" +ex.Message);
+            }
+
             conn.Close();
 
             btnnew_Click(sender , e);

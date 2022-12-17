@@ -23,6 +23,7 @@ namespace Library.component.UploadImage
         private string targetPath;
         private string filter;
         private string imageName = null;
+        public  string pdfName = "";
         public string TheID { set => theID = value; }
         public string Upload { set => upload = value; }
 
@@ -133,6 +134,24 @@ namespace Library.component.UploadImage
                 label.Visible = false;
                 pictureBox.Visible = false;
                 btnUpload.Visible = false;
+
+                String filePDF = CurrentPath.CurrentDir + "PDF\\" + theID + "\\" + pdfName;
+                if (File.Exists(filePDF))
+                {
+                    byte[] bytes = System.IO.File.ReadAllBytes(filePDF);
+                    var stream = new System.IO.MemoryStream(bytes);
+                    PdfDocument pdfDocument = PdfDocument.Load(stream);
+                    pdfViewer.Document = pdfDocument;
+                    pdfViewer.BringToFront();
+                }
+                else
+                {
+                    if (upload == EnumCode.UPLOAD.PDF.ToString())
+                    {
+                        labelNoPdf.Visible = true;
+                        labelNoPdf.Text += "ID :" + theID;
+                    }
+                }
             }
         }
 
@@ -156,6 +175,7 @@ namespace Library.component.UploadImage
                         var stream = new System.IO.MemoryStream(bytes);
                         PdfDocument pdfDocument = PdfDocument.Load(stream);
                         pdfViewer.Document = pdfDocument;
+                        pdfViewer.BringToFront();
                         uploadPDF.Text = "Upload";
                     }
                 }

@@ -104,3 +104,11 @@ VALUES ( 2 , 2 , 12/12/2022 10:30:37 PM );
 --Modified by: VOTHANA-CHY Generated:12/12/2022 10:31:04 PM
 INSERT INTO [LOANLIST] ( [BOOKID] , [STUDENTID] , [DATE] ) 
 VALUES ( 3 , 2 , 12/12/2022 10:31:04 PM );
+
+--Modified by: VOTHANA-CHY Generated:12/17/2022 2:33:26 PM
+INSERT INTO [LOANLIST] ( [BOOKID] , [STUDENTID] , [DATE] ) 
+VALUES ( 1 , 2 , 12/17/2022 2:33:26 PM );
+
+--Modified by: VOTHANA-CHY Generated:12/17/2022 2:58:26 PM
+INSERT INTO [BOOK] ( [TITLE] , [DESC] , [AUTHOR] , [YEAR] , [LANGAUGE] , [IMAGE] , [PDF] , [STATUS] ) 
+VALUES ( 'AFS' , 'dfdsfsf' , 'wsas' , 1800 , 'Khmer' , 'no image' , 'no pdf' , 1 );
