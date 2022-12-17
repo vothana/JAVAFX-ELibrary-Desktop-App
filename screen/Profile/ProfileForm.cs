@@ -197,13 +197,6 @@ namespace Library.screen.Profile
             data["PASSWORD"] = (txtnewPassword.Text == "") ? currentPass : txtnewPassword.Text;
             data["ROLE"] = EnumCode.ROLE.STUDENT.ToString();
 
-/*            string testShow = "";
-            foreach (KeyValuePair<string, object> entry in data)
-            {
-                testShow += entry.Key + " : " + entry.Value + " \n ";
-            }
-            MessageBox.Show(testShow);*/
-
             return data;
         }
 

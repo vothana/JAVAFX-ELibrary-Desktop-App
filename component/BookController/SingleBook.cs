@@ -64,6 +64,7 @@ namespace Library.component.BookController
                 {
                     bookDetail.TopLevel = true;
                     bookDetail.BookID = BookID;
+                    bookDetail.BookPDF = BookPDF;
                     bookDetail.ShowDialog();
                 }
             }

@@ -102,5 +102,10 @@ namespace Library.component.BookController
         {
             set => ButtonRead.BackColor = value;
         }
+
+        public string BookPDF { 
+            get; 
+            set; 
+        }
     }
 }

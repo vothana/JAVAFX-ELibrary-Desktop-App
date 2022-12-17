@@ -112,3 +112,11 @@ VALUES ( 1 , 2 , 12/17/2022 2:33:26 PM );
 --Modified by: VOTHANA-CHY Generated:12/17/2022 2:58:26 PM
 INSERT INTO [BOOK] ( [TITLE] , [DESC] , [AUTHOR] , [YEAR] , [LANGAUGE] , [IMAGE] , [PDF] , [STATUS] ) 
 VALUES ( 'AFS' , 'dfdsfsf' , 'wsas' , 1800 , 'Khmer' , 'no image' , 'no pdf' , 1 );
+
+--Modified by: VOTHANA-CHY Generated:12/17/2022 3:30:06 PM
+INSERT INTO [LOANLIST] ( [BOOKID] , [STUDENTID] , [DATE] ) 
+VALUES ( 4 , 4 , 12/17/2022 3:30:06 PM );
+
+--Modified by: VOTHANA-CHY Generated:12/17/2022 3:58:52 PM
+INSERT INTO [LOANLIST] ( [BOOKID] , [STUDENTID] , [DATE] ) 
+VALUES ( 4 , 2 , 12/17/2022 3:58:52 PM );

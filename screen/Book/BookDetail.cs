@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Library.component.BookController;
+using Library.Entity.ENUM;
 using PdfiumViewer;
 
 namespace Library.screen.Book
@@ -15,6 +17,7 @@ namespace Library.screen.Book
     public partial class BookDetail : Form
     {
         public int BookID;
+        public string BookPDF;
         public BookDetail()
         {
             InitializeComponent();
@@ -47,12 +50,20 @@ namespace Library.screen.Book
 
         private void BookDetail_Load(object sender, EventArgs e)
         {
-            string filePath = "D:\\1. OTH\\Learn\\... School\\Linux\\Unit 05- Linux Runlevel.pdf";
+            String filePDF = CurrentPath.CurrentDir + "PDF\\" + BookID + "\\" + BookPDF;
 
-            byte[] bytes = System.IO.File.ReadAllBytes(filePath);
-            var stream = new System.IO.MemoryStream(bytes);
-            PdfDocument pdfDocument = PdfDocument.Load(stream);
-            pdf.Document = pdfDocument;
+            if (File.Exists(filePDF))
+            {
+                byte[] bytes = System.IO.File.ReadAllBytes(filePDF);
+                var stream = new System.IO.MemoryStream(bytes);
+                PdfDocument pdfDocument = PdfDocument.Load(stream);
+                pdf.Document = pdfDocument;
+            }
+            else
+            {
+                MessageBox.Show("This book has no PDF");
+                pdf.Visible = false;
+            }
 
             BookDetailShow bookDetailShow = new BookDetailShow();
             bookDetailShow.TopLevel = false;
