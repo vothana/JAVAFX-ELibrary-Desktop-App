@@ -28,6 +28,8 @@ namespace Library.screen.Book
         private DataSql dataSql = new DataSql();
         private SqlDataReader data;
         int maxID;
+
+        private string pdfname = "";
         public CreateBook()
         {
             InitializeComponent();
@@ -54,6 +56,7 @@ namespace Library.screen.Book
                     txtYear.Text = data["Year"].ToString();
                     txtDescription.Text = data["Desc"].ToString();
                     comLangauge.Text = data["langauge"].ToString();
+                    pdfname = data["PDF"].ToString();
                     if (data["Status"].ToString().Equals("True"))
                     {
                         btnFree.Checked = true;
@@ -88,6 +91,7 @@ namespace Library.screen.Book
             {
                 uploadImgForm.TheID = txtID.Text;
                 uploadImgForm.Upload = EnumCode.UPLOAD.PDF.ToString();
+                uploadImgForm.pdfName = pdfname;
                 uploadImgForm.ShowDialog();
             }
         }
@@ -175,12 +179,11 @@ namespace Library.screen.Book
             string imgPath = CurrentPath.CurrentDir + "Books\\" + ID + "\\";
             string pdfPath = CurrentPath.CurrentDir + "PDF\\" + ID + "\\";
             string image = "", pdf = "";
-            if (!File.Exists(imgPath))
+            if (!File.Exists(imgPath) || !File.Exists(pdfPath) )
             {
                 System.IO.Directory.CreateDirectory(imgPath);
                 System.IO.Directory.CreateDirectory(pdfPath);
             }
-                
 
             files = Directory.GetFiles(imgPath);
             if(files.Length > 0)
@@ -204,7 +207,7 @@ namespace Library.screen.Book
                 data["IMAGE"] = "no image";
 
             if (pdf != null && pdf != "")
-                data["PDF"] = txtTitle.Text;
+                data["PDF"] = pdf;
             else
                 data["PDF"] = "no pdf";
 

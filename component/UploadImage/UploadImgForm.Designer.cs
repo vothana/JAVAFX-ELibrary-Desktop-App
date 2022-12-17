@@ -38,6 +38,7 @@
             this.btnUpload = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.labelNoPdf = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.sPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
@@ -65,6 +66,7 @@
             // sPanel1
             // 
             this.sPanel1.Controls.Add(this.uploadPDF);
+            this.sPanel1.Controls.Add(this.labelNoPdf);
             this.sPanel1.Controls.Add(this.label);
             this.sPanel1.Controls.Add(this.pdfViewer);
             this.sPanel1.Controls.Add(this.btnUpload);
@@ -162,6 +164,18 @@
             this.pictureBox.TabStop = false;
             this.pictureBox.DoubleClick += new System.EventHandler(this.pictureBox_DoubleClick);
             // 
+            // labelNoPdf
+            // 
+            this.labelNoPdf.AutoSize = true;
+            this.labelNoPdf.BackColor = System.Drawing.Color.Transparent;
+            this.labelNoPdf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.labelNoPdf.Location = new System.Drawing.Point(367, 228);
+            this.labelNoPdf.Name = "labelNoPdf";
+            this.labelNoPdf.Size = new System.Drawing.Size(68, 20);
+            this.labelNoPdf.TabIndex = 1;
+            this.labelNoPdf.Text = "NO PDF";
+            this.labelNoPdf.Visible = false;
+            // 
             // UploadImgForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -205,5 +219,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnUpload;
         private PdfiumViewer.PdfViewer pdfViewer;
         private ComponentFactory.Krypton.Toolkit.KryptonButton uploadPDF;
+        private System.Windows.Forms.Label labelNoPdf;
     }
 }

@@ -64,10 +64,10 @@
             this.datagridstudent.AllowUserToDeleteRows = false;
             this.datagridstudent.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.datagridstudent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datagridstudent.Location = new System.Drawing.Point(380, 74);
+            this.datagridstudent.Location = new System.Drawing.Point(380, 12);
             this.datagridstudent.Name = "datagridstudent";
             this.datagridstudent.ReadOnly = true;
-            this.datagridstudent.Size = new System.Drawing.Size(806, 525);
+            this.datagridstudent.Size = new System.Drawing.Size(1321, 597);
             this.datagridstudent.TabIndex = 2;
             this.datagridstudent.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridstudent_CellContentClick);
             // 
@@ -130,7 +130,6 @@
             this.kryptonLabel6.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonLabel6.TabIndex = 8;
             this.kryptonLabel6.Values.Text = "Gender :";
-            this.kryptonLabel6.Paint += new System.Windows.Forms.PaintEventHandler(this.kryptonLabel6_Paint);
             // 
             // kryptonLabel7
             // 
@@ -151,7 +150,6 @@
             this.kryptonLabel8.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonLabel8.TabIndex = 10;
             this.kryptonLabel8.Values.Text = "ProfilePicName :";
-            this.kryptonLabel8.Paint += new System.Windows.Forms.PaintEventHandler(this.kryptonLabel8_Paint);
             // 
             // txtid
             // 
@@ -239,7 +237,7 @@
             // 
             // btnnew
             // 
-            this.btnnew.Location = new System.Drawing.Point(429, 628);
+            this.btnnew.Location = new System.Drawing.Point(380, 616);
             this.btnnew.Name = "btnnew";
             this.btnnew.Size = new System.Drawing.Size(130, 37);
             this.btnnew.StateCommon.Back.Color1 = System.Drawing.Color.White;
@@ -256,7 +254,7 @@
             // 
             // btnupdate
             // 
-            this.btnupdate.Location = new System.Drawing.Point(783, 628);
+            this.btnupdate.Location = new System.Drawing.Point(684, 615);
             this.btnupdate.Name = "btnupdate";
             this.btnupdate.Size = new System.Drawing.Size(130, 37);
             this.btnupdate.StateCommon.Back.Color1 = System.Drawing.Color.White;
@@ -273,7 +271,7 @@
             // 
             // btnsave
             // 
-            this.btnsave.Location = new System.Drawing.Point(615, 628);
+            this.btnsave.Location = new System.Drawing.Point(532, 616);
             this.btnsave.Name = "btnsave";
             this.btnsave.Size = new System.Drawing.Size(130, 37);
             this.btnsave.StateCommon.Back.Color1 = System.Drawing.Color.White;
@@ -290,7 +288,7 @@
             // 
             // btndelete
             // 
-            this.btndelete.Location = new System.Drawing.Point(962, 628);
+            this.btndelete.Location = new System.Drawing.Point(843, 614);
             this.btndelete.Name = "btndelete";
             this.btndelete.Size = new System.Drawing.Size(130, 37);
             this.btndelete.StateCommon.Back.Color1 = System.Drawing.Color.Red;
@@ -335,7 +333,6 @@
             this.kryptonLabel9.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonLabel9.TabIndex = 28;
             this.kryptonLabel9.Values.Text = "School:";
-            this.kryptonLabel9.Paint += new System.Windows.Forms.PaintEventHandler(this.kryptonLabel9_Paint);
             // 
             // roundedPic1
             // 
@@ -351,7 +348,6 @@
             this.roundedPic1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.roundedPic1.TabIndex = 1;
             this.roundedPic1.TabStop = false;
-            this.roundedPic1.Click += new System.EventHandler(this.roundedPic1_Click);
             // 
             // txtdob
             // 
@@ -370,7 +366,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
-            this.ClientSize = new System.Drawing.Size(1198, 720);
+            this.ClientSize = new System.Drawing.Size(1713, 720);
             this.Controls.Add(this.txtdob);
             this.Controls.Add(this.txtschool);
             this.Controls.Add(this.kryptonLabel9);

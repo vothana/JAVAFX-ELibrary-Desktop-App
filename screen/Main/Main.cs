@@ -35,6 +35,7 @@ namespace Library.screen.Main
             if (User.USERROLE == ROLE.ADMIN.ToString())
             {
                 txtProfileName.Text = ROLE.ADMIN.ToString();
+                btnGoMyProfile.Visible = false;
                 panelBookMG.Visible = true;
                 panelStudentsMG.Visible = true;
                 panelMyBook.Visible = false;
