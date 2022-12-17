@@ -30,8 +30,8 @@ namespace Library
             InitializeComponent();
             txtUsername.Focus();
 
-            //txtUsername.Text = "vothana";
-            //txtPassword.Text = "123";
+            txtUsername.Text = "vothana";
+            txtPassword.Text = "123";
         }
 
         private void Login_Load(object sender, EventArgs e)
@@ -142,21 +142,23 @@ namespace Library
 
         private void clearDoubleImage()
         {
-            string profilePic = CurrentPath.CurrentDir + "Students\\" + StudentInfo.ID + "\\";
-            string[] filePaths = Directory.GetFiles(profilePic);
-            foreach(string filePath in filePaths)
+            try
             {
-                if(filePath.Split('\\').Last() != StudentInfo.studentPic)
+                string profilePic = CurrentPath.CurrentDir + "Students\\" + StudentInfo.ID + "\\";
+                string[] filePaths = Directory.GetFiles(profilePic);
+                foreach (string filePath in filePaths)
                 {
-                    try
+                    if (filePath.Split('\\').Last() != StudentInfo.studentPic)
                     {
-                        File.Delete(filePath);
-                    }catch(Exception ex)
-                    {
-                        Console.WriteLine(ex.Message);
+                       File.Delete(filePath);
                     }
                 }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
         }
     }
 }

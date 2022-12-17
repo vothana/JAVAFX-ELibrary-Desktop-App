@@ -96,3 +96,14 @@ VALUES ( 'JAVA Servlets & JSP' , 'JAVA Servlets & JSP by Joel Murach 2012' , 'Jo
 INSERT INTO [BOOK] (  ) 
 VALUES ( 'JAVA Servlets & JSP' , 'JAVA Servlets & JSP by Joel Murach 2012' , 'Joel Murach' , 2012 , 'English' , '1.jpg' , 'JAVA Servlets & JSP' , 0 );
 
+--Modified by: VOTHANA-CHY Generated:12/12/2022 10:12:44 PM
+INSERT INTO [LOANLIST] ( [BOOKID] , [STUDENTID] , [DATE] ) 
+VALUES ( 1 , 2 , 12/12/2022 10:12:44 PM );
+
+--Modified by: VOTHANA-CHY Generated:12/12/2022 10:30:37 PM
+INSERT INTO [LOANLIST] ( [BOOKID] , [STUDENTID] , [DATE] ) 
+VALUES ( 2 , 2 , 12/12/2022 10:30:37 PM );
+
+--Modified by: VOTHANA-CHY Generated:12/12/2022 10:31:04 PM
+INSERT INTO [LOANLIST] ( [BOOKID] , [STUDENTID] , [DATE] ) 
+VALUES ( 3 , 2 , 12/12/2022 10:31:04 PM );
