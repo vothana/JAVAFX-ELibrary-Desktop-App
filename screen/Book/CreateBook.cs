@@ -8,10 +8,12 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using Library.component.BookController;
+using Library.component.Popup;
 using Library.component.UploadImage;
 using Library.Database;
 using Library.Entity.ENUM;
@@ -31,6 +33,7 @@ namespace Library.screen.Book
             InitializeComponent();
             comLangauge.Items.Add("Khmer");
             comLangauge.Items.Add("English");
+            btnFree.Checked = true;
             maxID = dataSql.GetMaxID(Server.TABLE.BOOK.ToString(), "ID");
         }
 
@@ -91,34 +94,52 @@ namespace Library.screen.Book
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (btnSubmit.Text.Equals("Update"))
+            if (formValidate())
             {
-                updateBook();
+                if (btnSubmit.Text.Equals("Update"))
+                {
+                    updateBook();
+                }
+                else
+                {
+                    createBook();
+                    BookManagement.BID.loader();
+                }
             }
             else
             {
-                createBook();
-                BookManagement.BID.loader();
+                MessageBox.Show("Please complete all the fields");
             }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            bool result = dataSql.delete(Server.TABLE.BOOK.ToString(), "ID", BookID.ToString());
-            if (result)
+            using (ConfirmBox confirmBox = new ConfirmBox())
             {
-                MessageBox.Show("Success deleted");
-                BookManagement.BID.BookID = 0;
-                BookManagement.BID.loader();
-                try { Directory.Delete(CurrentPath.CurrentDir + "Books\\" + BookID , true); }
-                catch (IOException ex)
+                confirmBox.Tittle = "Are you sure ? \n You are about deleting book's name " + txtTitle.Text;
+                confirmBox.ButtonConfirm = "Delete";
+                confirmBox.Background = Color.LightCyan;
+                confirmBox.FontColor = Color.Black;
+                confirmBox.ShowDialog();
+                if (confirmBox.DialogResult == DialogResult.Yes)
                 {
-                    Console.WriteLine(ex.Message);
+                    bool result = dataSql.delete(Server.TABLE.BOOK.ToString(), "ID", BookID.ToString());
+                    if (result)
+                    {
+                        MessageBox.Show("Success deleted");
+                        BookManagement.BID.BookID = 0;
+                        BookManagement.BID.loader();
+                        try { Directory.Delete(CurrentPath.CurrentDir + "Books\\" + BookID, true); }
+                        catch (IOException ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                        }
+                        this.Close();
+                    }
+                    else
+                        MessageBox.Show("Cannot delete");
                 }
-                this.Close();
             }
-            else
-                MessageBox.Show("Cannot delete");
         }
 
         private void updateBook()
@@ -199,5 +220,16 @@ namespace Library.screen.Book
             this.Close();
         }
 
+        private bool formValidate()
+        {
+            if (txtTitle.Text == "") { return false; }
+            else if (txtAuthor.Text == "") { return false; }
+            else if (txtDescription.Text == "") {  return false; }
+            else if (txtYear.Text == "") {  return false; }
+            else if (comLangauge.Text == "") {return false; }
+           // else if (comLangauge.Text == "" || comLangauge.Text != comLangauge.Items[0].ToString() || comLangauge.Text != comLangauge.Items[1].ToString()) { MessageBox.Show("L");  return false; }
+
+            return true;
+        }
     }
 }

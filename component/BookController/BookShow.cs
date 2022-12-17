@@ -59,5 +59,6 @@ namespace Library.component.BookController
                 bookDetail.ShowDialog();
             }
         }
+
     }
 }

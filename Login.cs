@@ -4,10 +4,13 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using ComponentFactory.Krypton.Toolkit;
 using Library.Database;
 using Library.Entity.ENUM;
@@ -17,12 +20,18 @@ namespace Library
 {
     public partial class Login : KryptonForm
     {
+        private SqlConnection conn = Server.Connection();
+        private DataSql dataSql = new DataSql();
+        private SqlDataReader data;
         public static string username;
         Boolean show;
         public Login()
         {
             InitializeComponent();
             txtUsername.Focus();
+
+            //txtUsername.Text = "vothana";
+            //txtPassword.Text = "123";
         }
 
         private void Login_Load(object sender, EventArgs e)
@@ -34,11 +43,6 @@ namespace Library
             string dir = string.Join("\\", currectDirSplit.Take(currectDirSplit.Length - 3)); //take out last file
 
             CurrentPath.CurrentDir = dir + "\\Assets\\"; //Initailize current path
-
-            //This code only for development mode
-            //txtUsername.Text = "admin";
-            txtUsername.Text = "student";
-            txtPassword.Text = "123";
         }
 
         private void btnShowPassword_Click(object sender, EventArgs e)
@@ -46,43 +50,48 @@ namespace Library
             if (show)
             {
                 txtPassword.PasswordChar = '\0';
-                show = true;
+                show = false;
             }
             else
             {
-                txtPassword.PasswordChar = '\0';
-                show = false;
+                txtPassword.PasswordChar = '*';
+                show = true;
             }
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (txtUsername.Text.Equals(ROLE.ADMIN.ToString(), StringComparison.InvariantCultureIgnoreCase))
+            data = dataSql.QueryBy(Server.TABLE.STUDENT.ToString(), "USERNAME", txtUsername.Text);
+            if (hasData(data))
             {
-                User.USERROLE = ROLE.ADMIN.ToString();
-            }
-            else
-            {
-                User.USERROLE = ROLE.STUDENT.ToString();
-            }
+                if (data.Read())
+                {
+                    if (data["PASSWORD"].ToString() == txtPassword.Text)
+                    {
+                        if (data["ROLE"].ToString() == ROLE.ADMIN.ToString())
+                        {
+                            User.USERROLE = ROLE.ADMIN.ToString();
+                        }
+                        else
+                        {
+                            User.USERROLE = ROLE.STUDENT.ToString();
+                            StudentInfo.ID = data.GetInt32(0);
+                            StudentInfo.studentName = data["FULLNAME"].ToString();
+                            StudentInfo.studentPic = data["IMAGE"].ToString();
+                            clearDoubleImage();
+                        }
 
-            if (
-                txtUsername.Text.Equals("admin", StringComparison.InvariantCultureIgnoreCase) || 
-                txtUsername.Text.Equals("student", StringComparison.InvariantCultureIgnoreCase)
-                )
-            {
-                if (txtPassword.Text == "admin" || txtPassword.Text == "123")
-                {
-                    this.Hide();
-                    username = txtUsername.Text;
-                    Main main = new Main();
-                    main.TopLevel = true;
-                    main.ShowDialog();
-                    this.Close();
-                }
-                else
-                {
-                    labelWrong.Visible = true;
+                        this.Hide();
+                        username = txtUsername.Text;
+                        Main main = new Main();
+                        main.TopLevel = true;
+                        main.ShowDialog();
+                        this.Close();
+                    }
+                    else
+                    {
+                        labelWrong.Visible = true;
+                    }
                 }
             }
             else
@@ -116,6 +125,37 @@ namespace Library
             {
                 btnLogin_Click(sender, e);
                 e.Handled = e.SuppressKeyPress = true;
+            }
+        }
+
+        private bool hasData(SqlDataReader data)
+        {
+            if (data.HasRows)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private void clearDoubleImage()
+        {
+            string profilePic = CurrentPath.CurrentDir + "Students\\" + StudentInfo.ID + "\\";
+            string[] filePaths = Directory.GetFiles(profilePic);
+            foreach(string filePath in filePaths)
+            {
+                if(filePath.Split('\\').Last() != StudentInfo.studentPic)
+                {
+                    try
+                    {
+                        File.Delete(filePath);
+                    }catch(Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
             }
         }
     }

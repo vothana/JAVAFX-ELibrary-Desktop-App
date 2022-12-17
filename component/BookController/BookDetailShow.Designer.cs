@@ -34,15 +34,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.PanelBookShow = new System.Windows.Forms.Panel();
-            this.kryptonWrapLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonWrapLabel();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Teal;
-            this.panel1.Location = new System.Drawing.Point(0, 761);
+            this.panel1.Location = new System.Drawing.Point(1, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1300, 29);
             this.panel1.TabIndex = 0;
@@ -50,7 +48,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Teal;
-            this.panel2.Location = new System.Drawing.Point(0, 1041);
+            this.panel2.Location = new System.Drawing.Point(1, 292);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1300, 29);
             this.panel2.TabIndex = 0;
@@ -61,7 +59,7 @@
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label1);
-            this.panel3.Location = new System.Drawing.Point(0, 810);
+            this.panel3.Location = new System.Drawing.Point(1, 61);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1300, 212);
             this.panel3.TabIndex = 0;
@@ -102,32 +100,12 @@
     "tory od the popular author all around the world were here\r\n";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // PanelBookShow
-            // 
-            this.PanelBookShow.Location = new System.Drawing.Point(159, 61);
-            this.PanelBookShow.Name = "PanelBookShow";
-            this.PanelBookShow.Size = new System.Drawing.Size(351, 601);
-            this.PanelBookShow.TabIndex = 1;
-            // 
-            // kryptonWrapLabel1
-            // 
-            this.kryptonWrapLabel1.AutoSize = false;
-            this.kryptonWrapLabel1.Font = new System.Drawing.Font("Poppins", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonWrapLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
-            this.kryptonWrapLabel1.Location = new System.Drawing.Point(640, 335);
-            this.kryptonWrapLabel1.Name = "kryptonWrapLabel1";
-            this.kryptonWrapLabel1.Size = new System.Drawing.Size(387, 212);
-            this.kryptonWrapLabel1.StateCommon.Font = new System.Drawing.Font("Poppins", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonWrapLabel1.Text = "Description";
-            // 
             // BookDetailShow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
-            this.ClientSize = new System.Drawing.Size(1300, 1100);
-            this.Controls.Add(this.kryptonWrapLabel1);
-            this.Controls.Add(this.PanelBookShow);
+            this.ClientSize = new System.Drawing.Size(1300, 338);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
@@ -149,7 +127,5 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel PanelBookShow;
-        private ComponentFactory.Krypton.Toolkit.KryptonWrapLabel kryptonWrapLabel1;
     }
 }

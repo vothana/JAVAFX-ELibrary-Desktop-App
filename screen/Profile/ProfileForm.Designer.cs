@@ -33,10 +33,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtFullName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.groubGender = new ComponentFactory.Krypton.Toolkit.KryptonGroup();
-            this.kryptonRadioButton2 = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
-            this.kryptonRadioButton1 = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
+            this.txtMale = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
+            this.txtFemale = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtDob = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.txtPhonNumber = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -55,18 +54,23 @@
             this.btnUpdatePassword = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonButton3 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.txtID = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.txtImagePath = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.btnSwitch = new Library.component.RoundedPic();
             this.btnUploadImage = new Library.component.RoundedPic();
-            this.profilePic = new Library.component.RoundedPic();
+            this.profileImage = new Library.component.RoundedPic();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtUsername = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.ShowPassword = new System.Windows.Forms.PictureBox();
+            this.txtDob = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.groubGender)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groubGender.Panel)).BeginInit();
             this.groubGender.Panel.SuspendLayout();
             this.groubGender.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnSwitch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnUploadImage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.profilePic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profileImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ShowPassword)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -110,8 +114,8 @@
             // 
             // groubGender.Panel
             // 
-            this.groubGender.Panel.Controls.Add(this.kryptonRadioButton2);
-            this.groubGender.Panel.Controls.Add(this.kryptonRadioButton1);
+            this.groubGender.Panel.Controls.Add(this.txtMale);
+            this.groubGender.Panel.Controls.Add(this.txtFemale);
             this.groubGender.Size = new System.Drawing.Size(316, 25);
             this.groubGender.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
             this.groubGender.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
@@ -121,23 +125,25 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.groubGender.TabIndex = 16;
             // 
-            // kryptonRadioButton2
+            // txtMale
             // 
-            this.kryptonRadioButton2.Location = new System.Drawing.Point(121, -1);
-            this.kryptonRadioButton2.Name = "kryptonRadioButton2";
-            this.kryptonRadioButton2.Size = new System.Drawing.Size(65, 27);
-            this.kryptonRadioButton2.StateCommon.ShortText.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonRadioButton2.TabIndex = 0;
-            this.kryptonRadioButton2.Values.Text = "Male";
+            this.txtMale.Location = new System.Drawing.Point(121, -1);
+            this.txtMale.Name = "txtMale";
+            this.txtMale.Size = new System.Drawing.Size(65, 27);
+            this.txtMale.StateCommon.ShortText.Color1 = System.Drawing.Color.Black;
+            this.txtMale.StateCommon.ShortText.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMale.TabIndex = 0;
+            this.txtMale.Values.Text = "Male";
             // 
-            // kryptonRadioButton1
+            // txtFemale
             // 
-            this.kryptonRadioButton1.Location = new System.Drawing.Point(3, -1);
-            this.kryptonRadioButton1.Name = "kryptonRadioButton1";
-            this.kryptonRadioButton1.Size = new System.Drawing.Size(87, 27);
-            this.kryptonRadioButton1.StateCommon.ShortText.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonRadioButton1.TabIndex = 0;
-            this.kryptonRadioButton1.Values.Text = "Female";
+            this.txtFemale.Location = new System.Drawing.Point(3, -1);
+            this.txtFemale.Name = "txtFemale";
+            this.txtFemale.Size = new System.Drawing.Size(87, 27);
+            this.txtFemale.StateCommon.ShortText.Color1 = System.Drawing.Color.Black;
+            this.txtFemale.StateCommon.ShortText.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFemale.TabIndex = 0;
+            this.txtFemale.Values.Text = "Female";
             // 
             // label3
             // 
@@ -150,19 +156,6 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "Full Name";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txtDob
-            // 
-            this.txtDob.Enabled = false;
-            this.txtDob.Location = new System.Drawing.Point(203, 300);
-            this.txtDob.Name = "txtDob";
-            this.txtDob.Size = new System.Drawing.Size(317, 32);
-            this.txtDob.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtDob.StateCommon.Border.Rounding = 5;
-            this.txtDob.StateCommon.Content.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDob.TabIndex = 17;
             // 
             // label4
             // 
@@ -266,6 +259,7 @@
             // 
             // btnSaveData
             // 
+            this.btnSaveData.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSaveData.Enabled = false;
             this.btnSaveData.Location = new System.Drawing.Point(414, 605);
             this.btnSaveData.Name = "btnSaveData";
@@ -277,13 +271,14 @@
             this.btnSaveData.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveData.TabIndex = 18;
             this.btnSaveData.Values.Text = "Save";
+            this.btnSaveData.Click += new System.EventHandler(this.btnSaveData_Click);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.label8.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
-            this.label8.Location = new System.Drawing.Point(591, 190);
+            this.label8.Location = new System.Drawing.Point(577, 279);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(120, 22);
             this.label8.TabIndex = 8;
@@ -293,8 +288,9 @@
             // txtCurrentPassword
             // 
             this.txtCurrentPassword.Enabled = false;
-            this.txtCurrentPassword.Location = new System.Drawing.Point(594, 211);
+            this.txtCurrentPassword.Location = new System.Drawing.Point(580, 300);
             this.txtCurrentPassword.Name = "txtCurrentPassword";
+            this.txtCurrentPassword.PasswordChar = '*';
             this.txtCurrentPassword.Size = new System.Drawing.Size(316, 31);
             this.txtCurrentPassword.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
@@ -308,7 +304,7 @@
             this.label9.AutoSize = true;
             this.label9.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.label9.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
-            this.label9.Location = new System.Drawing.Point(591, 253);
+            this.label9.Location = new System.Drawing.Point(577, 342);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(100, 22);
             this.label9.TabIndex = 8;
@@ -318,8 +314,9 @@
             // txtnewPassword
             // 
             this.txtnewPassword.Enabled = false;
-            this.txtnewPassword.Location = new System.Drawing.Point(594, 274);
+            this.txtnewPassword.Location = new System.Drawing.Point(580, 363);
             this.txtnewPassword.Name = "txtnewPassword";
+            this.txtnewPassword.PasswordChar = '*';
             this.txtnewPassword.Size = new System.Drawing.Size(316, 31);
             this.txtnewPassword.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
@@ -333,7 +330,7 @@
             this.label10.AutoSize = true;
             this.label10.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.label10.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
-            this.label10.Location = new System.Drawing.Point(590, 316);
+            this.label10.Location = new System.Drawing.Point(576, 405);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(152, 22);
             this.label10.TabIndex = 8;
@@ -343,8 +340,9 @@
             // txtConfirmPassword
             // 
             this.txtConfirmPassword.Enabled = false;
-            this.txtConfirmPassword.Location = new System.Drawing.Point(593, 337);
+            this.txtConfirmPassword.Location = new System.Drawing.Point(579, 426);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
+            this.txtConfirmPassword.PasswordChar = '*';
             this.txtConfirmPassword.Size = new System.Drawing.Size(316, 31);
             this.txtConfirmPassword.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
@@ -355,8 +353,9 @@
             // 
             // btnUpdatePassword
             // 
+            this.btnUpdatePassword.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUpdatePassword.Enabled = false;
-            this.btnUpdatePassword.Location = new System.Drawing.Point(803, 389);
+            this.btnUpdatePassword.Location = new System.Drawing.Point(789, 479);
             this.btnUpdatePassword.Name = "btnUpdatePassword";
             this.btnUpdatePassword.Size = new System.Drawing.Size(106, 30);
             this.btnUpdatePassword.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
@@ -366,6 +365,7 @@
             this.btnUpdatePassword.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdatePassword.TabIndex = 18;
             this.btnUpdatePassword.Values.Text = "Update";
+            this.btnUpdatePassword.Click += new System.EventHandler(this.btnUpdatePassword_Click);
             // 
             // kryptonButton3
             // 
@@ -384,20 +384,6 @@
             // timer1
             // 
             this.timer1.Interval = 10;
-            // 
-            // txtID
-            // 
-            this.txtID.Enabled = false;
-            this.txtID.Location = new System.Drawing.Point(2, 704);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(316, 13);
-            this.txtID.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtID.StateCommon.Border.Rounding = 5;
-            this.txtID.StateCommon.Content.Font = new System.Drawing.Font("Times New Roman", 1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtID.TabIndex = 15;
-            this.txtID.Visible = false;
             // 
             // txtImagePath
             // 
@@ -448,23 +434,78 @@
             this.btnUploadImage.TabStop = false;
             this.btnUploadImage.Click += new System.EventHandler(this.btnUploadImage_Click);
             // 
-            // profilePic
+            // profileImage
             // 
-            this.profilePic.BackColor = System.Drawing.Color.Transparent;
-            this.profilePic.BorderGradientBottom = System.Drawing.Color.Red;
-            this.profilePic.BorderGradientTop = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.profilePic.BorderRadius = 40;
-            this.profilePic.BorderSize = 1;
-            this.profilePic.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.profilePic.GradientAngle = 90F;
-            this.profilePic.Image = global::Library.Properties.Resources.B__126_;
-            this.profilePic.Location = new System.Drawing.Point(478, 12);
-            this.profilePic.Name = "profilePic";
-            this.profilePic.Size = new System.Drawing.Size(146, 146);
-            this.profilePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.profilePic.TabIndex = 11;
-            this.profilePic.TabStop = false;
-            this.profilePic.Click += new System.EventHandler(this.profilePic_Click);
+            this.profileImage.BackColor = System.Drawing.Color.Transparent;
+            this.profileImage.BorderGradientBottom = System.Drawing.Color.Red;
+            this.profileImage.BorderGradientTop = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.profileImage.BorderRadius = 40;
+            this.profileImage.BorderSize = 1;
+            this.profileImage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.profileImage.GradientAngle = 90F;
+            this.profileImage.Image = global::Library.Properties.Resources.B__126_;
+            this.profileImage.Location = new System.Drawing.Point(478, 12);
+            this.profileImage.Name = "profileImage";
+            this.profileImage.Size = new System.Drawing.Size(146, 146);
+            this.profileImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.profileImage.TabIndex = 11;
+            this.profileImage.TabStop = false;
+            this.profileImage.Click += new System.EventHandler(this.profilePic_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.label2.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(254)));
+            this.label2.Location = new System.Drawing.Point(576, 190);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 22);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Username";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Enabled = false;
+            this.txtUsername.Location = new System.Drawing.Point(579, 211);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(316, 31);
+            this.txtUsername.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.txtUsername.StateCommon.Border.Rounding = 5;
+            this.txtUsername.StateCommon.Content.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsername.TabIndex = 15;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(24)))), ((int)(((byte)(69)))));
+            this.panel2.Location = new System.Drawing.Point(638, 254);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(200, 2);
+            this.panel2.TabIndex = 20;
+            // 
+            // ShowPassword
+            // 
+            this.ShowPassword.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ShowPassword.Image = global::Library.Properties.Resources.icons8_eye_50;
+            this.ShowPassword.Location = new System.Drawing.Point(864, 275);
+            this.ShowPassword.Name = "ShowPassword";
+            this.ShowPassword.Size = new System.Drawing.Size(30, 30);
+            this.ShowPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ShowPassword.TabIndex = 21;
+            this.ShowPassword.TabStop = false;
+            this.ShowPassword.Click += new System.EventHandler(this.ShowPassword_Click);
+            // 
+            // txtDob
+            // 
+            this.txtDob.Enabled = false;
+            this.txtDob.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold);
+            this.txtDob.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtDob.Location = new System.Drawing.Point(204, 300);
+            this.txtDob.Name = "txtDob";
+            this.txtDob.Size = new System.Drawing.Size(317, 27);
+            this.txtDob.TabIndex = 22;
             // 
             // ProfileForm
             // 
@@ -472,11 +513,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
             this.ClientSize = new System.Drawing.Size(1120, 720);
+            this.Controls.Add(this.txtDob);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnSwitch);
             this.Controls.Add(this.btnUpdatePassword);
             this.Controls.Add(this.kryptonButton3);
             this.Controls.Add(this.btnSaveData);
-            this.Controls.Add(this.txtDob);
             this.Controls.Add(this.groubGender);
             this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.txtSchoolName);
@@ -485,7 +527,7 @@
             this.Controls.Add(this.txtConfirmPassword);
             this.Controls.Add(this.txtnewPassword);
             this.Controls.Add(this.txtImagePath);
-            this.Controls.Add(this.txtID);
+            this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.txtCurrentPassword);
             this.Controls.Add(this.txtFullName);
             this.Controls.Add(this.label7);
@@ -497,9 +539,11 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.profilePic);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.profileImage);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.ShowPassword);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ProfileForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -512,23 +556,23 @@
             this.groubGender.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnSwitch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnUploadImage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.profilePic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profileImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ShowPassword)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private component.RoundedPic profilePic;
+        private component.RoundedPic profileImage;
         private component.RoundedPic btnUploadImage;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtFullName;
         private ComponentFactory.Krypton.Toolkit.KryptonGroup groubGender;
-        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton kryptonRadioButton1;
-        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton kryptonRadioButton2;
+        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton txtFemale;
+        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton txtMale;
         private System.Windows.Forms.Label label3;
-        private ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker txtDob;
         private System.Windows.Forms.Label label4;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtPhonNumber;
         private System.Windows.Forms.Label label5;
@@ -548,7 +592,17 @@
         private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton3;
         private component.RoundedPic btnSwitch;
         private System.Windows.Forms.Timer timer1;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtID;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtImagePath;
+        private System.Windows.Forms.Label label2;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtUsername;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PictureBox ShowPassword;
+        private System.Windows.Forms.DateTimePicker txtDob;
+
+        public string DOB
+        {
+            get => txtDob.Text;
+            set => txtDob.Text = value; 
+        }
     }
 }

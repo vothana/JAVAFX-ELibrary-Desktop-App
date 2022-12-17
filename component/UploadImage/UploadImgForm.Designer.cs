@@ -137,6 +137,7 @@
             // kryptonButton1
             // 
             this.kryptonButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.kryptonButton1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.kryptonButton1.Location = new System.Drawing.Point(235, 715);
             this.kryptonButton1.Name = "kryptonButton1";
             this.kryptonButton1.Size = new System.Drawing.Size(146, 45);

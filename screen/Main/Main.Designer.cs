@@ -50,7 +50,6 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtProfileName = new System.Windows.Forms.Label();
-            this.btnProfilePic = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.MainPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -58,6 +57,7 @@
             this.profileMenu = new System.Windows.Forms.FlowLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnLogOut = new System.Windows.Forms.Button();
+            this.btnProfilePic = new Library.component.RoundedPic();
             this.sideBar.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
@@ -72,6 +72,7 @@
             this.panel3.SuspendLayout();
             this.profileMenu.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnProfilePic)).BeginInit();
             this.SuspendLayout();
             // 
             // MainPalette
@@ -342,8 +343,8 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.txtProfileName);
             this.panel2.Controls.Add(this.btnProfilePic);
+            this.panel2.Controls.Add(this.txtProfileName);
             this.panel2.Location = new System.Drawing.Point(62, 1);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1138, 53);
@@ -360,27 +361,6 @@
             this.txtProfileName.Text = "Yomiko Yano";
             this.txtProfileName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.txtProfileName.Click += new System.EventHandler(this.txtProfileName_Click);
-            // 
-            // btnProfilePic
-            // 
-            this.btnProfilePic.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProfilePic.Location = new System.Drawing.Point(1085, 5);
-            this.btnProfilePic.MaximumSize = new System.Drawing.Size(45, 45);
-            this.btnProfilePic.MinimumSize = new System.Drawing.Size(45, 45);
-            this.btnProfilePic.Name = "btnProfilePic";
-            this.btnProfilePic.Size = new System.Drawing.Size(45, 45);
-            this.btnProfilePic.StateCommon.Back.Image = global::Library.Properties.Resources.Girl__12_;
-            this.btnProfilePic.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch;
-            this.btnProfilePic.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btnProfilePic.StateCommon.Border.Rounding = 100;
-            this.btnProfilePic.StateCommon.Content.Image.Effect = ComponentFactory.Krypton.Toolkit.PaletteImageEffect.GrayScale;
-            this.btnProfilePic.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.btnProfilePic.StateCommon.Content.Image.ImageV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.btnProfilePic.TabIndex = 4;
-            this.btnProfilePic.Values.Text = "kryptonButton1";
-            this.btnProfilePic.Click += new System.EventHandler(this.btnProfilePic_Click);
             // 
             // timer
             // 
@@ -466,6 +446,23 @@
             this.btnLogOut.UseVisualStyleBackColor = false;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
+            // btnProfilePic
+            // 
+            this.btnProfilePic.BorderGradientBottom = System.Drawing.Color.DodgerBlue;
+            this.btnProfilePic.BorderGradientTop = System.Drawing.Color.DodgerBlue;
+            this.btnProfilePic.BorderRadius = 40;
+            this.btnProfilePic.BorderSize = 0;
+            this.btnProfilePic.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProfilePic.GradientAngle = 90F;
+            this.btnProfilePic.Image = global::Library.Properties.Resources.NUM_Logo;
+            this.btnProfilePic.Location = new System.Drawing.Point(1088, 8);
+            this.btnProfilePic.Name = "btnProfilePic";
+            this.btnProfilePic.Size = new System.Drawing.Size(38, 38);
+            this.btnProfilePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnProfilePic.TabIndex = 6;
+            this.btnProfilePic.TabStop = false;
+            this.btnProfilePic.Click += new System.EventHandler(this.btnProfilePic_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -499,6 +496,7 @@
             this.panel3.ResumeLayout(false);
             this.profileMenu.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnProfilePic)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -525,7 +523,6 @@
         private System.Windows.Forms.Panel panelExit;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Panel panel2;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnProfilePic;
         private System.Windows.Forms.Label txtProfileName;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.FlowLayoutPanel MainPanel;
@@ -534,5 +531,6 @@
         private System.Windows.Forms.FlowLayoutPanel profileMenu;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btnLogOut;
+        private component.RoundedPic btnProfilePic;
     }
 }

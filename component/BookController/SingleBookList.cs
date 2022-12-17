@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using Library.Database;
 using Library.Entity.ENUM;
+using Library.screen.Book;
 
 namespace Library.component.BookController
 {
@@ -20,21 +21,46 @@ namespace Library.component.BookController
         private SqlConnection conn = Server.Connection();
         private DataSql dataSql = new DataSql();
         public string SearchText;
+        public static SingleBookList LOAD;
         public SingleBookList()
         {
             InitializeComponent();
+            LOAD = this;
         }
 
         private void SingleBookList_Load(object sender, EventArgs e)
         {
+            loadData();
+        }
+
+        public void loadData()
+        {
+
+            SqlDataReader data;
+            SqlDataReader loanList;
+
+            IDictionary<int, int> bookLoaned = new Dictionary<int, int>();
 
 
-            SqlDataReader data, loan;
+            if (User.USERROLE == ROLE.STUDENT.ToString())
+            {
+                loanList = dataSql.QueryLoan("STUDENTID", StudentInfo.ID.ToString());
+                if (loanList.HasRows)
+                {
+                    int i = 0;
+                    while (loanList.Read())
+                    {
+                        bookLoaned[i] = Int32.Parse(loanList["BOOKID"].ToString());
+                        i++;
+                    }
+                    loanList.Close();
+                }
+            }
 
             if (SearchText == null)
             {
                 data = dataSql.QueryAll(Server.TABLE.BOOK.ToString());
-               // hasData(data);
+                // hasData(data);
             }
             else
             {
@@ -56,15 +82,33 @@ namespace Library.component.BookController
                     singleBook.BookImage = new Bitmap(dir);
                 }
 
-                if (User.USERROLE == ROLE.ADMIN.ToString())
+                if (User.USERROLE == ROLE.STUDENT.ToString())
                 {
-                    singleBook.BookButton = "READ";
+                    if (!Boolean.Parse(data["STATUS"].ToString()))
+                    {
+                        foreach (KeyValuePair<int, int> item in bookLoaned)
+                        {
+                            if (item.Value == id)
+                            {
+                                singleBook.BookButton = "READ";
+                                break;
+                            }
+                            else
+                            {
+                                singleBook.BookButton = "BORROW"; //this will loop [Bad Performance]
+                            }
+                        }
+                    }
+                    else
+                    {
+                        singleBook.BookButton = "READ";
+                    }
                 }
                 else
                 {
-                    //an = dataSql.QueryBy(Server.TABLE.LOANLIST.ToString(), "ID", id.ToString());
-                    singleBook.BookButton = "BORROW";
+                    singleBook.BookButton = "READ";
                 }
+
                 TableBook.Controls.Add(singleBook, colunm, row);
                 colunm++;
                 if (colunm > 4)

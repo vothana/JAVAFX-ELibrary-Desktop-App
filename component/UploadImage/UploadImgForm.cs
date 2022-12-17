@@ -17,12 +17,12 @@ namespace Library.component.UploadImage
 {
     public partial class UploadImgForm : KryptonForm
     {
-        EnumCode enums = new EnumCode();
         private string theID;
         private string upload;
         private string sourcePath;
         private string targetPath;
         private string filter;
+        private string imageName = null;
         public string TheID { set => theID = value; }
         public string Upload { set => upload = value; }
 
@@ -36,19 +36,28 @@ namespace Library.component.UploadImage
             OpenFileDialog open = new OpenFileDialog();
             // image filters  
             open.Filter = filter;
-            if (open.ShowDialog() == DialogResult.OK)
+            try
             {
-                if(open.FileName != null)
+                if (open.ShowDialog() == DialogResult.OK)
                 {
-                    pictureBox.Image = new Bitmap(open.FileName);
-                    sourcePath = open.FileName;
-                    pictureBox.BringToFront();
-                }
-                else
-                {
-                    pictureBox.SendToBack();
+                    if (open.FileName != null)
+                    {
+                        pictureBox.Image = new Bitmap(open.FileName);
+                        sourcePath = open.FileName;
+                        pictureBox.BringToFront();
+                    }
+                    else
+                    {
+                        pictureBox.SendToBack();
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.Message);
+                Console.WriteLine(ex.Message);
+            }
+            
         }
 
         private void btnUpload_Click(object sender, EventArgs e)
@@ -56,35 +65,46 @@ namespace Library.component.UploadImage
 
             if (sourcePath != "" && sourcePath != null)
             {
-
-                targetPath = targetPath + theID;
-                if (Directory.Exists(targetPath))
+                try
                 {
-                    try { Directory.Delete(targetPath, true); }
-                    catch (IOException ex)
+                    targetPath = targetPath + theID;
+                    if (Directory.Exists(targetPath))
                     {
-                        MessageBox.Show("File already exist, or try another file.");
-                    } //delete folder if exists
-                      //avoid has alot of file in a directory
-                }
+                        try { Directory.Delete(targetPath, true); }
+                        catch (IOException ex)
+                        {
+                           // MessageBox.Show("File already exist, or try another file. \n");
+                            Console.WriteLine(ex.Message);
+                        } //delete folder if exists
+                          //avoid has alot of file in a directory
+                    }
 
-                System.IO.Directory.CreateDirectory(targetPath);
-                string[] split1 = sourcePath.Split('\\');
-                string fileName = split1.Last(); // will put into database
+                    System.IO.Directory.CreateDirectory(targetPath);
+                    string[] split1 = sourcePath.Split('\\');
+                    string fileName = split1.Last(); // will put into database
 
-                string destFile = targetPath + "\\" + fileName;
-                System.IO.File.Copy(sourcePath, destFile, true);
-                if (File.Exists(destFile))
+                    string destFile = targetPath + "\\" + fileName;
+                    System.IO.File.Copy(sourcePath, destFile, true);
+                    if (File.Exists(destFile))
+                    {
+                        MessageBox.Show("File uploaded");
+                        if (upload == EnumCode.UPLOAD.BOOK.ToString())
+                        {
+                            BookManagement.BID.loader();
+                        }
+                        imageName = fileName;
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("File uploading fail");
+                        pictureBox.Image = null;
+                        pictureBox.SendToBack();
+                    }
+                }catch(Exception ex)
                 {
-                    MessageBox.Show("File uploaded");
-                    BookManagement.BID.loader();
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("File uploading fail");
-                    pictureBox.Image = null;
-                    pictureBox.SendToBack();
+                    //MessageBox.Show(ex.Message);
+                    Console.WriteLine(ex.Message);  
                 }
             }
             else
@@ -145,6 +165,11 @@ namespace Library.component.UploadImage
                 btnUpload_Click(sender, e);
             }
             
+        }
+
+        public string ImageName()
+        {
+            return imageName;
         }
     }
 }

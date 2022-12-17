@@ -1,4 +1,6 @@
-﻿namespace Library.component.Popup
+﻿using System.Drawing;
+
+namespace Library.component.Popup
 {
     partial class ConfirmBox
     {
@@ -126,14 +128,27 @@
 
         public string Tittle
         {
-            get => lblTittle.Text;
             set => lblTittle.Text = value;
         }
 
         public string ButtonConfirm
         {
-            get => btnConfirm.Text;
             set => btnConfirm.Text = value;
         }
+        public bool ButtonCancelVisible
+        {
+            set => btnCancel.Visible = value;
+        }
+
+        public Color Background
+        {
+            set => this.BackColor = value;
+        }
+
+        public Color FontColor
+        {
+            set => lblTittle.ForeColor= value;
+        }
+
     }
 }
