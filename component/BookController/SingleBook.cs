@@ -1,9 +1,12 @@
-﻿using Library.screen.Book;
+﻿using Library.Database;
+using Library.Entity.ENUM;
+using Library.screen.Book;
 using Library.screen.Loan;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -23,6 +26,40 @@ namespace Library.component.BookController
         {
             if(ButtonRead.Text == "READ")
             {
+                string booksID = "";
+
+                if (User.USERROLE == ROLE.STUDENT.ToString())
+                {
+                    DataSql dataSql = new DataSql();
+                    SqlDataReader loanList = dataSql.QueryLoan("STUDENTID", StudentInfo.ID.ToString());
+                    if (loanList.HasRows)
+                    {
+                        int i = 0;
+                        while (loanList.Read())
+                        {
+                            booksID += " [" + loanList["BOOKID"].ToString() + "] ";
+                            i++;
+                        }
+                        loanList.Close();
+                    }
+
+                    if(!booksID.Contains(BookID.ToString()))
+                    {
+                        DateTime now = DateTime.Now;
+
+                        IDictionary<string, object> data_ = new Dictionary<string, object>();
+                        data_["BOOKID"] = BookID;
+                        data_["STUDENTID"] = StudentInfo.ID;
+                        data_["DATE"] = now;
+
+                        bool result = dataSql.mutaion("POST", Server.TABLE.LOANLIST.ToString(), data_, "", "");
+                        if (result)
+                        {
+                            MessageBox.Show("Successfull added this book to your book list");
+                        }
+                    }
+                }
+
                 using (BookDetail bookDetail = new BookDetail())
                 {
                     bookDetail.TopLevel = true;
