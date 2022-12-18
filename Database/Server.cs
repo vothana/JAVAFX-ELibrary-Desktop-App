@@ -10,8 +10,8 @@ using System.Windows.Forms;
  {
     private static SqlConnection connection = null;
     //private static string SERVER = "VOTHANA-CHY\\SQLEXPRESS";
-    //private static string SERVER = "LAPTOP-2V73A0TT\\SQLEXPRESS";
-    private static string SERVER = "SEREYVOUTEYNHEA";
+    private static string SERVER = "LAPTOP-2V73A0TT\\SQLEXPRESS";
+    /*private static string SERVER = "SEREYVOUTEYNHEA";*/
     private static string DB = "ELIBRARY";
 
     
