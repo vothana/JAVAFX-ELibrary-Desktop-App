@@ -81,6 +81,8 @@ namespace Library.screen.Book
             {
                 uploadImgForm.TheID = txtID.Text;
                 uploadImgForm.Upload = EnumCode.UPLOAD.BOOK.ToString();
+                if (BookID != 0)
+                    uploadImgForm.IsUpdatingBook = true;
                 uploadImgForm.ShowDialog();
             }
         }
@@ -186,7 +188,17 @@ namespace Library.screen.Book
             }
 
             files = Directory.GetFiles(imgPath);
-            if(files.Length > 0)
+            if (files.Length > 0) {
+                if (BookID != 0) //If updating
+                    foreach (string img in files)
+                        if (img.Contains("update")){
+                            string i = img.Split('.')[0] + "." + img.Split('.')[1];
+                            image = Path.GetFileName(i);
+
+                            System.IO.File.Move(img, i);
+                        }
+            }
+            else
                 image = Path.GetFileName(files[0]);
 
 

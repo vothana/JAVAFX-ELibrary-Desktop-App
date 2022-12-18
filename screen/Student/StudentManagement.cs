@@ -75,16 +75,19 @@ namespace Library.screen.Student
         {
             OpenFileDialog opf = new OpenFileDialog();
             opf.Filter = "Choose Image(*.jpg;*.png; *.gif)|*.jpg;*.png; *.gif";
-            if(opf.ShowDialog() == DialogResult.OK)
-            {
-                roundedPic1.Image = Image.FromFile(opf.FileName);
-                roundedPic1.SizeMode = PictureBoxSizeMode.StretchImage;
-                string[] split1 = opf.FileName.Split('\\');
-                string fileName = split1.Last();
+            try {
+                if (opf.ShowDialog() == DialogResult.OK)
+                {
+                    roundedPic1.Image = Image.FromFile(opf.FileName);
+                    roundedPic1.SizeMode = PictureBoxSizeMode.StretchImage;
+                    string[] split1 = opf.FileName.Split('\\');
+                    string fileName = split1.Last();
 
-                sourcePath = opf.FileName;
-                txtpfpicname.Text = fileName;
-            }
+                    sourcePath = opf.FileName;
+                    txtpfpicname.Text = fileName;
+                }
+            } catch(Exception ex)
+            { Console.WriteLine(ex.Message); };
         }
 
         private void btnnew_Click(object sender, EventArgs e)
