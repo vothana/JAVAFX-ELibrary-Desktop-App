@@ -81,7 +81,13 @@ namespace Library.screen.Profile
                 uploadImgForm.ShowDialog();
                 if(uploadImgForm.ImageName() == null)
                 {
-                    profileImage.Image = new Bitmap(profilePic);
+                    try
+                    {
+                        profileImage.Image = new Bitmap(profilePic);
+                    }catch(Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
                 }
                 else
                 {

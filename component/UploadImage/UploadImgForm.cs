@@ -27,6 +27,8 @@ namespace Library.component.UploadImage
         public string TheID { set => theID = value; }
         public string Upload { set => upload = value; }
 
+        private bool isUpdatingBook;
+        public bool IsUpdatingBook { set => isUpdatingBook = value; }
         public UploadImgForm()
         {
             InitializeComponent();
@@ -84,7 +86,18 @@ namespace Library.component.UploadImage
                     string[] split1 = sourcePath.Split('\\');
                     string fileName = split1.Last(); // will put into database
 
-                    string destFile = targetPath + "\\" + fileName;
+                    string destFile = "";
+
+                    //we will add .update to the end of the file
+                    //because we cannot delete the old opening image
+                    //we will delete .update, when user click update the book
+                    if (isUpdatingBook)
+                    {
+                        destFile = targetPath + "\\" + fileName + ".update";
+                    }
+                    else
+                        destFile = targetPath + "\\" + fileName;
+
                     System.IO.File.Copy(sourcePath, destFile, true);
                     if (File.Exists(destFile))
                     {
@@ -105,7 +118,7 @@ namespace Library.component.UploadImage
                 }catch(Exception ex)
                 {
                     //MessageBox.Show(ex.Message);
-                    Console.WriteLine(ex.Message);  
+                    Console.WriteLine(ex.Message);
                 }
             }
             else

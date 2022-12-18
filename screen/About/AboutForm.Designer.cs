@@ -45,21 +45,21 @@
             // NameSchool
             // 
             this.NameSchool.AutoSize = true;
-            this.NameSchool.Font = new System.Drawing.Font("Microsoft Sans Serif", 29F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NameSchool.Font = new System.Drawing.Font("Kh Battambang", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NameSchool.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.NameSchool.Location = new System.Drawing.Point(385, 24);
             this.NameSchool.Name = "NameSchool";
-            this.NameSchool.Size = new System.Drawing.Size(424, 44);
+            this.NameSchool.Size = new System.Drawing.Size(410, 58);
             this.NameSchool.TabIndex = 9;
             this.NameSchool.Text = "សាកលវិទ្យាល័យជាតិគ្រប់គ្រង";
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Modern No. 20", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Modern No. 20", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label1.Location = new System.Drawing.Point(389, 68);
+            this.label1.Location = new System.Drawing.Point(405, 74);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(420, 31);
+            this.label1.Size = new System.Drawing.Size(392, 26);
             this.label1.TabIndex = 10;
             this.label1.Text = "National University of Management";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -107,8 +107,8 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(847, 75);
             this.label5.TabIndex = 14;
-            this.label5.Text = "                                                        Group 1:\r\n\r\n1.Chy vothana" +
-    "  2.Nhean Sereyvoutey  3.Sat Visal  4.Sovann SornSarath  5.Leng Lyhor";
+            this.label5.Text = "                                                      Group 1:\r\n\r\n1.Chy vothana  " +
+    "2.Nhean Sereyvoutey  3.Sat Visal  4.Sovann SornSarath  5.Leng Lyhor";
             // 
             // pictureBox2
             // 
@@ -123,7 +123,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Library.Properties.Resources.NUM_Logo;
-            this.pictureBox1.Location = new System.Drawing.Point(312, 24);
+            this.pictureBox1.Location = new System.Drawing.Point(312, 29);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(67, 75);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

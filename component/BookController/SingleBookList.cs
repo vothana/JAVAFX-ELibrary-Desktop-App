@@ -75,10 +75,41 @@ namespace Library.component.BookController
                 singleBook.BookPDF = data["PDF"].ToString();
 
                 string image = data["Image"].ToString();
-                string dir = CurrentPath.CurrentDir + "Books\\" + id + "\\" + image;
-                if (File.Exists(dir))
+                string imagePath = CurrentPath.CurrentDir + "Books\\" + id + "\\" + image;
+                string dir = CurrentPath.CurrentDir + "Books\\" + id + "\\";
+
+                //We try to search image in the directory
+                //if image presented, we will asign image to book
+                //if image not presented, we will delete the directory
+                //if image presented, but has two or more file in the same derectory
+                //we will delete another image which didn't match with our database
+
+                if (File.Exists(imagePath))
                 {
-                    singleBook.BookImage = new Bitmap(dir);
+                    singleBook.BookImage = new Bitmap(imagePath);
+                    string[] files = Directory.GetFiles(dir);
+                    if (files.Length > 0)
+                    {
+                        foreach (string img in files)
+                        {
+                            if(img != imagePath)
+                            {
+                                try { File.Delete(img); } //Somtime image not being deleted during go to home page . Until youopen the program again
+                                catch (IOException ex)
+                                {
+                                    Console.WriteLine(ex.Message);
+                                }
+                            }
+                        }
+                    }
+                }
+                else if (Directory.Exists(dir))
+                {
+                    try { Directory.Delete(dir, true); }
+                    catch (IOException ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
                 }
 
                 if (User.USERROLE == ROLE.STUDENT.ToString())
