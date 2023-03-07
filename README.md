@@ -24,6 +24,10 @@ Open Microsoft SQL Server
 
 Open Assets > SQL > ELirary.sql script for create new Database
 
+Note: Don't run entier Script, It contain testing select, an Dropping table...
+
+Select and run line by line or by group ...
+
 Note: Table LoanList should be cleared if any generated script by someone.
 
 Change Sever Name inside Database > Server.cs
